@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
+<title>PIPBench — Company Builder Run 1 Recap</title>
+<style>
+  :root{--navy:#10293D;--slate:#3D5A73;--paper:#F7F4EE;--amber:#E8A317;--green:#2F7D4F;--red:#BF4034;--gray:#6B7A88;--line:#E3DED4;--mono:Consolas,"Courier New",monospace}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;background:var(--paper);color:var(--navy);line-height:1.55}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header.hero{background:var(--navy);color:var(--paper);padding:56px 0 48px}
+  .hero-logo{display:flex;align-items:center;gap:22px;margin-bottom:28px}
+  .hero h1{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:#8FA1B0;font-weight:600;margin:0 0 10px}
+  .hero .big{font-size:clamp(28px,4.5vw,44px);font-weight:700;line-height:1.18;margin:0 0 14px}
+  .hero .big span{color:var(--amber)}
+  .hero p.sub{color:#A9BCCC;font-size:18px;max-width:72ch;margin:0}
+  .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:34px}
+  .g{background:rgba(247,244,238,0.06);border:1px solid rgba(247,244,238,0.16);border-radius:12px;padding:16px 18px}
+  .g .k{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#8FA1B0}
+  .g .v{font-family:var(--mono);font-size:19px;font-weight:700;margin-top:5px}
+  section{padding:44px 0 8px}
+  h2{font-size:24px;margin:0 0 6px}
+  p.lede{color:var(--slate);margin:0 0 22px;max-width:78ch}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--gray);border-bottom:2px solid var(--line);padding:7px 9px}
+  td{border-bottom:1px solid var(--line);padding:8px 9px;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.num{font-family:var(--mono);text-align:right}
+  .phase{display:flex;gap:16px;margin-bottom:14px}
+  .pnum{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--amber);font-family:var(--mono);font-weight:700;display:flex;align-items:center;justify-content:center}
+  .phase h3{margin:2px 0 4px;font-size:16px}
+  .phase p{margin:0;color:var(--slate);font-size:14.5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .tile h3{margin:0 0 4px;font-size:16px}
+  .tile p{margin:0 0 10px;color:var(--slate);font-size:13.5px}
+  .tile a{display:block;font-size:13.5px;color:var(--slate);margin:3px 0;word-break:break-all}
+  .tile a:hover{color:var(--navy)}
+  .tile .main{font-weight:700;color:var(--navy);font-size:14.5px}
+  .chip{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.8px;padding:2px 8px;border-radius:4px;white-space:nowrap}
+  .chip.g{background:rgba(47,125,79,.12);color:var(--green);border:1px solid rgba(47,125,79,.4)}
+  .chip.a{background:rgba(232,163,23,.14);color:#9C6F0E;border:1px solid rgba(232,163,23,.5)}
+  .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.media-grid{grid-template-columns:1fr}}
+  video,img.gif{width:100%;border-radius:10px;display:block;background:#000}
+  .note{font-size:12.5px;color:var(--gray);background:rgba(232,163,23,.08);border:1px solid rgba(232,163,23,.35);border-radius:8px;padding:10px 14px;margin:10px 0 0}
+  ul.honest{margin:0;padding-left:20px;color:var(--slate);font-size:14.5px}
+  ul.honest li{margin-bottom:9px}
+  footer{border-top:1px solid var(--line);margin-top:46px;padding:26px 0 40px;color:var(--gray);font-size:12.5px;text-align:center}
+  code{font-family:var(--mono);font-size:12.5px;background:#EFEAE0;padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-logo">
+      <svg width="72" height="72" viewBox="0 0 128 128" role="img" aria-label="PIPBench mark"><rect width="128" height="128" rx="24" fill="rgba(247,244,238,0.07)"/><rect x="24" y="24" width="80" height="12" rx="4" fill="#E8A317"/><path d="M64 42 L90 80 L74 80 L74 104 L54 104 L54 80 L38 80 Z" fill="#F7F4EE"/></svg>
+      <div>
+        <div style="font-weight:700;font-size:34px;letter-spacing:-.5px">PIP<span style="color:#A9BCCC;font-weight:600">Bench</span></div>
+        <div style="font-family:var(--mono);font-size:13px;color:#8FA1B0;letter-spacing:2px">THE OWNER-SIDE PIP BENCHMARK</div>
+      </div>
+    </div>
+    <h1>Company Builder — Run 1 Recap</h1>
+    <p class="big">One autonomous run. One company: <span>PIPBench</span> — benchmark your hotel's brand-mandated renovation plan, then take the memo to the negotiation.</p>
+    <p class="sub">A PIP — <strong>Property Improvement Plan</strong> — is the renovation scope a hotel brand (Marriott, Hilton, IHG…) mandates a franchise owner complete, often six or seven figures, issued on brand cycles and at every sale. PIPBench benchmarks that demand against named public cost sources and writes the owner's negotiation memo. Built from the open internet in a single unattended session on 2026-07-18: research, tournament selection, brand, working product, landing page, videos, business plan, and a 38-attack red team — every claim source-cited, every guardrail kept. This page links all of it.</p>
+    <div class="glance">
+      <div class="g"><div class="k">The buyer</div><div class="v" style="font-family:inherit;font-size:15px;font-weight:600">Franchise hotel owner, 1–5 properties, facing a PIP</div></div>
+      <div class="g"><div class="k">The product</div><div class="v" style="font-family:inherit;font-size:15px;font-weight:600">Sourced cost benchmark + generated negotiation memo</div></div>
+      <div class="g"><div class="k">Pricing (pay-per-report)</div><div class="v" style="font-family:inherit;font-size:14px;font-weight:600">$99 Fair-Range Check · $399 Full Benchmark + Memo · $129 Refresh</div></div>
+      <div class="g"><div class="k">Red-team verdict</div><div class="v" style="color:#8FD3AA">Viable with fixes · 0 kills</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>Start here</h2>
+    <p class="lede">Three artifacts tell the whole story. Everything else is the evidence trail behind them.</p>
+    <div class="grid">
+      <div class="tile"><h3>1 · The landing page</h3><p>The company as a customer would meet it — offer, pricing, methodology, honest FAQ.</p><a class="main" href="site/index.html">Open site/index.html →</a></div>
+      <div class="tile"><h3>2 · The working demo</h3><p>Paste a PIP scope, watch it parse, benchmark against sourced ranges, and generate the negotiation memo. Fully client-side; works offline.</p><a class="main" href="product/index.html">Open product/index.html →</a></div>
+      <div class="tile"><h3>3 · The business plan</h3><p>Problem, market math (labeled honestly), competition, model, risks — amended by the red team.</p><a class="main" href="business/business-plan.md">Open business/business-plan.md →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The launch videos</h2>
+    <p class="lede">Rendered programmatically from the real product UI with a neural text-to-speech voiceover. No stock footage, no simulated humans — the founder note is labeled as AI-voiced on screen.</p>
+    <div class="media-grid">
+      <div>
+        <video src="media/pipbench-launch.mp4" controls preload="metadata" poster="media/qa-frames/launch-2.png"></video>
+        <p style="font-size:13.5px;color:var(--slate);margin:8px 0 0"><strong>Launch video</strong> · 63s · the problem, the product, the demo numbers, the tagline</p>
+      </div>
+      <div>
+        <video src="media/pipbench-founder.mp4" controls preload="metadata" poster="media/qa-frames/founder-15.png"></video>
+        <p style="font-size:13.5px;color:var(--slate);margin:8px 0 0"><strong>Founder note</strong> · 31s · voiced with a neural TTS voice, honestly labeled</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <p style="margin:0 0 10px;font-size:14px;color:var(--slate)"><strong>Product walkthrough (screen recording of the real demo):</strong></p>
+      <img class="gif" src="media/pipbench-demo-walkthrough.gif" alt="Animated walkthrough of the PIPBench demo: property intake, parsing the PIP scope, benchmark results, negotiation memo">
+    </div>
+  </section>
+
+  <section>
+    <h2>What happened — nine phases, unattended</h2>
+    <div class="card">
+      <div class="phase"><div class="pnum">1</div><div><h3>Pain hunt & verification</h3><p>9 research agents re-verified all four seeded candidates claim-by-claim (26 claims: verified/changed/unverifiable), swept Reddit, trade press, and forums for 33 organic complaints, and scouted new candidates. A completeness critic failed the phase and forced 4 targeted gap-fills.</p></div></div>
+      <div class="phase"><div class="pnum">2</div><div><h3>Tournament</h3><p>5 judge personas scored 8 entrants (4 seeded + 2 scouted + 2 designed combinations) on a pre-registered rubric; advocates and skeptics dueled over the finalists; fresh judges voted. <strong>PIP bid benchmarking won</strong> — the only candidate with hotel-specific, 2026-dated pain evidence and no structural defect.</p></div></div>
+      <div class="phase"><div class="pnum">3</div><div><h3>Design research</h3><p>Data-source feasibility (the make-or-break question), competitor teardowns, ICP/market math, pricing architecture. Key finds: the 2021 Nehmer/HVS cost guide openly hosted with true per-item unit costs; FDD conversion tables as free public anchors; both "competitors" are pre-revenue sites; the analyst-service competitor explicitly refuses to support negotiation — the exact wedge PIPBench takes.</p></div></div>
+      <div class="phase"><div class="pnum">4</div><div><h3>Brand</h3><p>PIPBench — pipbench.com verified available, no collisions found. Logo: a surveyor's benchmark (a verified public reference point), chosen from four rendered candidates. Tagline: <em>"Your PIP isn't a bill. It's an opening offer."</em></p></div></div>
+      <div class="phase"><div class="pnum">5</div><div><h3>Build</h3><p>An evidence-graded benchmark dataset (every figure source-cited, VERIFIED/DIRECTIONAL badges), a working 4-step demo (parse → benchmark → memo), the landing page, business plan, and launch plan.</p></div></div>
+      <div class="phase"><div class="pnum">6</div><div><h3>Media</h3><p>Screen-recorded demo GIF, a 63-second launch video, and a 31-second founder note — all produced locally with free tooling and honest labeling (no avatar/voice assets existed in this project, so nothing human was simulated).</p></div></div>
+      <div class="phase"><div class="pnum">7</div><div><h3>Red team</h3><p>Six skeptics filed <strong>38 attacks</strong>; every one was ruled on: 12 fixed in the artifacts this run, 18 bound into the plans, 8 accepted as documented risks, 0 rejected, <strong>0 kills</strong>. Two severity-5 findings reshaped the plan: willingness-to-pay is untested (validation is now a hard launch gate) and free AI chatbots are a permanent substitution ceiling (answered with the sourced-and-graded data strategy).</p></div></div>
+      <div class="phase"><div class="pnum">8</div><div><h3>Package</h3><p>This recap, linking every deliverable below.</p></div></div>
+      <div class="phase"><div class="pnum">9</div><div><h3>Verify</h3><p>A fresh-eyes pass confirmed every link on this page opens, the demo runs end-to-end (including from file://), and the numbers on this page match the artifacts.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The tournament, in one table</h2>
+    <div class="card" style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Rank</th><th>Entrant</th><th class="num">Weighted avg (5 judges)</th><th>Outcome</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td><strong>PIP Bid Benchmark</strong> (seeded C2)</td><td class="num">6.71</td><td><span class="chip g">WINNER — 2–0 final vote</span></td></tr>
+          <tr><td class="num">2</td><td>Capex Defense Combo (PIP + FF&amp;E reserve forecasting)</td><td class="num">6.21</td><td>Runner-up → roadmap phase 2</td></tr>
+          <tr><td class="num">3</td><td>FF&amp;E Reserve Forecaster (scouted)</td><td class="num">5.50</td><td>Finalist — disowned as standalone by its own research</td></tr>
+          <tr><td class="num">4</td><td>Construction Defense Combo (PIP + change orders + GC records)</td><td class="num">5.17</td><td>Eliminated — bundling without added proof</td></tr>
+          <tr><td class="num">5</td><td>Draw &amp; Lien-Waiver Tracker (seeded C3)</td><td class="num">4.55</td><td>Eliminated — weak willingness-to-pay held up</td></tr>
+          <tr><td class="num">6</td><td>Change-Order Audit (seeded C1)</td><td class="num">4.50</td><td>Eliminated — organically thin at hotel-owner level</td></tr>
+          <tr><td class="num">7</td><td>GC Track-Record Dossier (seeded C4)</td><td class="num">3.83</td><td>Eliminated — direct competitor already exists (Business Screen)</td></tr>
+          <tr><td class="num">8</td><td>Soft-Displacement Underwriter (scouted)</td><td class="num">3.01</td><td>Eliminated — evidence too thin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Every deliverable</h2>
+    <div class="grid">
+      <div class="tile">
+        <h3>Site &amp; product</h3>
+        <a href="site/index.html">site/index.html — landing page</a>
+        <a href="product/index.html">product/index.html — working demo</a>
+        <a href="product/data/benchmarks.json">product/data/benchmarks.json — the evidence-graded dataset</a>
+      </div>
+      <div class="tile">
+        <h3>Media</h3>
+        <a href="media/pipbench-launch.mp4">pipbench-launch.mp4 (63s)</a>
+        <a href="media/pipbench-founder.mp4">pipbench-founder.mp4 (31s)</a>
+        <a href="media/pipbench-demo-walkthrough.gif">pipbench-demo-walkthrough.gif</a>
+        <a href="media/scripts/voiceover-scripts.md">voiceover scripts</a>
+        <a href="media/preview.html">media/preview.html — video preview page</a>
+      </div>
+      <div class="tile">
+        <h3>The business</h3>
+        <a href="business/business-plan.md">business-plan.md (incl. red-team addendum)</a>
+        <a href="business/launch-plan.md">launch-plan.md (incl. binding amendments)</a>
+        <a href="design/business-design.md">business-design.md — master synthesis</a>
+        <a href="design/offer-pricing.md">offer-pricing.md — pricing research + validation protocol</a>
+      </div>
+      <div class="tile">
+        <h3>Brand</h3>
+        <a href="brand/brand-guidelines.md">brand-guidelines.md</a>
+        <a href="brand/logo.svg">logo.svg</a>
+        <a href="brand/logo-dark.svg">logo-dark.svg</a>
+        <a href="brand/mark.svg">mark.svg</a>
+        <a href="brand/naming-and-domain.md">naming-and-domain.md — domain checks</a>
+        <a href="brand/logo-candidates/contact-sheet.html">logo candidates contact sheet</a>
+      </div>
+      <div class="tile">
+        <h3>Research (phase 1)</h3>
+        <a href="research/candidate1-change-order-audit.md">candidate 1 — change orders</a>
+        <a href="research/candidate2-pip-benchmarking.md">candidate 2 — PIP benchmarking</a>
+        <a href="research/candidate3-draw-lien-tracking.md">candidate 3 — draw/lien tracking</a>
+        <a href="research/candidate4-gc-track-record.md">candidate 4 — GC track record</a>
+        <a href="research/new-candidate-scout.md">new-candidate scout</a>
+        <a href="research/organic-reddit.md">organic sweeps: Reddit</a>
+        <a href="research/organic-trade-press.md">· trade press</a>
+        <a href="research/organic-forums.md">· forums</a>
+        <a href="research/critic-gaps.md">completeness-critic gaps</a>
+      </div>
+      <div class="tile">
+        <h3>Design research (phase 3)</h3>
+        <a href="design/data-sources-fdd.md">FDD data sources (round 1)</a>
+        <a href="design/data-sources-fdd-round2.md">FDD data sources (round 2)</a>
+        <a href="design/data-sources-benchmarks.md">cost benchmark table</a>
+        <a href="design/data-sources-guides-and-tiers.md">cost guides &amp; tier anchors</a>
+        <a href="design/competitor-teardown.md">competitor teardown</a>
+        <a href="design/icp-market-channels.md">ICP, market &amp; channels</a>
+      </div>
+      <div class="tile">
+        <h3>Tournament</h3>
+        <a href="tournament/rubric.md">rubric &amp; judge personas (pre-registered)</a>
+        <a href="tournament/entrants.md">the 8 entrants</a>
+        <a href="tournament/tournament-results.md">results &amp; final ruling</a>
+        <a href="tournament/phase2-structured-results.json">full scores, duels &amp; votes (JSON)</a>
+      </div>
+      <div class="tile">
+        <h3>Red team</h3>
+        <a href="redteam/red-team-report.md">red-team-report.md — 38 attacks, 38 rulings</a>
+        <a href="redteam/phase7-redteam-results.json">raw attack data (JSON)</a>
+      </div>
+      <div class="tile">
+        <h3>The record</h3>
+        <a href="DECISIONS.md">DECISIONS.md — every consequential call, with reasoning</a>
+        <a href="research/phase1-structured-results.json">phase-1 structured results (JSON)</a>
+      </div>
+    </div>
+    <div class="note">Markdown (.md) files open in any text editor or Markdown viewer. The site and demo run by double-clicking the HTML files — no server or install needed. If the embedded videos don't play in your browser, open the .mp4 files directly in any video player.</div>
+  </section>
+
+  <section>
+    <h2>What we know vs. what we don't (the honesty register)</h2>
+    <p class="lede">The strongest thing this run can hand you is a clear map of which load-bearing facts are proven and which are still hypotheses.</p>
+    <div class="card">
+      <p style="margin:0 0 8px"><span class="chip g">KNOWN</span>&nbsp; <strong>The pain is real and 2026-dated.</strong> PIP costs, tariffs, cost escalation, the CMBS maturity wave, and owner distress are all primary-sourced (see the site's "2026 squeeze" section — every stat links to its source).</p>
+      <p style="margin:0 0 8px"><span class="chip g">KNOWN</span>&nbsp; <strong>The wedge is unoccupied.</strong> No competitor ships a negotiation memo; the analyst-model competitor explicitly excludes negotiation support; the data can be legitimately assembled from public sources with honest grading.</p>
+      <p style="margin:0 0 8px"><span class="chip a">UNKNOWN</span>&nbsp; <strong>Willingness to pay.</strong> No owner has said "I'd pay $399 for this." The validation protocol (smoke test + 10–15 owner calls + 5 broker calls, thresholds pre-registered) is a hard gate before any real spend.</p>
+      <p style="margin:0 0 8px"><span class="chip a">UNKNOWN</span>&nbsp; <strong>Market size.</strong> ~5,000–9,000 PIPs/year is a derived, labeled estimate — the derivation is shown in the business plan, and revenue scenarios carry the honest floor (~$14K/yr at worst-case assumptions).</p>
+      <p style="margin:0"><span class="chip a">RISK</span>&nbsp; <strong>Free AI substitution and platform entry.</strong> A general chatbot can produce a rough version of this for free; HVS/Nehmer own the best data; PIPGURU now has a live signup page. The counters: source-cited trust, a licensing/partnership approach to the data publisher, and an outcome-data flywheel — all bound into the plans by the red team.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      PIPBench · Company Builder Run 1 · built 2026-07-18 in a single autonomous session · nothing published, nothing purchased, nothing fabricated — every figure carries its named public source, and everything unverifiable is labeled.<br>
+      PIPBench is an independent concept; it is not affiliated with, endorsed by, or sponsored by any hotel franchisor.
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

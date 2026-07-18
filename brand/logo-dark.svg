@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 140" role="img" aria-label="PIPBench logo, dark background variant">
+  <!-- PIPBench primary lockup — dark backgrounds -->
+  <g transform="translate(20,22)">
+    <rect x="8" y="0" width="104" height="14" rx="4" fill="#E8A317"/>
+    <path d="M60 22 L92 68 L72 68 L72 96 L48 96 L48 68 L28 68 Z" fill="#F7F4EE"/>
+  </g>
+  <g transform="translate(168,0)">
+    <text x="0" y="88" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="62" letter-spacing="-1" fill="#F7F4EE">PIP<tspan fill="#A9BCCC" font-weight="600">Bench</tspan></text>
+    <text x="3" y="117" font-family="Segoe UI, Arial, sans-serif" font-weight="500" font-size="15.5" letter-spacing="1.1" fill="#8FA1B0">THE OWNER-SIDE PIP BENCHMARK</text>
+  </g>
+</svg>

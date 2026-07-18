@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-label="PIPBench concept A: surveyor benchmark mark">
+  <!-- Concept A: the surveyor's benchmark — a verified reference point.
+       Horizontal datum bar with broad arrow rising to meet it. -->
+  <rect width="640" height="200" fill="#F7F4EE"/>
+  <g transform="translate(40,40)">
+    <!-- datum bar -->
+    <rect x="0" y="18" width="120" height="14" rx="3" fill="#E8A317"/>
+    <!-- broad arrow: triangle + stem, pointing up at datum center -->
+    <path d="M60 32 L88 78 L70 78 L70 120 L50 120 L50 78 L32 78 Z" fill="#10293D"/>
+  </g>
+  <g transform="translate(200,0)">
+    <text x="0" y="122" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="64" fill="#10293D">PIP<tspan fill="#33526B" font-weight="600">Bench</tspan></text>
+    <text x="2" y="152" font-family="Segoe UI, Arial, sans-serif" font-weight="400" font-size="17" letter-spacing="0.5" fill="#6B7A88">YOUR PIP ISN'T A BILL. IT'S AN OPENING OFFER.</text>
+  </g>
+</svg>

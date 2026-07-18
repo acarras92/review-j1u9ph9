@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "product": "PIPBench demo dataset",
+    "compiled": "2026-07-18",
+    "disclaimer": "Every base figure below is drawn from a named public source (see sources registry). Escalation to 2026 dollars is PIPBench's own labeled calculation, graded DIRECTIONAL. This dataset supports category-level benchmarking plus line-item benchmarks where the public record provides them. It is negotiation support, not legal, engineering, or investment advice.",
+    "grades": {
+      "verified": "Base figure taken directly from a named primary or strong secondary public source.",
+      "directional": "Interpolated, escalated, or drawn from lower-confidence aggregator sources; shown as an estimate, not a sourced fact."
+    }
+  },
+  "escalation": {
+    "national_yoy_2026": { "value": 0.0487, "grade": "verified", "source": "turner-q1-2026", "note": "Turner Building Cost Index, Q1 2025 to Q1 2026, +4.87% (index 1530). Cross-check: RLB North America ~4% annualized (Q1/Q2 2026)." },
+    "basis_2021_to_2026": { "low": 1.25, "high": 1.35, "grade": "directional", "source": "derived", "note": "[estimated] Applied to 2021 Nehmer/HVS Guide figures. Derivation: PIP costs reported >30% above pre-COVID levels by 2024 (Matthews/Hunter) plus Turner ~4.9%/yr 2024-2026. No direct 2021-2026 PIP escalation index exists publicly." },
+    "basis_2024_to_2026": { "low": 1.09, "high": 1.10, "grade": "directional", "source": "derived", "note": "[estimated] Two years compounded at Turner +4.87%/RLB ~4%." },
+    "regional_yoy": {
+      "grade": "verified", "source": "rlb-q2-2026",
+      "values": { "honolulu": 0.0593, "phoenix": 0.053, "miami": 0.0499, "washington-dc": 0.0401, "dallas": 0.0388, "chicago": 0.0142 }
+    }
+  },
+  "categories": [
+    {
+      "id": "guestroom-softgoods", "name": "Guestrooms — Softgoods Renovation", "unit": "per key",
+      "benchmarks": {
+        "economy": { "low": 2261, "high": 3277, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" },
+        "extended-stay": { "low": 6462, "high": 9004, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" },
+        "midscale": { "low": 5207, "high": 7129, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" },
+        "upper-midscale": { "low": 6223, "high": 8520, "basis": 2021, "grade": "directional", "source": "derived", "note": "[estimated] Interpolated between Nehmer 2021 Midscale and Upscale tiers; the guide does not publish a separate upper-midscale tier." },
+        "upscale": { "low": 7239, "high": 9912, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" },
+        "upper-upscale": { "low": 9182, "high": 12551, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" },
+        "luxury": { "low": 15329, "high": 21054, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Summary pp.10-11" }
+      }
+    },
+    {
+      "id": "guestroom-full-add", "name": "Guestrooms — Full Renovation (additional over softgoods)", "unit": "per key",
+      "benchmarks": {
+        "economy": { "low": 2187, "high": 2819, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.13" },
+        "upper-midscale": { "low": 3900, "high": 5600, "basis": 2021, "grade": "directional", "source": "derived", "note": "[estimated] Scaled from Economy full-reno add-on by the tier ratio observed in softgoods tables (~1.8x)." },
+        "luxury": { "low": 24283, "high": 32954, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "note": "Luxury full-renovation additional per key, per guide (cited in Part B read-through)." }
+      }
+    },
+    {
+      "id": "guest-bathrooms", "name": "Guest Bathrooms", "unit": "per key",
+      "benchmarks": {
+        "economy": { "low": 710, "high": 1135, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.13 (softgoods)", "note": "Softgoods scope. Full-reno additional: $3,819-$5,332/key (verified, p.14)." },
+        "economy-full-add": { "low": 3819, "high": 5332, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.14" },
+        "upper-midscale": { "low": 1300, "high": 2100, "basis": 2021, "grade": "directional", "source": "derived", "note": "[estimated] Scaled from Economy softgoods by tier ratio; guide's own upper-tier bathroom tables not extracted in this pass." },
+        "upper-midscale-full-add": { "low": 6900, "high": 9800, "basis": 2021, "grade": "directional", "source": "derived", "note": "[estimated] Scaled from Economy full-reno add-on by tier ratio ~1.8x." }
+      }
+    },
+    {
+      "id": "corridors", "name": "Guestroom Corridors", "unit": "per key",
+      "benchmarks": {
+        "economy": { "low": 415, "high": 642, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.14" },
+        "upper-midscale": { "low": 750, "high": 1160, "basis": 2021, "grade": "directional", "source": "derived", "note": "[estimated] Scaled from Economy by tier ratio ~1.8x." }
+      }
+    },
+    {
+      "id": "lobby-public", "name": "Lobby & Public Space", "unit": "per SF (lobby) / total (reconfiguration)",
+      "benchmarks": {
+        "economy-lobby-sf": { "low": 33, "high": 45, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.14 (softgoods, per SF)" },
+        "midscale-reconfig-total": { "low": 200000, "high": 400000, "basis": 2024, "grade": "verified", "source": "hvs-pip-insights", "note": "Holiday Inn Express public-space reconfiguration, total project." }
+      }
+    },
+    {
+      "id": "exterior", "name": "Exterior / Roofline", "unit": "total",
+      "benchmarks": {
+        "upper-midscale-mansard": { "low": 1000000, "high": 1750000, "basis": 2024, "grade": "verified", "source": "hvs-pip-insights", "note": "Hampton mansard-to-cornice conversion, total (~$8,000-$17,000/key equivalent)." },
+        "upper-midscale-modern-alt": { "low": 250000, "high": 500000, "basis": 2024, "grade": "verified", "source": "hvs-pip-insights", "note": "Modern-roofline alternative scope — a key negotiation lever: same brand intent, ~1/4 the cost." }
+      }
+    },
+    {
+      "id": "ffe-per-room", "name": "FF&E Package (guestroom)", "unit": "per room",
+      "benchmarks": {
+        "economy": { "low": 4000, "high": 12000, "basis": 2026, "grade": "directional", "source": "onestophotelffe", "note": "Trade-vendor content, not primary advisory." },
+        "midscale": { "low": 12000, "high": 35000, "basis": 2026, "grade": "directional", "source": "onestophotelffe" },
+        "luxury": { "low": 35000, "high": 120000, "basis": 2026, "grade": "directional", "source": "onestophotelffe" }
+      }
+    },
+    {
+      "id": "mep-additives", "name": "Infrastructure / Common Additives", "unit": "per unit",
+      "benchmarks": {
+        "ptac-replacement": { "low": 1039, "high": 1372, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.18", "note": "PTAC direct replacement, NIC finishes, per unit." },
+        "key-system-per-key": { "low": 230, "high": 332, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.18" },
+        "elevator-mod-hydraulic": { "low": 50426, "high": 67517, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.18", "note": "Per cab, hydraulic modernization." },
+        "ada-rollin-shower-room": { "low": 17857, "high": 28000, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.18" },
+        "entry-doors-biparting": { "low": 22000, "high": 35640, "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.18" }
+      }
+    }
+  ],
+  "lineItems": [
+    { "id": "carpet-pad-econ", "name": "Carpet & Pad (guestroom)", "tier": "economy", "low": 494, "high": 576, "avg": 543, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.12" },
+    { "id": "carpet-pad-uu", "name": "Carpet & Pad (guestroom)", "tier": "upper-upscale", "low": 901, "high": 1079, "avg": 989, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Upper Upscale p.62" },
+    { "id": "window-treatments-econ", "name": "Window Treatments (sheer + blackout + hardware, installed)", "tier": "economy", "low": 321, "high": 468, "avg": 397, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.12" },
+    { "id": "bedsets-econ", "name": "Bedsets (box spring, mattress, frame)", "tier": "economy", "low": 598, "high": 758, "avg": 679, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.13" },
+    { "id": "tv-mount-econ", "name": "TV & Mount (HD LCD incl. programming allowance)", "tier": "economy", "low": 607, "high": 695, "avg": 657, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.13" },
+    { "id": "casegoods-install-econ", "name": "Casegoods Installation (labor)", "tier": "economy", "low": 207, "high": 332, "avg": 278, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.13" },
+    { "id": "tub-surround-econ", "name": "Tub Surround (solid panel)", "tier": "economy", "low": 840, "high": 1121, "avg": 1004, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.14" },
+    { "id": "toilet-seat-econ", "name": "Toilet & Seat", "tier": "economy", "low": 358, "high": 418, "avg": 380, "unit": "per key", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.14" },
+    { "id": "front-desk-econ", "name": "Front Desk (new pods, existing location)", "tier": "economy", "low": 10800, "high": 14249, "avg": 12439, "unit": "total", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.15" },
+    { "id": "landscaping-econ", "name": "Landscaping Allowance", "tier": "economy", "low": 11948, "high": 20072, "avg": 16082, "unit": "total", "basis": 2021, "grade": "verified", "source": "nehmer-2021", "page": "Economy p.17" }
+  ],
+  "brandPrograms": [
+    { "brand": "Hampton Inn (Hilton)", "program": "Forever Young", "tier": "upper-midscale", "vintage": "pre-1990", "low": 40000, "high": 45000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "matthews-pip", "note": "\"Can exceed $40,000/key\" for 1980s-built properties; high bound shown is [estimated] framing of 'exceed'." },
+    { "brand": "Hampton Inn (Hilton)", "program": "Forever Young", "tier": "upper-midscale", "vintage": "1990-1995", "low": 20000, "high": 30000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "matthews-pip" },
+    { "brand": "Hampton Inn (Hilton)", "program": "Forever Young", "tier": "upper-midscale", "vintage": "post-1995", "low": 15000, "high": 25000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "hvs-pip-insights" },
+    { "brand": "Holiday Inn Express (IHG)", "program": "Formula Blue", "tier": "midscale", "vintage": "pre-2001", "low": 20000, "high": 35000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "hvs-pip-insights" },
+    { "brand": "Holiday Inn Express (IHG)", "program": "Formula Blue", "tier": "midscale", "vintage": "post-2001", "low": 10000, "high": 20000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "hvs-pip-insights" },
+    { "brand": "Holiday Inn Express (IHG)", "program": "Formula Blue", "tier": "midscale", "vintage": "guestroom-only line", "low": 6000, "high": 12000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "hvs-pip-insights", "note": "Includes $2,000-$3,000/key of prototype-specific brand elements — a classic scope-vs-alternative negotiation lever." }
+  ],
+  "perKeyPIP": {
+    "midscale-selectservice-blended": { "low": 35000, "high": 40000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "matthews-pip", "note": "Lee Hunter (COO, Hunter Hotel Advisors) via Matthews; mid-market select-service PIPs." },
+    "limited-service-band": { "low": 2000, "high": 40000, "unit": "per key", "basis": 2026, "grade": "directional", "source": "amerailsys", "note": "\"A couple thousand to $40,000+\" — broad unscoped band." },
+    "luxury-gut-ceiling": { "low": 254000, "high": 276000, "unit": "per key", "basis": 2025, "grade": "verified", "source": "park-hotels", "note": "Park Hotels: Royal Palm South Beach (~$254K/key) and Ali'i Tower HHV (~$276K/key) — comprehensive gut renovations incl. public areas; ceiling anchor, not a typical PIP." },
+    "economy-refresh-floor": { "low": 1850, "high": 2000, "unit": "per key", "basis": 2024, "grade": "verified", "source": "wyndham-super8", "note": "Super 8 INNOV8TE 2.0 package from $1,850/key; OYO conversion capex support up to $2,000/room. Softgoods-only floors, not full PIPs." }
+  },
+  "fddAnchors": [
+    { "brand": "Studio 6 (G6)", "tier": "economy extended-stay", "line": "Renovation (conversion)", "low": 2068, "high": 17950, "unit": "per room", "basis": 2021, "grade": "verified", "source": "fdd-g6" },
+    { "brand": "Sonesta Select", "tier": "upscale select-service", "line": "Conversion remodeling (125 rooms)", "low": 4000, "high": 36000, "unit": "per room", "basis": 2022, "grade": "verified", "source": "fdd-sonesta" },
+    { "brand": "Comfort Inn (Choice)", "tier": "midscale", "line": "Conversion — total initial investment (80 rooms)", "low": 3814, "high": 27631, "unit": "per room", "basis": 2021, "grade": "verified", "source": "fdd-choice" },
+    { "brand": "Best Western", "tier": "midscale", "line": "Conversion — total initial investment (75 rooms)", "low": 6734, "high": 25860, "unit": "per room", "basis": 2020, "grade": "verified", "source": "fdd-bw" },
+    { "brand": "Super 8 (Wyndham)", "tier": "economy", "line": "Conversion — total initial investment (60 rooms)", "low": 2936, "high": 26517, "unit": "per room", "basis": 2014, "grade": "directional", "source": "fdd-super8", "note": "2014 FDD — dated; shown for pattern, not current pricing." }
+  ],
+  "tariffs": {
+    "section232_furniture": { "value": 0.25, "grade": "verified", "source": "innvision-tariffs", "note": "Upholstered wood furniture, cabinets, vanities — in force since Oct 14, 2025." },
+    "baseline_imports": { "value": 0.10, "grade": "verified", "source": "innvision-tariffs" },
+    "usmca_casegoods": { "value": 0.0, "grade": "verified", "source": "innvision-tariffs", "note": "0% on USMCA-origin seating/casegoods — a sourcing negotiation lever." }
+  },
+  "sources": {
+    "nehmer-2021": { "name": "Nehmer & HVS Design, Hotel Cost Estimating Guide 2021 (13th ed.)", "url": "https://www.hvs.com/WebContent/bookstore/HVS%20Hotel%20Cost%20Estimating%20Guide%202021.pdf", "type": "primary industry guide (openly hosted PDF)", "note": "124pp; unit costs exclude professional fees, contingency, freight/tax, OS&E, GC OH&P." },
+    "hvs-pip-insights": { "name": "HVS Industry Insights: Impacts of Major Brand PIPs", "url": "https://www.hvs.com/article/7939-Industry-Insights-Impacts-of-Major-Brand-PIPs", "type": "primary advisory article" },
+    "matthews-pip": { "name": "Matthews: Things to Consider if Your Hotel PIP Is Coming Due (citing Lee Hunter, Hunter Hotel Advisors)", "url": "https://www.matthews.com/market_insights/things-to-consider-if-your-hotel-pip-is-coming-due", "type": "brokerage insight, named attribution" },
+    "hvs-devcost-2025": { "name": "HVS US Hotel Development Cost Survey 2025", "url": "https://www.hvs.com/article/10219-hvs-us-hotel-development-cost-survey-2025", "type": "primary survey (development, not renovation)" },
+    "turner-q1-2026": { "name": "Turner Building Cost Index, Q1 2026", "url": "https://turnerconstruction.com/uploads/cost-index-Q1-2026.pdf", "type": "national cost index" },
+    "rlb-q2-2026": { "name": "RLB North America Construction Cost Report, Q2 2026", "url": "https://www.rlb.com/americas/insight/rlb-construction-cost-report-north-america-q1-2026/", "type": "national/regional cost index" },
+    "park-hotels": { "name": "Park Hotels & Resorts — Royal Palm & Ali'i Tower renovation disclosures", "url": "https://www.pkhotelsandresorts.com/investors/news-and-events/press-releases/2025/02-19-2025-211614244", "type": "public-company disclosure" },
+    "wyndham-super8": { "name": "Wyndham — Super 8 INNOV8TE 2.0 room package", "url": "https://corporate.wyndhamhotels.com/topic/renovations/", "type": "franchisor program page" },
+    "onestophotelffe": { "name": "OneStopHotelFFE — Hotel FF&E Cost Breakdown 2026", "url": "https://onestophotelffe.com/hotel-ffe-cost-breakdown-2026/", "type": "trade vendor content (directional)" },
+    "amerailsys": { "name": "Amerail Systems — PIP Cost Per Room", "url": "https://www.amerailsys.com/post/pip-cost-per-room-hotel-renovation-mistake", "type": "contractor content (directional)" },
+    "innvision-tariffs": { "name": "Innvision — How Tariffs Are Affecting Hotel FF&E", "url": "https://www.innvision.net/innsights/how-tariffs-are-affecting-hotel-ff-e", "type": "trade vendor tariff summary" },
+    "fdd-g6": { "name": "Studio 6 / G6 Hospitality FDD (2021), Item 7", "url": "run-1/design/data-sources-fdd.md", "type": "state-filed franchise disclosure" },
+    "fdd-sonesta": { "name": "Sonesta Select FDD (2022), conversion remodeling line", "url": "run-1/design/data-sources-fdd.md", "type": "state-filed franchise disclosure" },
+    "fdd-choice": { "name": "Comfort Inn / Choice Hotels FDD (2021), Item 7 conversion table", "url": "https://franchisepanda.com/fdd-previews/comfort-choice-hotels-2021-franchise-disclosure-document-preview.pdf", "type": "franchise disclosure document" },
+    "fdd-bw": { "name": "Best Western FDD (2020), Item 7 conversion table", "url": "https://franchisepanda.com/download-franchise-disclosure-document-preview/best-western/2020", "type": "franchise disclosure document" },
+    "fdd-super8": { "name": "Super 8 / Wyndham FDD (2014), Item 7 conversion table", "url": "https://fddexchange.com/wp-content/uploads/2015/02/Super-8-Partial-FDD-April-1-2014.pdf", "type": "franchise disclosure document (dated)" }
+  }
+}

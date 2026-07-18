@@ -1,0 +1,836 @@
+{
+ "results": [
+  {
+   "kind": "verify",
+   "key": "c1-change-orders",
+   "data": {
+    "candidate": "Change-order audit & benchmark (hotel renovation)",
+    "claims": [
+     {
+      "claim": "HKA CRUX Insight (~703 projects historically cited) shows scope changes are largest driver of Americas construction disputes ~25.7%, avg cost overruns ~31.1% of budget",
+      "verdict": "verified",
+      "evidence_url": "https://www.constructiondive.com/news/time-money-fewer-construction-disputes-americas/808089/",
+      "note": "Confirmed via Construction Dive (Dec 18, 2025) citing HKA's 8th Annual CRUX Insight Report (Nov 2025), the newest edition; no 9th edition exists yet. Figures match memo exactly and are current (not stale)."
+     },
+     {
+      "claim": "Baker Tilly and/or Moss Adams explicitly recommend/sell independent change order review services",
+      "verdict": "verified",
+      "evidence_url": "https://www.bakertilly.com/insights/auditing-construction-contract-change-orders",
+      "note": "Both firms confirmed via their own sites; Moss Adams article dated Oct 2025 (recent). Baker Tilly also runs a live 'Construction audits and consulting' service line."
+     },
+     {
+      "claim": "Forensic-accounting firm MDD sells reactive change-order audit services",
+      "verdict": "unverifiable",
+      "evidence_url": "https://www.mdd.com/forensic-accounting-services/construction-defects-claims/",
+      "note": "MDD confirmed as real litigation-support/forensic-accounting firm doing construction cost/damages analysis (reactive, post-dispute), but no page names 'change order audit' as a discrete marketed service — narrower claim not directly sourced, broader claim supported."
+     },
+     {
+      "claim": "Akerman LLP hospitality guidance flags brand-directive-driven change orders as a known hotel-renovation pattern",
+      "verdict": "verified",
+      "evidence_url": "https://www.akerman.com/en/perspectives/navigating-construction-contract-risks-in-hotel-repositioning-projects.html",
+      "note": "Akerman explicitly names late-stage brand directives (finishes, FF&E, layouts) as a frequent hotel change-order cause and recommends contractual allowances/brand-approval clauses."
+     },
+     {
+      "claim": "ClearStory: $2.1B/month change-order value, 14,000+ contractors, collaborative (not adversarial owner-side) positioning, no owner-side benchmarking",
+      "verdict": "changed",
+      "evidence_url": "https://bricks-bytes.com/technology/clearstory-change-order-data-moat/",
+      "note": "Positioning confirmed collaborative (GC/sub shared network, 'bill.com for change orders'), and no owner-side benchmarking found. BUT scale figures are stale: a May 29, 2026 source reports ~$3.5B/month and ~30,000 monthly active users — meaningfully larger than the memo's $2.1B/14,000 figures."
+     },
+     {
+      "claim": "Procore, Buildertrend, Autodesk Construction Cloud lack change-order cost-benchmarking/backup-auditing; check recent AI announcements",
+      "verdict": "verified",
+      "evidence_url": "https://www.businesswire.com/news/home/20260521183451/en/New-Procore-AI-Experience-Embeds-Datagrid-into-Procore",
+      "note": "None of the three has shipped cost-benchmarking for change orders as of July 2026. Critical flag: Procore's May 21, 2026 AI launch (Contract Review agent + event Triggers on change orders) builds infrastructure that could support a benchmarking feature soon — platform risk, not yet realized."
+     }
+    ],
+    "competitor_updates": [
+     {
+      "name": "ClearStory",
+      "status": "active, well-funded, scaling fast",
+      "url": "https://www.clearstory.build/",
+      "pricing": "not disclosed publicly",
+      "note": "~$28.3M raised through Series B (2024); as of May 2026 processing ~$3.5B/month in change orders across ~30,000 monthly active users (up from ~$2.1B/14,000 previously) — collaborative GC/sub workflow network, not an owner-side auditor; no benchmarking feature found."
+     },
+     {
+      "name": "Procore",
+      "status": "active, rapidly adding AI features",
+      "url": "https://www.procore.com/press/new-procore-ai-experience-embeds-datagrid-into-procore",
+      "pricing": "enterprise SaaS, not disclosed",
+      "note": "May 21, 2026: launched AI agents (Deep Search, Submittals, RFI, Daily Log, Contract Review) plus event Triggers that can act on change orders. No shipped cost-benchmarking yet but infrastructure now exists for it."
+     },
+     {
+      "name": "Autodesk Construction Cloud / Forma",
+      "status": "active",
+      "url": "https://www.autodesk.com/blogs/construction/january-2026-autodesk-construction-cloud-releases-built-for-whats-next/",
+      "pricing": "not disclosed",
+      "note": "Jan 2026 releases only added workflow conveniences (CO deep-links, streamlined OCO/SCO creation); no benchmarking. Autodesk commentary suggests AI will touch change orders 'by end of 2026' but this is aspirational, not shipped."
+     },
+     {
+      "name": "Buildertrend",
+      "status": "active, residential/light-commercial focus",
+      "url": "https://buildertrend.com/press-releases/buildertrend-launches-ai-tool-for-97-faster-client-updates/",
+      "pricing": "not disclosed",
+      "note": "2026 AI features are client-update automation and AP bill capture, not cost-benchmarking; platform is less relevant to hotel-scale renovation."
+     },
+     {
+      "name": "Baker Tilly",
+      "status": "active professional-services competitor (manual, not software)",
+      "url": "https://www.bakertilly.com/insights/auditing-construction-contract-change-orders",
+      "note": "Sells independent/third-party change order review as a consulting engagement; validates budget exists for this function but is not a software substitute."
+     },
+     {
+      "name": "Moss Adams",
+      "status": "active professional-services competitor (manual, not software)",
+      "url": "https://www.mossadams.com/articles/2025/10/managing-construction-change-orders",
+      "note": "Oct 2025 article confirms third-party change order review offering including overcharge detection on payment apps."
+     }
+    ],
+    "fresh_evidence": [
+     {
+      "finding": "HKA 8th Annual CRUX report (Nov 2025) is the newest edition and confirms Americas scope-change dispute share at 25.7% and avg cost overrun 31.1%, while global scope-change share is declining (36%→28%)",
+      "url": "https://www.hka.com/news/crux-insight-eighth-annual-report-from-insight-to-foresight/",
+      "strength": "strong"
+     },
+     {
+      "finding": "Procore launched AI Contract Review agent + change-order-aware event Triggers on May 21, 2026 — first concrete incumbent move toward AI-driven change-order intelligence",
+      "url": "https://www.businesswire.com/news/home/20260521183451/en/New-Procore-AI-Experience-Embeds-Datagrid-into-Procore",
+      "strength": "moderate"
+     },
+     {
+      "finding": "ClearStory scale has grown substantially since the figures cited in the memo (now ~$3.5B/month, ~30,000 MAU vs. ~$2.1B/14,000 previously)",
+      "url": "https://bricks-bytes.com/technology/clearstory-change-order-data-moat/",
+      "strength": "moderate"
+     },
+     {
+      "finding": "Hotel renovation/brand-conversion volume (259,495 rooms in Q2 2025) vastly exceeds new hotel construction (27,101 rooms same quarter), per Akerman, meaning renovation-driven change-order exposure is the dominant and growing share of hotel construction activity",
+      "url": "https://www.akerman.com/en/perspectives/navigating-construction-contract-risks-in-hotel-repositioning-projects.html",
+      "strength": "moderate"
+     }
+    ],
+    "pain_score": 7,
+    "wtp_score": 6,
+    "key_risks": [
+     "Procore's May 2026 AI Contract Review + change-order-aware Triggers launch signals the largest incumbent could ship an automated benchmarking/audit feature within 12-24 months",
+     "ClearStory is scaling rapidly (~65% dollar-volume growth, ~2x user growth in roughly a year) and already owns a large proprietary change-order dataset (1.3M+ COs) that would be a strong moat if it pivots toward owner-side analytics",
+     "Buyer frequency/ticket-size mismatch: individual hotel owners renovate infrequently, so per-owner standalone SaaS willingness-to-pay is unproven versus an as-needed consulting engagement (which is the currently validated purchase pattern via Baker Tilly/Moss Adams)",
+     "MDD's 'change order audit' framing as a named service line is unconfirmed — weakens one leg of the competitive/comp evidence",
+     "No hotel-vertical-specific dispute statistics were found; the hotel angle rests on Akerman's qualitative brand-directive pattern, not quantified hotel dispute/overrun data"
+    ]
+   }
+  },
+  {
+   "kind": "verify",
+   "key": "c2-pip-benchmark",
+   "data": {
+    "candidate": "PIP cost-benchmarking (helping hotel owners sanity-check brand-mandated PIP renovation bids)",
+    "claims": [
+     {
+      "claim": "HREC Investment Advisors: hotel expected to need a $2 million renovation, PIP came back at $6 million to $8 million (quote from Geoffrey Davis)",
+      "verdict": "verified",
+      "evidence_url": "https://www.hotelmanagement.net/transactions/aggressive-change-ownership-pips-put-a-pinch-transaction-process",
+      "note": "Verified via search snippet; direct WebFetch of the page returned HTTP 403. Article is from August 2016 — flag as dated (10 years old), illustrative not current pricing."
+     },
+     {
+      "claim": "Lee Hunter (Hunter Hotel Advisors): PIPs running $35,000-$40,000 per key for mid-market select-service",
+      "verdict": "verified",
+      "evidence_url": "https://www.costar.com/article/1062787339/hotel-owners-can-no-longer-delay-brand-mandated-renovations-executives-say",
+      "note": "Consistently attributed to Lee Hunter across search results; primary CoStar source returned HTTP 403 on direct fetch, so quote is corroborated via search-engine extraction only, not independently read in full. Exact publication date unconfirmed."
+     },
+     {
+      "claim": "Thomas Magnuson: PIP elevator replacement can eat nearly 15% of annual sales at a small property (40-room Best Western grossing $500K/yr)",
+      "verdict": "verified",
+      "evidence_url": "https://www.hospitalitynet.org/opinion/4077909.html",
+      "note": "Directly fetched and confirmed exact quote. Published August 25, 2016 — flag as dated (10 years old)."
+     },
+     {
+      "claim": "Industry CapEx/PIP backlog of $12-15B (Getzler Henrich)",
+      "verdict": "verified",
+      "evidence_url": "https://getzlerhenrich.com/the-looming-crisis-hotel-delays-in-property-improvement-plans-amid-high-interest-rates/",
+      "note": "Directly fetched, exact figure confirmed, authored by Charvi Gupta, published September 18, 2024 — reasonably current."
+     },
+     {
+      "claim": "PIP cycles compressing from ~10 years to ~7 years",
+      "verdict": "unverifiable",
+      "evidence_url": "",
+      "note": "Not found in the Getzler Henrich article or any other source searched. General sources cite PIP recurrence every 5-7 to 7-12 years, and a pandemic-deferral-driven 'compressed cycle' narrative, but no source ties a specific 10yr-to-7yr structural shift to this claim. Do not repeat as fact."
+     },
+     {
+      "claim": "PIPGURU (thepipguru.com) is still live, with $25 single estimate, $50-200/mo tiers, 66+ brands, 200+ line items",
+      "verdict": "verified",
+      "evidence_url": "https://www.thepipguru.com/",
+      "note": "Directly fetched live page today. Confirmed: Single Estimate $25, Starter $50/mo, Professional $100/mo, Enterprise $200/mo, 66+ brands/8 flag families, 200+ line items, 6 tiers. One uncredited testimonial found as sole traction signal; no founder/funding info on page. Note: a separate search snippet claimed 'Starter $99/mo' which conflicts with the live fetch — treating direct fetch as authoritative."
+     },
+     {
+      "claim": "PIPGENIUS (thepipgenius.com) is still in private beta",
+      "verdict": "verified",
+      "evidence_url": "https://www.thepipgenius.com/",
+      "note": "Directly fetched live page today; confirms private beta with 'Founding clients onboard May 2026,' waitlist signup, tiers Snapshot/Blueprint/Playbook (24/48/72hr), no public pricing disclosed."
+     },
+     {
+      "claim": "Nehmer/HVS Hotel Cost Estimating Guide and RLB Quarterly Cost Report are still free/available",
+      "verdict": "changed",
+      "evidence_url": "https://www.hvs.com/article/store/paid/212-nehmer-hvs-design-hotel-cost-estimating-guide",
+      "note": "Both are live and current (Nehmer/HVS just released its 2026 edition, 18th year; RLB released Q1 and Q2 2026 reports) but Nehmer/HVS is explicitly a PAID publication, not free — contradicts a 'free benchmark' framing. RLB summary content is publicly searchable but is a general construction-cost index, not hotel-PIP-specific."
+     },
+     {
+      "claim": "AAHOA's '12 Points of Fair Franchising' explicitly addresses PIPs, and AAHOA has active 2025-2026 PIP advocacy/legislative campaigns",
+      "verdict": "changed",
+      "evidence_url": "https://www.aahoa.com/advocacy/franchise-relations/points-of-fair-franchising",
+      "note": "Directly fetched: PIPs/capex are NOT an explicit named point among AAHOA's 12 Points (closest are Point 3 Minimum Performance Guarantees and Point 4 QA Inspections). AAHOA's own 2025 policy priorities page does not list PIPs explicitly either. However, real and current: New Jersey's 2026-session 'Hotel Franchisee Fairness and Market Access Act' (A5050/S4202) explicitly restricts franchisors from mandating capex without cost-recovery justification, and AAHOA supported an earlier related NJ bill (passed Assembly, stalled in Senate per Jan 2024 Hotel Dive article)."
+     }
+    ],
+    "competitor_updates": [
+     {
+      "name": "PIPGURU (thepipguru.com)",
+      "status": "live and operating",
+      "pricing": "$25 one-time single estimate; $50/mo Starter, $100/mo Professional, $200/mo Enterprise",
+      "url": "https://www.thepipguru.com/",
+      "note": "66+ brands/8 flag families, 200+ line items, 6 hotel tiers. Directly competes on the exact wedge (fast, cheap PIP cost estimates) this candidate would pursue. One uncredited testimonial as sole traction evidence."
+     },
+     {
+      "name": "PIPGENIUS (thepipgenius.com)",
+      "status": "private beta, waitlist-gated",
+      "pricing": "Not publicly disclosed; markets '80% less than a typical PIP consultant fee'; founding-client waitlist offers preferred lifetime pricing",
+      "url": "https://www.thepipgenius.com/",
+      "note": "Positioned more upmarket/consultative than PIPGURU with tiered turnaround (Snapshot 24hr, Blueprint 48hr, Playbook 72hr 'coming soon' for restructuring/phased capital plans). Founding clients onboarding May 2026."
+     },
+     {
+      "name": "Nehmer/HVS Hotel Cost Estimating Guide",
+      "status": "live, paid, currently in its 2026 (18th) edition",
+      "pricing": "Paid publication (exact price not confirmed; listed under HVS 'paid publications')",
+      "url": "https://www.hvs.com/article/store/paid/212-nehmer-hvs-design-hotel-cost-estimating-guide",
+      "note": "Broader tier/category-level cost benchmarking (economy through luxury), not brand-specific line items like PIPGURU."
+     },
+     {
+      "name": "RLB Quarterly Construction Cost Report",
+      "status": "live, actively publishing (Q1 and Q2 2026 editions found)",
+      "pricing": "Summary/press-release content freely searchable; full paid-report tier not confirmed",
+      "url": "https://www.globenewswire.com/news-release/2026/06/29/3318960/0/en/RLB-North-America-Releases-Q2-2026-Construction-Cost-Report.html",
+      "note": "General construction-cost index (data centers, healthcare, education, commercial); no hotel-PIP-specific breakout found."
+     }
+    ],
+    "fresh_evidence": [
+     {
+      "finding": "New Jersey 'Hotel Franchisee Fairness and Market Access Act' (A5050/S4202, filed for 2026 session) would legally bar hotel franchisors from mandating a 'material capital expenditure, renovation, improvement, equipment replacement, or relocation' unless it's a health/safety/legal necessity OR the franchisor supplies a written analysis proving the franchisee can recover the cost and earn a positive return within a commercially reasonable period.",
+      "url": "https://pub.njleg.state.nj.us/Bills/2026/A5500/5050_I1.HTM",
+      "strength": "strong"
+     },
+     {
+      "finding": "An earlier, related NJ hotel-franchise bill (A1958) passed the NJ General Assembly with AAHOA support, but a companion Senate bill stalled without a hearing as of January 2024 amid AHLA/International Franchise Association opposition — showing the legislative fight over franchisor capex mandates is real, current, and contested, not yet settled law.",
+      "url": "https://www.hoteldive.com/news/new-jersey-franchising-bill-stalls/704304/",
+      "strength": "moderate"
+     },
+     {
+      "finding": "PIPGURU and PIPGENIUS are both live, real, directly-competing products in this exact space today (not hypothetical future competition) — PIPGURU with public $25-$200/mo pricing and PIPGENIUS in private beta with a founding-client waitlist for May 2026 onboarding.",
+      "url": "https://www.thepipguru.com/",
+      "strength": "strong"
+     },
+     {
+      "finding": "Getzler Henrich's $12-15B CapEx/PIP industry backlog figure is reasonably current (published September 2024, ~2 years old) and corroborated by at least one other industry blog referencing the same $15B figure.",
+      "url": "https://getzlerhenrich.com/the-looming-crisis-hotel-delays-in-property-improvement-plans-amid-high-interest-rates/",
+      "strength": "moderate"
+     }
+    ],
+    "pain_score": 6,
+    "wtp_score": 4,
+    "key_risks": [
+     "Direct, live, low-priced competition already exists and matches the likely product concept almost exactly (PIPGURU at $25-$200/mo; PIPGENIUS in private beta) — the 'benchmarking tool' wedge is already served, not a greenfield gap.",
+     "The most vivid supporting pain-point statistics in the brief (HREC $2M-to-$6-8M PIP, Magnuson elevator = 15% of sales) are both from 2016 — a decade old — and should not be presented as current market conditions without fresh sourcing.",
+     "The 'PIP cycle compressing from 10 years to 7 years' statistic could not be verified anywhere and may not be a real, attributable data point.",
+     "Two claim-critical primary sources (CoStar, Hotel Management) blocked automated fetch (HTTP 403), so those two claims rest on search-engine-extracted snippets rather than independently verified full-text quotes.",
+     "Established paid reference products (Nehmer/HVS guide, PIP consultants at $5,000-$15,000/estimate) already serve owners who want authoritative numbers, while PIPGURU/PIPGENIUS already serve the low-cost end — squeezing the price band a new entrant could occupy.",
+     "AAHOA's formal '12 Points of Fair Franchising' does not explicitly name PIPs/capex, so a new entrant cannot credibly claim to be 'riding' an established, named AAHOA advocacy plank; the real current leverage point is state legislation (NJ), a different mechanism than a SaaS product addresses."
+    ]
+   }
+  },
+  {
+   "kind": "verify",
+   "key": "c3-draw-lien",
+   "data": {
+    "candidate": "Construction draw / lien-waiver tracking (AIA G702/G703 verification + multi-tier lien waiver tracking) for hotel owners",
+    "claims": [
+     {
+      "claim": "Butzel Long client alert confirms double-payment exposure risk for owners in lien waiver process",
+      "verdict": "verified",
+      "evidence_url": "https://www.butzel.com/alert-lien-waivers-critical-to-processing-payment-but-a-word-of-caution",
+      "note": "Confirmed via direct fetch. Quote: owners/contractors use waivers so payments flow downstream 'without having to pay twice for the same labor or materials.' Framing is nuanced: much of article's caution is actually aimed at subs about signing unconditional waivers early, not a dedicated owner-only warning."
+     },
+     {
+      "claim": "Levelset content states collected lien waivers can be 'absolutely useless' against lower-tier claims if not tracked properly",
+      "verdict": "verified",
+      "evidence_url": "https://www.levelset.com/blog/tracking-lien-waivers/",
+      "note": "Exact quote found via direct fetch: 'The lien waivers collected from the general contractors and subcontractors are absolutely useless against the supplier's claim!'"
+     },
+     {
+      "claim": "G2 reviews show pain points and pricing complaints for Rabbet and Oracle Textura",
+      "verdict": "verified",
+      "evidence_url": "https://www.g2.com/products/rabbet/reviews",
+      "note": "Scraped both G2 pages directly. Rabbet: 4.6/5 (14 reviews); complaints include lack of native percent-complete tracking and forced duplicate-entry with funders' own sheets. Textura: 4.1/5 (46 reviews), G2 'Perceived Cost' = top tier ($$$$$); explicit cost complaints from subs ('Cost. Can get other software that does not charge subs for use') and owner reporting gaps ('Lack of reports for owners...')."
+     },
+     {
+      "claim": "Built Technologies funding status and AI draw-review agent launch, per CNBC",
+      "verdict": "verified",
+      "evidence_url": "https://www.cnbc.com/2025/11/06/built-technologies-ai-draw-agent-cre-lending.html",
+      "note": "CNBC (11/6/2025) confirms $1.5B valuation (reached 2021, no newer valuation reported), Draw Agent piloted with lender clients incl. Anchor Loans, clients include U.S. Bank/Citi/Fifth Third, metrics: 95% faster approvals, 3-min reviews, 400% risk-detection increase, 300-500% ROI. Funding total (~$289-293M across rounds, $125M Series D led by TCV) cross-corroborated via Construction Dive/PitchBook/Crunchbase search snippets, not directly fetched. $1.5B valuation figure is from 2021 — dated 5 years."
+     },
+     {
+      "claim": "Beam offers GC-side lien waiver collection only, not owner-side draw/percent-complete verification",
+      "verdict": "verified",
+      "evidence_url": "https://www.trybeam.com/lien-waiver-management",
+      "note": "Fetched directly. Beam targets home builders/remodelers/GCs, workflow is GC-collects-from-subs. Correction to strict framing: Beam does have an 'include sub-tier waivers' feature, so it's not limited to first-tier only — but it remains contractor-side with no owner-side percent-complete verification layer found."
+     },
+     {
+      "claim": "Wall Street Oasis forum: small RE developers on sub-$10M projects use Excel, won't pay for Rabbet/Built/Textura-class tools",
+      "verdict": "verified",
+      "evidence_url": "https://www.wallstreetoasis.com/forum/real-estate/construction-software",
+      "note": "Scraped directly (WebFetch blocked with 403). Multiple named commenters confirm: '_navyisland': below $10M project size uses Excel/MS Project, not Procore. 'laffer': 'Northspyre is stupid expensive... failing to understand why we'd spend so much on a helpful but unnecessary tool.' 'CREnadian': real adoption reserved for '$20B+ AUM' institutional developers. Thread is from June 2023 (~3 years old) — flagged as dated. Reddit and BiggerPockets searches did NOT find direct corroboration of this specific sentiment (only tangential/general lien-waiver Q&A) — corroboration is weak/absent, not confirmed elsewhere."
+     },
+     {
+      "claim": "New AI draw-review entrants 2025-2026 beyond Built",
+      "verdict": "unverifiable",
+      "evidence_url": "https://mightybot.ai/industries/real-estate/",
+      "note": "MightyBot (Built's AI partner) also markets directly into real estate/commercial lending per its own site, suggesting a platform-level entrant beyond just powering Built — but not independently fetched/confirmed as an active standalone competitor. No dedicated hotel-specific AI draw-review startup found for 2025-2026. A cited '$1.19B market in 2026' figure for construction draw automation could not be traced to a primary source — do not treat as verified."
+     }
+    ],
+    "competitor_updates": [
+     {
+      "name": "Rabbet",
+      "status": "Active, growing; enterprise SaaS for developers/lenders",
+      "pricing": "Not public; tiered 'Lender Premium'/'Lender Standard'/'Developer Premium', quote-only ('Contact Us')",
+      "note": "4.6/5 on G2 (14 reviews). Reviewers cite good UX/support but note gaps in native percent-complete tracking and duplicate-entry friction when funders mandate their own draw sheets instead.",
+      "url": "https://www.g2.com/products/rabbet/reviews"
+     },
+     {
+      "name": "Oracle Textura Payment Management",
+      "status": "Active, mature/incumbent; owned by Oracle",
+      "pricing": "Not public; G2 'Perceived Cost' rated top tier ($$$$$); subs report being charged for platform use as a specific complaint",
+      "note": "4.1/5 on G2 (46 reviews). Streamlines lien-waiver e-signing and ACH payments. Complaints: cost (esp. from subs), slow support for subs vs GCs, ERP integration friction, lack of owner-level reports (billing/accrual reports) per a May 2026 review.",
+      "url": "https://www.g2.com/products/oracle-textura-payment-management/reviews"
+     },
+     {
+      "name": "Built Technologies",
+      "status": "Active, well-funded ($1.5B valuation, $125M Series D led by TCV), launched AI 'Draw Agent' in 2025 with broader 2026 rollout",
+      "pricing": "Not public; enterprise/lender sales motion",
+      "note": "Lender-side (not owner-side) AI automation of draw review against loan terms/schedule, ingesting invoices, lien waivers, progress photos, inspection reports. Clients: U.S. Bank, Citi, Fifth Third; piloted with Anchor Loans. Powered by MightyBot's agentic AI platform. This is the most direct and best-capitalized competitive threat to the candidate's core workflow, though it targets lenders rather than hotel owners/developers directly.",
+      "url": "https://www.cnbc.com/2025/11/06/built-technologies-ai-draw-agent-cre-lending.html"
+     },
+     {
+      "name": "Beam (trybeam.com)",
+      "status": "Active; contractor/GC-focused financial + lien waiver management software",
+      "pricing": "Not public",
+      "note": "Targets home builders, remodelers, and light commercial GCs; automates lien waiver collection from subs/vendors and tracks sub-tier waiver status, but has no evident owner-side percent-complete/draw certification feature.",
+      "url": "https://www.trybeam.com/lien-waiver-management"
+     }
+    ],
+    "fresh_evidence": [
+     {
+      "finding": "G2 reviewer (VP, 9/25/2024) on Rabbet: 'Critical fields like project completion dates and project percent-complete are overlooked natively and instead must be tracked using custom fields' — a direct, named gap in the exact feature this candidate proposes to fix.",
+      "url": "https://www.g2.com/products/rabbet/reviews",
+      "strength": "strong"
+     },
+     {
+      "finding": "G2 reviewer (Team Lead - Construction Accounting, Enterprise, most recent review 5/24/2026) on Oracle Textura: 'Lack of reports for owners, such as billing reports or accrual reports' — confirms an owner-side reporting/visibility gap in the leading incumbent, as of mid-2026.",
+      "url": "https://www.g2.com/products/oracle-textura-payment-management/reviews",
+      "strength": "strong"
+     },
+     {
+      "finding": "CNBC (Nov 2025) confirms Built Technologies' AI Draw Agent already automates draw review against loan terms/construction schedule using invoices, lien waivers, progress photos and inspection reports — with 95% faster approvals and 400% higher risk detection reported by the company — directly overlapping this candidate's proposed value proposition, but sold to lenders, not owners.",
+      "url": "https://www.cnbc.com/2025/11/06/built-technologies-ai-draw-agent-cre-lending.html",
+      "strength": "strong"
+     },
+     {
+      "finding": "WSO thread: multiple named commercial real estate professionals state that below ~$10M project size, developers use Excel/MS Project instead of paid construction software, and that comparable tools (Procore, Northspyre) are viewed as overpriced/unnecessary except at '$20B+ AUM' institutional scale — a direct threat to this candidate's addressable market and WTP, though the thread is ~3 years old and uncorroborated on Reddit/BiggerPockets in this pass.",
+      "url": "https://www.wallstreetoasis.com/forum/real-estate/construction-software",
+      "strength": "moderate"
+     }
+    ],
+    "pain_score": 6,
+    "wtp_score": 4,
+    "key_risks": [
+     "Market ceiling: WSO forum shows small-to-mid developers (sub-$10M projects, and even larger shops) often use Excel and view paid construction-finance software as unnecessary/overpriced, capping the realistic addressable market of hotel owners willing to pay for a dedicated tool.",
+     "Built Technologies is a well-funded ($1.5B valuation), incumbent-backed competitor already shipping an AI Draw Agent that automates draw-vs-percent-complete review using lien waivers and supporting docs — its scale/data advantage make owner-side expansion by Built a credible fast-follow threat.",
+     "Lien waiver tools (Beam) and draw platforms (Rabbet, Textura) are largely single-stakeholder (contractor-side or lender-side); an owner-side product needs multi-party workflow adoption (GC + subs + lender + owner), adding sales complexity beyond a typical single-buyer SaaS motion.",
+     "Reddit/BiggerPockets corroboration of the 'small developers won't pay' counter-signal is weak or absent in this research pass — conclusion rests heavily on one (multi-commenter) ~3-year-old WSO thread, so the true breadth of this sentiment across the market is not fully confirmed.",
+     "No public pricing exists for Rabbet or Built (both enterprise 'Contact Us' sales), making it hard to precisely benchmark what price point a hotel-specific tool could sustain against incumbents."
+    ]
+   }
+  },
+  {
+   "kind": "verify",
+   "key": "c4-gc-track-record",
+   "data": {
+    "candidate": "GC track-record transparency (contractor litigation/dispute/lien history lookup for hotel owners)",
+    "claims": [
+     {
+      "claim": "Philadelphia jury/court awarded ~$174.7M against Tutor Perini over W/Element Hotel project (chronic delays, defective work)",
+      "verdict": "changed",
+      "evidence_url": "https://www.constructiondive.com/news/tutor-perini-philadelphia-w-hotel-lawsuit/817890/",
+      "note": "Confirmed but figure is $174.6M (not $174.7M); judgment issued April 10, 2026 by Philadelphia Court of Common Pleas (Chestlen Development v. Tutor Perini) over concrete defects and delays; described in sources as a court ruling/judgment, not explicitly labeled a jury verdict. Appeal confirmed pending as of July 2026 ('we intend to appeal' - Tutor Perini statement). A related $42.4M follow-on judgment to subcontractor Ventana DBS was issued July 1, 2026, also under appeal."
+     },
+     {
+      "claim": "Edgewater Hotel (Madison, WI): $16.3M mechanics lien; lost $14M arbitration",
+      "verdict": "verified",
+      "evidence_url": "https://madison.com/news/local/govt-and-politics/j-h-findorff-son-files-16-3-million-construction-lien-against-edgewater-hotel/article_46ea20e7-95e7-5b19-ac18-17b7f7b9fefe.html",
+      "note": "J.H. Findorff & Son filed the $16.3M lien (one of 16 liens totaling $23.7M at the time). Arbitration panel ordered Edgewater/Hammes to pay Findorff $13.8M (close to '$14M'). However, the arbitration panel actually found the OWNER (Hammes/Edgewater) mismanaged the project, not the GC -- a nuance that complicates the 'bad GC' framing. Case is dated (~2013-2015 era), flagged as stale evidence."
+     },
+     {
+      "claim": "Levelset Payment Profiles is payment-speed-only, not performance/litigation history",
+      "verdict": "verified",
+      "evidence_url": "https://www.levelset.com/payment-profiles-uploading-projects-improving-payment-score/",
+      "note": "Confirmed via Levelset's own pages: focuses on payment data, license/bond info, and curated positive testimonials (reviews removed); not a litigation/lien/dispute-history tool."
+     },
+     {
+      "claim": "BuildZoom/Angi are residential-grade, not commercial vetting tools",
+      "verdict": "verified",
+      "evidence_url": "https://www.buildzoom.com/how-it-works/commercial",
+      "note": "Angi confirmed as homeowner-facing marketplace. BuildZoom claims both residential and commercial reach but its vetting is permit-volume/license-status based (160M permits, 7.5M licenses), not litigation/lien/dispute-record based -- so the underlying point (neither does deep track-record diligence) holds, though 'residential-grade' undersells BuildZoom's stated commercial ambitions."
+     }
+    ],
+    "competitor_updates": [
+     {
+      "name": "Business Screen",
+      "status": "active, direct competitor",
+      "url": "https://www.businessscreen.com/use-cases/construction-commercial-real-estate",
+      "pricing": "Not publicly disclosed (contact sales); three tiers: Preliminary (automated), Advanced (investigator jurisdiction searches), Deep Dive (20-year, multi-jurisdiction lookback)",
+      "note": "Already screens contractors/principals for professional license status, mechanic's liens, OSHA violations, litigation/civil records, criminal records, adverse media, and tax/judgment liens for construction & commercial real estate -- functionally near-identical to the proposed product."
+     },
+     {
+      "name": "Surety prequalification ecosystem (COMPASS/1Form, TradeTapp, Highwire, Oracle Textura, Constrafor, PreQual, Procore)",
+      "status": "active, mature market",
+      "note": "Sureties and GCs already use these for financial/bonding/safety-record prequalification; COMPASS's Q Score is reportedly used in ~92% of surety applications. Oriented more toward capacity/capital/character (financials, bonding, safety) than litigation narrative, but represents a substitute signal reducing owners' incremental need for a standalone litigation-history lookup."
+     },
+     {
+      "name": "UniCourt",
+      "status": "active paid legal-data vendor (potential data supplier, not a finished competing product)",
+      "pricing": "$59-$399+/mo tiered retail (10-200 searches/mo), Enterprise custom pricing, no free trial",
+      "url": "https://unicourt.com/pricing/",
+      "note": "Would likely be an underlying data source/cost center for building this product rather than a competitor."
+     },
+     {
+      "name": "Trellis",
+      "status": "active paid legal-data vendor",
+      "pricing": "$69.95-$199.95/mo single-state tiers; multi-state/API/Enterprise pricing undisclosed, contact sales",
+      "url": "https://trellis.law/plans",
+      "note": "Similar role to UniCourt -- a data supplier/cost input, not a finished hotel-owner-facing product."
+     }
+    ],
+    "fresh_evidence": [
+     {
+      "finding": "Tutor Perini ordered to pay additional $42.4M to subcontractor Ventana DBS on July 1, 2026 (on top of the April $174.6M judgment), with Tutor Perini reaffirming intent to appeal both rulings",
+      "url": "https://www.constructiondive.com/news/tutor-perini-on-the-hook-for-424m-more-in-philadelphia-hotel-dispute/824906/",
+      "strength": "strong"
+     },
+     {
+      "finding": "CourtListener/RECAP API is free for federal court records but has no coverage of state/county court dockets, which is where most construction litigation and mechanic's-lien cases actually live -- a material feasibility gap",
+      "url": "https://free.law/2026/05/07/api-included-in-memberships/",
+      "strength": "strong"
+     },
+     {
+      "finding": "No national aggregator exists for mechanic's-lien filings; access is free-to-cheap per document but fragmented across thousands of counties with inconsistent formats -- a real data-ops build, not a thin API wrapper",
+      "url": "https://legalclarity.org/how-to-find-liens-on-a-property-for-free/",
+      "strength": "moderate"
+     },
+     {
+      "finding": "Fair-report privilege protects accurate, attributed summaries of official court proceedings, but is not recognized uniformly across all states and does not equate to Section 230 protection (which covers hosted user content, not a publisher's own editorial summaries)",
+      "url": "https://www.dmlp.org/legal-guide/fair-report-privilege",
+      "strength": "moderate"
+     }
+    ],
+    "pain_score": 5,
+    "wtp_score": 4,
+    "key_risks": [
+     "Direct, already-operating competitor (Business Screen) offers a near-identical multi-source contractor screening product (litigation, liens, licensing, OSHA, adverse media) for commercial construction/real estate -- the 'nobody aggregates this' premise is false.",
+     "Core data sourcing (state/county court dockets, mechanic's liens) has no clean national aggregator; costs pass through from paid legal-data vendors (UniCourt/Trellis, $59-$400+/mo retail, custom Enterprise pricing for volume) or require building/maintaining a 50-state, thousands-of-county scraping pipeline -- a real ongoing engineering/data-ops cost, not a one-time build.",
+     "Defamation/fair-report-privilege protection is conditional (not recognized in all states, requires accuracy/attribution) and Section 230 does not cover the product's own editorial summaries -- appeal-status tracking discipline and legal review are non-optional recurring costs.",
+     "The most dramatic anchor case (Tutor Perini, $174.6M + $42.4M) is still on appeal as of July 2026; citing it as settled GC wrongdoing risks both inaccuracy and defamation exposure if the appellate outcome differs.",
+     "The Edgewater case shows litigation-history products can just as easily surface owner-side mismanagement as GC-side failures, undercutting a pitch narrowly framed as 'protect yourself from bad GCs.'",
+     "Sophisticated hotel owners already have substitute signals (surety/bonding relationships, references, industry reputation) reducing incremental willingness to pay for a standalone lookup product."
+    ]
+   }
+  },
+  {
+   "kind": "sweep",
+   "key": "reddit",
+   "data": {
+    "source_area": "Organic Reddit sweep — hotel owner / commercial property / contractor complaints on change orders, PIP costs, draw/payment disputes, lien waivers, bad GC vetting (r/Construction, r/CommercialRealEstate, r/generalcontractor, r/hotels, r/askhotels, r/realestateinvesting, r/Contractor, r/ConstructionManagers, r/smallbusiness)",
+    "notes": "Full findings, methodology, and category-by-category verdict written to run-1/research/organic-reddit.md. Key honesty flags: (1) Reddit blocked all direct fetches (WebFetch and firecrawl_scrape both refused reddit.com/old.reddit.com), so every complaint below is sourced from search-engine snippets/highlights (Firecrawl search + Exa search), not full comment-thread reads — this limits how much detail/intensity could be confirmed. (2) Lien waiver problems came up DRY on Reddit — searches returned SEO explainer content (Levelset, Siteline, DrawCheck, Kiron) rather than organic first-person complaints; no genuine Reddit lien-waiver complaint is included. (3) Brand PIP costs (candidate 2) came up thin on Reddit itself — the two Reddit-adjacent items included are observational/operator-side, not first-person owner rage; the single richest PIP complaint found in the whole sweep (Ben Mallah) is YouTube-native content covered by blogs, not an organic Reddit post, and is explicitly marked as not counted toward the Reddit-complaint total. (4) Most 'bad GC vetting' and several 'change order' hits are residential/investor-flip scale rather than true commercial/hospitality scale — flagged inline as adjacent rather than exact matches to the seeded candidate scope. (5) Several flagship threads are older than the preferred 2024-2026 window (dated back to 2019-2022) and are explicitly flagged as dated. All URLs were seen directly in search results; no numbers or quotes were fabricated.",
+    "complaints": [
+     {
+      "summary": "GC venting about owner draw request/pay application process breaking down after months of smooth monthly submissions",
+      "candidate_relevance": "3",
+      "intensity": 7,
+      "quote": "We have filed every monthly draw request/pay application this way with no issue until the January request. Towards the end of 2018 the owner ...",
+      "who": "General/commercial contractor",
+      "date_approx": "~2019 (dated, outside 2024-2026 window)",
+      "url": "https://www.reddit.com/r/Construction/comments/b6m5q0/ive_about_had_it_with_owners/"
+     },
+     {
+      "summary": "Contractor dispute over an unforeseen change order the client refuses to pay",
+      "candidate_relevance": "1",
+      "intensity": 6,
+      "quote": "Typically if it is really an issue, work stops and we issue a change order and move on until they approve it. Never do the work until you have a ...",
+      "who": "Contractor/GC",
+      "date_approx": "~early/mid 2024",
+      "url": "https://www.reddit.com/r/Construction/comments/1bv75jq/unforeseen_change_order_client_refuses_to_pay_and/"
+     },
+     {
+      "summary": "Change order dispute thread over whether extras were properly authorized before work began",
+      "candidate_relevance": "1",
+      "intensity": 5,
+      "quote": "A labor lien will be denied as long as the contract pay was filled. If the extras were added, but not added/notified/signed off on as stipulated ...",
+      "who": "Contractor/sub",
+      "date_approx": "~Feb 2022 (dated)",
+      "url": "https://www.reddit.com/r/Construction/comments/t5s8os/change_order_dispute/"
+     },
+     {
+      "summary": "Construction manager frustrated that client keeps making changes outside the formal change-order/change-directive process",
+      "candidate_relevance": "1",
+      "intensity": 6,
+      "quote": "The key is to understand the contract and to enforce it. Owner wants to make changes? Fine. Put it in writing either through a CO or CCD.",
+      "who": "Construction manager",
+      "date_approx": "~mid 2024",
+      "url": "https://www.reddit.com/r/ConstructionManagers/comments/1d1cu6d/client_ignoring_contract_terms/"
+     },
+     {
+      "summary": "GC absorbed cost (dropped markup, added 20% credit) on a disputed defect/change and client still unsatisfied",
+      "candidate_relevance": "1",
+      "intensity": 6,
+      "quote": "The client wants it all ripped out and replaced. Probably about $10k. I've removed my markup, and offered an additional 20% credit. They seem fixated on the ...",
+      "who": "General contractor",
+      "date_approx": "~Oct/Nov 2022 (dated)",
+      "url": "https://www.reddit.com/r/Construction/comments/ygou4m/general_contractor_here_nobody_at_fault_situation/"
+     },
+     {
+      "summary": "Real-estate investor paid GC ~$53K on a flip; GC disappeared mid-job, leaving property partially renovated and possibly non-permitted",
+      "candidate_relevance": "4",
+      "intensity": 8,
+      "quote": "I am afraid if we pull permits for electrical and plumbing, they will find a lot more stuff given that it's an old house. What should I do?",
+      "who": "Real estate investor/flipper",
+      "date_approx": "recent, republished June 2026",
+      "url": "https://www.reddit.com/r/realestateinvesting/comments/1twn3tb/flip_gone_bad_need_advice/"
+     },
+     {
+      "summary": "Custom-home buyer paid builder $110K on a $650K construction loan; builder declared bankruptcy",
+      "candidate_relevance": "4",
+      "intensity": 8,
+      "quote": "In March of 2023, I signed a contract with a builder for his company to build me a custom home. I closed on a $650k construction loan for ...",
+      "who": "Property owner/custom-home buyer",
+      "date_approx": "~May 2024 post; underlying events March 2023",
+      "url": "https://www.reddit.com/r/RealEstate/comments/1d0chu1/i_gave_my_home_builder_110k_he_declared/"
+     },
+     {
+      "summary": "Contractor took a 30% deposit on a renovation and then disappeared",
+      "candidate_relevance": "4",
+      "intensity": 7,
+      "quote": "I hired a contractor about a month ago to renovate our kitchen. Everything seemed legit we signed a contract, and I paid a 30% deposit upfront. They ...",
+      "who": "Property owner",
+      "date_approx": "~2025",
+      "url": "https://www.reddit.com/r/Contractor/comments/1m19qvn/construction_contractor_disappeared_after_deposit/"
+     },
+     {
+      "summary": "Small construction-business owner stiffed by a client claiming bankruptcy to avoid paying for completed work",
+      "candidate_relevance": "3",
+      "intensity": 6,
+      "quote": "Been in business for myself for 3 years now and just got stiffed for the first time. And from an acquaintance no less. I'm in the construction industry ...",
+      "who": "Small business owner (construction)",
+      "date_approx": "~late 2020 (dated)",
+      "url": "https://www.reddit.com/r/smallbusiness/comments/jv8r1v/contractor_client_says_they_went_bankrupt_what/"
+     },
+     {
+      "summary": "Hotel GM anxious that property still doesn't meet brand standards even after a renovation, following a $10M sale",
+      "candidate_relevance": "2",
+      "intensity": 6,
+      "quote": "hotel sold for $10M. Even after the renovation, we didn't meet their standards for room design, much less staffing, and should have been ...",
+      "who": "Hotel general manager (operator, not owner)",
+      "date_approx": "~March 2021 (dated)",
+      "url": "https://www.reddit.com/r/TalesFromTheFrontDesk/comments/mmcbln/sold_for_10m_gm_and_agm_are_panicking/"
+     },
+     {
+      "summary": "Commenters attribute run-down Hilton properties to owners stalling on PIP-funded renovations",
+      "candidate_relevance": "2",
+      "intensity": 4,
+      "quote": "They are either waiting a PIP, selling the hotel, changing brands or flat out don't have the capital on hand.",
+      "who": "Third-party commenters (guests/points hobbyists), not owners",
+      "date_approx": "~2025",
+      "url": "https://www.reddit.com/r/Hilton/comments/1k1l50l/tired_of_shabby_run_down_properties/"
+     },
+     {
+      "summary": "[Not Reddit-native, flagged separately] Hotel owner Ben Mallah's video complaints about Marriott PIP/brand-standard demands, rushing repairs before inspection and threatening to de-flag",
+      "candidate_relevance": "2",
+      "intensity": 8,
+      "quote": "I got a big inspection on here on the 14th... I got to get more of these cracks filled cuz they're going to... they're not going to accept it... there's just too many cracks here.",
+      "who": "Hotel owner (Ben Mallah, Sheraton Suites Fort Lauderdale, later sold for $28M)",
+      "date_approx": "clip circulated Feb 2025; longer video ~April 2026",
+      "url": "https://viewfromthewing.com/sheraton-owner-ben-mallah-we-aint-gonna-follow-your-rules-exposing-marriotts-permissive-brand-standards/"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "sweep",
+   "key": "trade",
+   "data": {
+    "source_area": "Trade press / industry associations (AAHOA, HAMA, HVS, Hospitality Investor, Texas Hotel & Lodging Association, law-firm hospitality commentary) — PIP/renovation cost inflation, tariff impacts, lender-franchisor tension, 2024-2026",
+    "complaints": [
+     {
+      "summary": "AAHOA states it has been 'influential in the pausing of PIPS, cycle renovations, QA, training, guest surveys and satisfaction, loyalty enrollments, F&B, and the fees associated with each' via direct brand-leadership advocacy.",
+      "candidate_relevance": "2",
+      "intensity": 7,
+      "quote": "AAHOA has been influential in the pausing of PIPS, cycle renovations, QA, training, guest surveys and satisfaction, loyalty enrollments, F&B, and the fees associated with each.",
+      "url": "https://www.aahoa.com/advocacy/franchise-relations",
+      "date_approx": "evergreen page, footer 2025",
+      "who": "AAHOA (Asian American Hotel Owners Association)"
+     },
+     {
+      "summary": "AAHOA continues updating its '12 Points of Fair Franchising' (since 1998), including a 2025 revised Point 12, to push franchisors toward fair treatment on contract terms.",
+      "candidate_relevance": "2 / new (franchise fairness)",
+      "intensity": 6,
+      "quote": "AAHOA Announces Release of Its Revised Point 12 in the AAHOA 12 Points of Fair Franchising",
+      "url": "https://www.aahoa.com/news-details/aahoa-announces-release-of-its-revised-point-12-in-the-aahoa-12-points-of-fair-franchising-1",
+      "date_approx": "2025",
+      "who": "AAHOA"
+     },
+     {
+      "summary": "Law-firm trade piece describes hotel franchisees organizing into independent associations against opaque marketing funds, one-sided contracts, and undisclosed fee hikes; includes a 2023 example of franchisees rolling back a tech-fee hike worth ~$1.2M collectively and July 2024 FTC guidance on undisclosed franchise fees.",
+      "candidate_relevance": "new (franchise fee/marketing fund transparency), secondary to 2",
+      "intensity": 6,
+      "quote": "I'm paying for ads in Times Square while my property in rural Georgia gathers dust.",
+      "url": "https://www.akerman.com/en/perspectives/revolt-of-the-franchisees-hotel-owners-band-together-to-rewrite-the-rules.html",
+      "date_approx": "May 19, 2025",
+      "who": "Ricky K. Patel, Akerman LLP (quoting an anonymous franchisee)"
+     },
+     {
+      "summary": "HAMA's Spring 2026 Industry Outlook Survey (86 asset managers) found ~90% planning hotel renovations and 70%+ seeking acquisitions; top concerns were demand, geopolitical conflict, and wages — PIP/tariff costs did not top the list, indicating renovation is framed as reinvestment rather than acute distress at this moment.",
+      "candidate_relevance": "2",
+      "intensity": 4,
+      "quote": "And owners are reinvesting in the industry, with nearly 90% planning hotel renovations and more than 70 percent of our members actively seeking acquisitions.",
+      "url": "https://www.hospitalitynet.org/news/4132265/hospitality-asset-managers-association-hama-shares-spring-2026-conference-industry-outlook-survey-results",
+      "date_approx": "May 6, 2026",
+      "who": "Dina Winder, HAMA President"
+     },
+     {
+      "summary": "Matthews CRE article cites Hunter Hotel Advisors' COO stating PIPs now cost $35,000-$40,000 per key for a midmarket property, with PIP costs up 30%+ vs pre-COVID and FF&E vendor price hikes of 90-300% since COVID; warns owners risk being pushed out of brand systems if they can't afford PIPs. NOTE: internal text suggests this was originally written in 2024 (references '2024' as current, expects recovery by 2025) despite appearing on a page with 2026 sidebar content — treat as dated, needs re-verification against fresher sources.",
+      "candidate_relevance": "2",
+      "intensity": 8,
+      "quote": "Lee Hunter, Chief Operating Officer at Hunter Hotel Advisors, recently stated that PIPs now cost between $35,000 to $40,000 per key for a midmarket property.",
+      "url": "https://www.matthews.com/insights/things-to-consider-if-your-hotel-pip-is-coming-due",
+      "date_approx": "~2024 (dated; site shows 2026 context but article text is internally consistent with 2024 authorship)",
+      "who": "Mitchell Glasson, Matthews REIS, citing Lee Hunter (Hunter Hotel Advisors)"
+     },
+     {
+      "summary": "HVS's 2026 U.S. Hotel Development Cost Survey names tariff policy on imported metals as 'the primary catalyst behind renewed cost pressure' in 2026 construction costs, alongside immigration-driven labor uncertainty; Turner Building Cost Index rose 4.8% in the 2026 TTM period, RLB index +4.4%; new hotel supply growth has slowed to 0.7-1.1%/year vs ~1.4% pre-2020 due to elevated construction and debt costs.",
+      "candidate_relevance": "2 (tariff impact specifically requested)",
+      "intensity": 6,
+      "quote": "The primary catalyst behind renewed cost pressure is tariff policy, with duties on imported metals driving the steepest material cost increases, prompting owners and contractors to revisit procurement strategies and budget assumptions.",
+      "url": "https://www.hvs.com/article/10509-hvs-us-hotel-development-cost-survey-2026",
+      "date_approx": "2026 (reflects 2025 project data)",
+      "who": "HVS (Luigi Major, contact)"
+     },
+     {
+      "summary": "Major trade feature frames PIPs as a 'make-or-break' decision amid a $48B CMBS maturity wave for 2025-2026 with refinancing debt costs of 6.25-7%+; quotes a capital-markets director on lender/franchisor tension (CMBS lenders raising reserve requirements pre-PIP, debt funds wanting immediate execution, banks more flexible) and a real transaction (Pebblebrook's $72M sale of the Westin Michigan Ave Chicago) where sale pricing excluded a brand-mandated PIP and other significant capex.",
+      "candidate_relevance": "2 (direct hit on PIP cost + lender/franchisor tension, both explicitly requested)",
+      "intensity": 9,
+      "quote": "The era of deferring brand-mandated property improvement plans is ending, hard. With construction costs still elevated and interest rates squeezing returns, the PIP decision has become the most consequential transaction lever of 2026. The math is unforgiving.",
+      "url": "https://www.hospitalityinvestor.com/investment/pip-breaking-point",
+      "date_approx": "June 15, 2026",
+      "who": "Nellie Day (Hospitality Investor), quoting Stephen Haase (Director of Capital Markets, Greysteel) and citing HVS report"
+     },
+     {
+      "summary": "State hotel association (Texas) describes tariffs (10% baseline implemented early 2025, higher on specific partners) directly raising FF&E costs (overseas-manufactured hotel furniture, insufficient domestic capacity) and construction/renovation materials (lumber, steel, aluminum), explicitly tying this to PIP budget conversations with contractors; also cites 2024 labor cost increase of ~11%.",
+      "candidate_relevance": "2 (tariff impact, directly requested)",
+      "intensity": 7,
+      "quote": "If you're working through a Property Improvement Plan or planning any significant renovations, you've probably already had the uncomfortable conversation with your contractor about revised estimates.",
+      "url": "https://texaslodging.com/the-ongoing-effects-of-tariffs-on-texas-hotels-and-what-hoteliers-can-do-about-it/",
+      "date_approx": "June 30, 2026",
+      "who": "THLA Staff (Texas Hotel & Lodging Association)"
+     },
+     {
+      "summary": "Cushman & Wakefield estimate (search snippet only, not full-page verified) that tariffs will raise U.S. CRE material costs ~6% and total project costs ~3% from 2024 levels, with peak scenarios reaching 9% — general CRE, not hotel-specific.",
+      "candidate_relevance": "2 (general construction cost context)",
+      "intensity": 5,
+      "quote": "Tariffs are expected to raise U.S. CRE material costs 6% and total project costs 3% from 2024 levels, with peak scenarios reaching 9%.",
+      "url": "https://www.cushmanwakefield.com/en/united-states/insights/the-impact-of-tariffs-on-cre-construction-costs",
+      "date_approx": "unclear, likely 2025",
+      "who": "Cushman & Wakefield"
+     },
+     {
+      "summary": "California SB 440 (effective Jan 1, 2026) creates a new mandatory dispute-resolution process (informal settlement conference, then nonbinding mediation) for change-order and time-extension claims on private construction projects — general construction law, not hotel-specific, but confirms change-order disputes are common enough to prompt new legislation. No hotel-specific trade press was found treating change orders as a distinct named PIP pain point.",
+      "candidate_relevance": "1 (context/gap finding — no dedicated hotel-trade-press coverage found)",
+      "intensity": 5,
+      "quote": "Disputed portions of the claim must proceed to nonbinding mediation before litigation or arbitration—unless the parties expressly agree in [writing].",
+      "url": "https://www.alston.com/en/insights/publications/2026/03/california-sb-440-change-order-disputes",
+      "date_approx": "March 2026 (law effective Jan 1, 2026)",
+      "who": "Alston & Bird (law firm client alert)"
+     },
+     {
+      "summary": "No hotel-industry trade press (AAHOA, HAMA, Hospitality Investor, Skift, LODGING, Hotel Business) was found covering mechanic's liens / draw-schedule disputes as a distinct organic complaint theme in 2024-2026 — only general construction-law content surfaced, including one Avvo Q&A specifically about liens on a hotel project. This is a gap/absence finding for candidate 3, not confirmed evidence against the pain point's existence.",
+      "candidate_relevance": "3 (gap — absence of hotel-trade-press coverage)",
+      "intensity": 2,
+      "quote": "Can I file a mechanics lien on a hotel we did work on if the contractor that hired [us wasn't paid]...",
+      "url": "https://www.avvo.com/legal-answers/can-i-file-a-mechanics-lien-on-a-hotel-we-did-work-4667328.html",
+      "date_approx": "unclear",
+      "who": "Avvo Q&A (general legal forum, not hotel trade press)"
+     },
+     {
+      "summary": "GC vetting/quality concerns surfaced mainly through a vendor's content-marketing blog and thin, unverified Reddit search snippets (e.g., a Juneau, Alaska hotel owner describing a local contractor shortage and poor work quality; an askhotels thread asking about PIP construction problems). Full Reddit thread content could not be fetched in this session (reddit.com/old.reddit.com both failed) — only snippet text is verified.",
+      "candidate_relevance": "4 (thin, snippet-only evidence)",
+      "intensity": 4,
+      "quote": "My hotel property is located in Juneau Alaska which is quite remote area. There is lack of contractors in the area and their work quality is pretty horrible...",
+      "url": "https://www.reddit.com/r/Contractor/comments/1c2jcue/best_way_to_find_contractors_who_would_fly_to_my/",
+      "date_approx": "unclear (search snippet only)",
+      "who": "Reddit user, r/Contractor (unverified beyond snippet)"
+     }
+    ],
+    "notes": "Full report written to: C:/Users/acarr/OneDrive/Documents/Claude/Projects/Company Builder - Hotel Ideas/run-1/research/organic-trade-press.md\n\nMethodology: Firecrawl web search (search + scrape) against AAHOA, HAMA, HVS, Hospitality Investor (CoStar/formerly HotelNewsNow's investment vertical), Hotel Online, Hospitality Net, Texas Hotel & Lodging Association, Akerman law-firm insights, Cushman & Wakefield, Construction Dive, and Reddit. Reddit direct fetches (reddit.com and old.reddit.com) failed in this session via WebFetch — Reddit-sourced items are search-snippet-only and flagged as such, not full-thread reads.\n\nKey conclusion: Candidate 2 (PIP) is overwhelmingly the best-evidenced organic complaint theme in 2024-2026 hotel trade press, with strong fresh (June 2026) material directly addressing PIP cost inflation, the $48B CMBS maturity wave, lender/franchisor tension, and tariff impact on FF&E/construction materials (all explicitly requested research angles). Candidates 1 (change orders) and 3 (draw/lien) have real general-construction-law backing (e.g. new CA SB 440 legislation) but essentially no dedicated hotel-trade-press coverage was found treating them as named hotel-sector complaint themes — flagged as gap/white-space findings rather than confirmed pain points. Candidate 4 (GC vetting) has only thin, mostly unverified evidence (vendor content marketing + unconfirmed Reddit snippets).\n\nOne dated item was caught and flagged: the Matthews.com PIP-cost article citing $35-40K/key appears (via internal textual evidence — it frames \"2024\" as the current year and expects recovery \"by 2025\") to have actually been written in 2024, despite sitting on a page with fresh 2026 sidebar content — this exceeds/approaches the 2-year dated threshold and should be re-verified before use as a current stat. Several other items (Cushman & Wakefield tariff %, Construction Dive cost trend, BASE4 FF&E tariff piece, some AAHOA press releases, both Reddit threads) were only confirmed via search-result snippets, not full-page fetches, and are explicitly marked [unclear]/snippet-only in the file rather than presented as fully verified."
+   }
+  },
+  {
+   "kind": "sweep",
+   "key": "forums",
+   "data": {
+    "source_area": "Organic complaint sweep — non-Reddit communities (Wall Street Oasis, BiggerPockets, LinkedIn, Hacker News, Quora, Facebook-group search surface, and hospitality conference coverage: Hunter, ALIS, The Lodging Conference), 2023-2026",
+    "complaints": [
+     {
+      "summary": "WSO development-forum users call construction draw-management software (Procore, Northspyre) \"crazy expensive\"/\"stupid expensive\" relative to perceived value, especially for smaller projects.",
+      "candidate_relevance": "3 (draw/lien) and 4 (GC vetting/tooling) — CRE developer audience, not hotel-specific but on-topic for draw-management WTP",
+      "intensity": 6,
+      "quote": "Procore charges you a % on hard cost. Northspyre is stupid expensive. We looked at each other after both meetings completely failing to understand why we'd spend so much on a helpful but unnecessary tool",
+      "who": "laffer, self-identified RE-Commercial Developer, Wall Street Oasis",
+      "url": "https://www.wallstreetoasis.com/forum/real-estate/construction-software",
+      "date_approx": "2023 (DATED - ~3 years old)"
+     },
+     {
+      "summary": "Small-scale rehab investors describe GC running out of money mid-project after owner paid ahead of draw schedule; community advises withholding final payment until lien releases are obtained.",
+      "candidate_relevance": "3 (draw/lien) - residential-scale, not hotel, but pattern-relevant",
+      "intensity": 5,
+      "quote": "DO NOT PAY HIM THE FINAL PAYMENT until you have lean releases from him and know that his subcontractors and suppliers are paid in full!",
+      "who": "Micah Watson, self-described experienced rehab GC, BiggerPockets forum reply",
+      "url": "https://www.biggerpockets.com/forums/67/topics/110742-general-contractor-losing-money-and-potentially-bailing-on-the-job",
+      "date_approx": "Dec 2013 (DATED - over a decade old)"
+     },
+     {
+      "summary": "Investor recounts losing money to a contractor who demanded large upfront payment before doing work, and describes 50% upfront demands as something he's encountered.",
+      "candidate_relevance": "3 (draw/payment structuring)",
+      "intensity": 7,
+      "quote": "I've had contractors request as much as 50% upfront! ... I will NEVER give a contractor money upfront.",
+      "who": "Justin Thompson, experienced rehabber, BiggerPockets forum",
+      "url": "https://www.biggerpockets.com/forums/24/topics/210638-is-it-typical-for-a-contractor-to-request-20-or-more-upfront",
+      "date_approx": "Jul 2015 (DATED)"
+     },
+     {
+      "summary": "Subcontractor describes standard 10% retainage on progress draws and willingness to file mechanics liens over nonpayment.",
+      "candidate_relevance": "3 (draw/lien)",
+      "intensity": 6,
+      "quote": "If they don't pay, I will lien the property.",
+      "who": "Aaron C., subcontractor, BiggerPockets forum reply",
+      "url": "https://www.biggerpockets.com/forums/24/topics/497958-construction-progress-payments-and-need-for-holdbacks-retainage",
+      "date_approx": "Oct 2017 (DATED)"
+     },
+     {
+      "summary": "Peachtree Group CIO Brian Waldman describes deferred PIPs as a key driver of broken capital stacks industry-wide, at the March 2026 Hunter Hotel Investment Conference general session panel.",
+      "candidate_relevance": "2 (PIP cost) - strong, named, on-the-record, 2026-dated",
+      "intensity": 7,
+      "quote": "During that time, you didn't do your PIP, and you haven't been reinvesting in your properties, and that becomes very expensive. Are those assets fundamentally good assets in a lot of cases? Yes, but it's the balance sheets, the capital stack, that's broken.",
+      "who": "Brian Waldman, Chief Investment Officer, Peachtree Group",
+      "url": "https://lodgingmagazine.com/opportunities-in-an-uncertain-market-perspectives-from-the-hunter-conference-general-session-panel/",
+      "date_approx": "March 16-17, 2026"
+     },
+     {
+      "summary": "Law firm client-alert summarizing ALIS 2026 speakers identifies PIPs as the single most recurring friction point in hotel deals today, with brand-vs-owner conflict over cost, timing, and standards.",
+      "candidate_relevance": "2 (PIP) - named as 'the' recurring friction point at a major 2026 conference",
+      "intensity": 7,
+      "quote": "If there is one recurring friction point in today's hotel market, it is not access to capital or demand uncertainty. It is execution... Among speakers at the 2026 Americas Lodging Investment Summit (ALIS), that friction surfaced most often around property improvement plans (PIPs), contracting speed and the growing gap between how quickly business decisions are made and how slowly disputes can form.",
+      "who": "Frank Arado & E. Kylie Norman, Katten Muchin Rosenman LLP, summarizing unnamed ALIS 2026 speakers",
+      "url": "https://www.jdsupra.com/legalnews/takeaways-from-alis-law-2026-where-5652656/",
+      "date_approx": "Feb 2026 (describing Jan 2026 ALIS summit)"
+     },
+     {
+      "summary": "Hotel development executives (Extended Stay America, Wyndham, Aimbridge, Remington) at ALIS 2026 CDO panel note construction costs continuing to rise, with GC quality cited as the differentiator between a smooth vs. troubled project.",
+      "candidate_relevance": "1 (cost overrun) and 4 (GC vetting)",
+      "intensity": 5,
+      "quote": "They [construction costs] continue to go up, like everything else does, but we just have to work through it. If you delay it, you're just delaying the inevitable.",
+      "who": "Mark Williams, Managing Director of Franchise Development, Extended Stay America",
+      "url": "https://www.hotelinvestmenttoday.com/Development/Owners/From-construction-costs-to-key-money-CDOs-at-ALIS",
+      "date_approx": "Jan 2026 ALIS, article dated Feb 16 2026"
+     },
+     {
+      "summary": "Vendor/contractor LinkedIn post marketing PIP services echoes owner pain around reactive PIP timing, overpaying, and finding brand-compliant contractors -- not an owner's own complaint, but reflects language vendors believe resonates.",
+      "candidate_relevance": "2 (PIP) and 4 (GC vetting) - vendor-authored, discount for authenticity",
+      "intensity": 5,
+      "quote": "Most hotel owners don't start thinking about their PIP until the brand is already on their case. By that point you're rushing, overpaying, and hoping you can find a contractor who actually knows what they're doing with brand compliance.",
+      "who": "Luke Ahearn, hospitality PIP/construction contractor (vendor, not owner)",
+      "url": "https://www.linkedin.com/posts/luke-ahearn-14b21b176_most-hotel-owners-dont-start-thinking-about-activity-7467791230123393024-cnEc",
+      "date_approx": "~June 2026"
+     },
+     {
+      "summary": "Unverified search-snippet claim (not independently fetched) that off-brand material rework adds 15-30% to material line items and generalist-contractor unfamiliarity with brand specs is the second-largest hotel PIP budget killer, per ALIS CALA 2026 coverage.",
+      "candidate_relevance": "1 (change orders/rework) and 4 (GC vetting) - marked [unclear], unverified",
+      "intensity": 0,
+      "quote": "Specifying off-brand materials that fail brand approval and require rework is the largest budget killer, often adding fifteen to thirty percent to material line items. Hiring a generalist contractor unfamiliar with Marriott specifications is the second largest.",
+      "who": "Unnamed, per BCQS ALIS CALA 2026 coverage (search snippet only)",
+      "url": "https://bcqs.com/2026/05/08/bcqs-at-alis-cala-2026-hospitality-investment-cost-insights/",
+      "date_approx": "May 2026 [unclear - not independently fetched]"
+     }
+    ],
+    "notes": "Full report with methodology, all URLs, dated-evidence flags, and a summary table is at C:/Users/acarr/OneDrive/Documents/Claude/Projects/Company Builder - Hotel Ideas/run-1/research/organic-forums.md. Genuine channel gaps found: Hacker News, Quora, and Facebook groups yielded no usable hotel-specific signal despite targeted searches. LinkedIn public content on this topic is almost entirely vendor/consultant marketing (echoing owner pain as a sales hook) rather than organic first-person owner/asset-manager complaints -- this asymmetry is itself a notable meta-finding. BiggerPockets content mapping to candidates 3/4 is real but (a) skews small-residential rehab, not hotel/commercial, and (b) is dated 2013-2020, outside the 2023-2026 window; included as adjacent-market background only. The strongest, freshest, most rigorously verified signal is candidate 2 (PIP), from named C-suite conference speakers in Jan-March 2026. Two figures (15-30% rework premium; $8,000-$25,000/room PIP cost from Lodging Conference 2025 coverage) come only from WebSearch AI-summary snippets whose source pages I did not independently fetch -- both flagged [unclear] in the file and above, and should be re-verified before use in any financial model."
+   }
+  },
+  {
+   "kind": "scout",
+   "key": "scout",
+   "data": {
+    "new_candidates": [
+     {
+      "name": "FF&E Reserve Adequacy / Capital-Needs Forecasting (owner + lender-facing)",
+      "problem": "Hotel FF&E reserves (the standard 3-5%-of-revenue fund for furniture/fixture replacement required by management/franchise agreements) are chronically underfunded relative to actual capital need because the percentage-of-revenue formula ignores plant life-cycles and building age. A 2010 peer-reviewed study found reserves 40% underfunded; COVID-era drawdowns left many properties needing 5-7 years to recover to pre-pandemic reserve balances. Underfunded reserves cascade into deferred maintenance, brand-standard failures, and CMBS loan covenant/DSCR risk when actual reserves fall short of the 4% assumed in NOI calculations.",
+      "buyer": "Hotel owners/asset managers doing multi-year capital planning, plus a second buyer class not targeted by the seeded candidates: lenders and CMBS special servicers assessing collateral/covenant risk from reserve shortfalls.",
+      "wtp_signal": "Moderate-to-strong by analogy: the HOA/condo world has a mature, routinely-purchased product category ('capital reserve study,' several thousand dollars per engagement) for structurally the same problem. No standalone, purchasable 'hotel FF&E reserve study' SKU was found — the function currently only exists inside expensive bespoke asset-management engagements (e.g., HVS Asset Management / FIXVAR software), suggesting room for a lower-cost, standardized, self-serve product.",
+      "assessment": "Strongest of the newly surfaced ideas, but not a clean fifth candidate — it functions more as a better-evidenced extension of seeded candidate #2 (PIP cost-benchmarking) than a fully independent business: same core mechanic (forecasting brand-driven capital need vs. budget), extended to continuous (not just PIP-triggered) tracking and a second buyer (lenders). Also not empty space — HVS and similar consultancies already sell this as part of relationship-based advisory work, so the real wedge is 'standardized/cheaper,' not 'nobody does this.' Recommend folding into or pitching alongside candidate #2 rather than treating as standalone."
+     },
+     {
+      "name": "Renovation-while-open revenue-displacement ('soft displacement') underwriting model",
+      "problem": "Hospitality underwriting distinguishes 'hard displacement' (rooms out of service, unsold) from 'soft displacement' (guests leaving early, repeat guests avoiding the property, groups declining to book during renovation) — and soft-displacement costs are commonly described as excluded from renovation financial models, meaning renovation-while-open projects are systematically underweighted for disruption cost.",
+      "buyer": "Hotel owner/asset manager and lender/investor at renovation or acquisition-with-PIP underwriting stage.",
+      "wtp_signal": "Weak. No vendor found currently selling a dedicated soft-displacement modeling product, no explicit pricing or 'I would pay for this' quote located; evidence is mostly synthesis of trade commentary rather than sourced owner/lender complaints or a demonstrated market gap.",
+      "assessment": "Real, named blind spot in industry practice worth flagging, but evidence trail is too thin (no sourced complaints, no demonstrated vendor gap, no WTP data) to defend as beating the four seeded, better-evidenced candidates. Treat as exploratory/secondary, not primary — would need a sharper complaint trail (e.g., a specific deal where displacement-modeling failure caused a covenant breach) to justify promotion."
+     }
+    ]
+   }
+  }
+ ],
+ "critic": {
+  "pass": false,
+  "gaps": [
+   {
+    "gap": "Candidate 2 (PIP benchmarking) pain_score (6) may be understated relative to its own evidence base. The organic-trade-press and organic-forums sweeps independently and repeatedly concluded PIP is 'by far the best-evidenced organic-complaint theme' in hotel trade press for 2024-2026 (AAHOA advocacy, HAMA 90%-renovating survey, the June 2026 'PIP Breaking Point' feature, Hunter/ALIS 2026 conference quotes from named C-suite investment executives), yet the verify agent scored candidate 2 pain at 6/10 versus candidate 1 (change-order audit) at 7/10 even though candidate 1's headline pain stats (HKA CRUX 25.7%/31.1%) are Americas-wide, not hotel-specific, and the trade-press sweep explicitly found 'no hotel-specific trade-press article... discussing change orders as a distinct, named pain point.' The two pain scores were never reconciled against each other.",
+    "why_it_matters": "If pain intensity is a key input to picking which candidate to build, an internal inconsistency where the less hotel-specific pain claim scores higher than the more hotel-specific, more freshly-evidenced one could steer the business selection toward the wrong candidate.",
+    "suggested_action": "Have one agent (or the orchestrator) re-score pain_score for candidates 1 and 2 side-by-side using the same rubric, explicitly weighing 'hotel-sector-specific evidence' vs 'general-construction-sector evidence,' before finalizing a decision."
+   },
+   {
+    "gap": "No willingness-to-pay evidence anywhere in the four verification reports is a first-person 'I would pay $X for this exact tool' statement from a hotel owner/asset manager. All wtp_scores (4-6 range) are analyst inference from proxy signals (existence of consulting firms, existence of low-priced competitors, forum price complaints from non-hotel CRE developers).",
+    "why_it_matters": "WTP is the single most decision-relevant and hardest-to-fake signal for picking a business to build; scoring it 4-6 out of 10 across all four candidates on inference alone means the actual go/no-go decision has no direct demand validation behind it for any candidate.",
+    "suggested_action": "Before finalizing candidate selection, run a lightweight direct-demand check (e.g., search for any startup in this exact space that has disclosed paying customers/revenue, or look for hotel-owner-authored — not vendor-authored — LinkedIn/AAHOA-forum posts naming a price they'd pay) rather than relying solely on adjacent-market price complaints."
+   },
+   {
+    "gap": "Candidate 2's two direct live competitors (PIPGURU, PIPGENIUS) were verified to exist and have public pricing, but neither was checked for actual traction: no funding data, customer count, revenue, or founder/company background was found beyond one uncredited testimonial on PIPGURU's own site and a waitlist page for PIPGENIUS.",
+    "why_it_matters": "The competitive-threat assessment for candidate 2 currently can't distinguish between 'two well-capitalized, fast-growing direct competitors already own this niche' and 'two low-traffic solo-founder side projects with negligible real usage' — these two scenarios lead to opposite build/no-build conclusions, and the research doesn't resolve which is true.",
+    "suggested_action": "Do a targeted follow-up check (Crunchbase/LinkedIn company pages, founder LinkedIn activity, web-traffic estimate via a tool like similarweb-style search snippets, or app-store/G2 reviews) on PIPGURU and PIPGENIUS to gauge real-world traction before treating them as a 'squeezed wedge' blocker."
+   },
+   {
+    "gap": "HAMA's 'A Study of Capital Expenditures in the Hotel Industry,' independently flagged by both the c2 verification report and the organic-trade-press sweep as 'the industry's exclusive resource on hotel capital expenditures,' was never actually obtained — only its existence (via HAMA's homepage) was confirmed. It is paywalled/member-only.",
+    "why_it_matters": "This report almost certainly contains current, hotel-specific, primary-source PIP/capex benchmark figures that would either corroborate or contradict the dated (2016, 2024) figures currently being used as the pain-point evidence for candidate 2 — without it, the strongest quantitative pain claims for the best-evidenced candidate rest on decade-old anecdotes (HREC 2016, Magnuson 2016) plus a 2024 backlog estimate.",
+    "suggested_action": "Attempt to access or purchase the HAMA capex study (or find a secondary source quoting its figures) before finalizing pain-intensity scoring for candidate 2."
+   },
+   {
+    "gap": "For candidate 4 (GC track-record transparency), Business Screen was confirmed as an existing direct competitor offering nearly the identical feature set (litigation, liens, licensing, OSHA, adverse media) for commercial construction — but no check was done on whether Business Screen (or a similar vendor) already has hotel-industry customers specifically, nor was its pricing disclosed. The research also never verified whether any of the surety-side prequalification tools (COMPASS/1Form, TradeTapp, Highwire) are already used by hotel owners/developers as opposed to general commercial GCs/subs.",
+    "why_it_matters": "If Business Screen or an incumbent surety-prequalification tool is already serving hotel developers today, candidate 4 is not just facing generic competition but a proven substitute in the exact buyer segment — which would justify dropping the candidate entirely rather than just discounting its score.",
+    "suggested_action": "Search for any case study, press mention, or testimonial tying Business Screen (or COMPASS/TradeTapp/Highwire) specifically to a hotel ownership group or hotel REIT before making a final call on candidate 4."
+   },
+   {
+    "gap": "The organic Reddit sweep explicitly reported that the change-order (candidate 1) and lien-waiver (candidate 3) complaint categories 'came up dry' for genuine hotel/commercial-scale, first-person owner venting — most matching threads were residential flips or GC-side complaints about owners, not owner-side complaints about GCs on hotel-scale projects. This organic-evidence gap was not reconciled against the higher pain_score (7) and reasonable wtp_score (6) the verify agent assigned to candidate 1.",
+    "why_it_matters": "A candidate can look well-supported in a formal verification pass (industry reports, professional-services comps) while having essentially no organic grassroots complaint trail at the actual target buyer/scale — that's a meaningful signal the pain may be less acute or less top-of-mind for hotel owners specifically than the verify report implies, and it wasn't flagged as a contradiction anywhere in the materials.",
+    "suggested_action": "Flag explicitly in the final memo that candidate 1's pain evidence is strong at the industry-statistics/professional-services level but organically thin at the hotel-owner-complaint level, and weigh accordingly relative to candidate 2 which has both industry-statistics AND organic/conference-quote support."
+   }
+  ]
+ }
+}

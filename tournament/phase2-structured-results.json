@@ -1,0 +1,585 @@
+{
+ "ranking": [
+  {
+   "id": "E2",
+   "avg": 6.71,
+   "byJudge": {
+    "burned-owner": 6.95,
+    "asset-manager": 6.6,
+    "saas-operator": 6.6,
+    "construction-attorney": 6.95,
+    "data-skeptic": 6.45
+   }
+  },
+  {
+   "id": "E6",
+   "avg": 6.21,
+   "byJudge": {
+    "burned-owner": 6.7,
+    "asset-manager": 6.65,
+    "saas-operator": 6.35,
+    "construction-attorney": 6,
+    "data-skeptic": 5.35
+   }
+  },
+  {
+   "id": "E5",
+   "avg": 5.5,
+   "byJudge": {
+    "burned-owner": 6.1,
+    "asset-manager": 6.2,
+    "saas-operator": 5.1,
+    "construction-attorney": 5.2,
+    "data-skeptic": 4.9
+   }
+  },
+  {
+   "id": "E7",
+   "avg": 5.17,
+   "byJudge": {
+    "burned-owner": 5.35,
+    "asset-manager": 5.2,
+    "saas-operator": 4.5,
+    "construction-attorney": 5.4,
+    "data-skeptic": 5.4
+   }
+  },
+  {
+   "id": "E3",
+   "avg": 4.55,
+   "byJudge": {
+    "burned-owner": 4.45,
+    "asset-manager": 5.05,
+    "saas-operator": 4,
+    "construction-attorney": 4.9,
+    "data-skeptic": 4.35
+   }
+  },
+  {
+   "id": "E1",
+   "avg": 4.5,
+   "byJudge": {
+    "burned-owner": 5.35,
+    "asset-manager": 4.85,
+    "saas-operator": 3.7,
+    "construction-attorney": 4.15,
+    "data-skeptic": 4.45
+   }
+  },
+  {
+   "id": "E4",
+   "avg": 3.83,
+   "byJudge": {
+    "burned-owner": 3.5,
+    "asset-manager": 4.2,
+    "saas-operator": 3.4,
+    "construction-attorney": 4.15,
+    "data-skeptic": 3.9
+   }
+  },
+  {
+   "id": "E8",
+   "avg": 3.01,
+   "byJudge": {
+    "burned-owner": 2.8,
+    "asset-manager": 3.4,
+    "saas-operator": 2.25,
+    "construction-attorney": 2.95,
+    "data-skeptic": 3.65
+   }
+  }
+ ],
+ "finalists": [
+  "E2",
+  "E6",
+  "E5"
+ ],
+ "duels": [
+  {
+   "id": "E2",
+   "side": "advocate",
+   "brief": "# Advocate Brief: E2 — PIP Bid Benchmark\n\n## The buyer, the moment, why now\nThe buyer is an independent or franchise hotel owner who just received a brand-mandated Property Improvement Plan and needs to know, in days, whether the number is fair before they sign or fight it. This is not a \"someday\" pain — it's a deadline-bound, six-to-seven-figure decision. The evidence that this moment is acute *right now*, in 2026, is the strongest part of this candidate's case:\n\n- A **$48B wave of CMBS hotel loan maturities in 2025-2026** (with **$18.7B / 596 loans maturing in 2026 alone, ~70% floating-rate**, per Trepp-sourced figures cross-checked across three secondary outlets) is colliding with brand PIP mandates on the same properties at the same time (`gapfill-hama-capex.md`, §4b).\n- Trade press independently confirms owner distress in this exact window: Skift's \"The Squeeze: Inside the Crisis Crushing America's Hotel Owners\" (April 13, 2026, directly findable at skift.com) and \"Going It Alone: Why Hotel Owners Are Dropping The Big Brands\" (June 28, 2026) both frame PIP/fee pressure as a driver of owners abandoning brand agreements (`gapfill-hama-capex.md`, §4a).\n- The industry's own capex benchmark (ISHC CapEx 2023, HAMA/ISHC-produced) shows actual capex running **~8% of revenue (9.2% full-service, 10.6% resort)**, roughly double the old 4% reserve convention most owners budgeted against — meaning most owners are underfunded when the PIP letter arrives (`gapfill-hama-capex.md`, §1c).\n- Real-dollar stakes are well-documented even if some cite figures are dated: Lee Hunter (Hunter Hotel Advisors) is repeatedly cited at **$35-40K/key** for mid-market select-service PIPs (`candidate2-pip-benchmarking.md`, #2), and per the Critic's Gap 1 ruling, judges are directed to weight hotel-sector-specific evidence like this above general-construction evidence (`critic-gaps.md`, Gap 1).\n\n## The wedge vs. incumbents\nTwo direct competitors exist — PIPGURU and PIPGENIUS — which is itself validation that owners want this. But the gap-fill traction research is unusually clear: both are **pre-revenue, pre-launch landing pages, not operating businesses**. Neither has a named founder, LinkedIn presence, Crunchbase/funding record, G2/Capterra review, Wayback Machine snapshot, or verified paying customer; PIPGURU's own purchase buttons all route to a waitlist, and PIPGENIUS is explicitly \"private beta\" with acknowledged fictional demo data (`gapfill-competitor-traction.md`, summary table). This is a wide-open niche with proven demand-testing but no entrenched incumbent — the rare case where competitors *validate* the market without *occupying* it.\n\n## Willingness to pay — the honest anchor\nNo first-person owner quote naming a price was found anywhere (`gapfill-direct-demand.md` explicitly flags this as unresolved). But the proxy evidence is solid: owners currently pay **$5,000-$15,000 per consultant PIP estimate** (2-3 week turnaround), a figure corroborated across Beyer Brown's real, named-client PIP-advisory business and multiple aggregator sources (`gapfill-direct-demand.md`, §3). A tool priced at $50-$500 undercuts that by 10-100x while beating turnaround by weeks — the same wedge PIPGURU is already (unsuccessfully, per traction data) attempting to occupy.\n\n## Why a solo founder ships v1 this month\nThe data dependency is bounded and public: brand PIP requirements, per-key/per-room cost ranges, and hotel-tier cost tiers are the same categories PIPGURU's page already demonstrates are buildable from public/licensable cost data (66+ brands, 200+ line items, 6 tiers) without a network effect or proprietary data wall. A benchmarking calculator plus a pushback/negotiation memo generator is a scoped, buildable v1 — no licensing wall, no cold-start problem, and a reachable buyer (AAHOA membership, franchise-owner LinkedIn titles, ALIS/Hunter conference attendee lists).\n\n## The honest caveat\nThe strongest headline pain anecdotes (HREC's $2M→$6-8M, Magnuson's elevator-PIP-as-15%-of-revenue) are decade-old and should not be marketed as current pricing (`candidate2-pip-benchmarking.md`, Key Risks #2). The case for E2 rests on: real 2026 macro pressure (CMBS wave + tariff-driven cost inflation, `gapfill-hama-capex.md` §3a-c), a genuinely undefended niche (competitors validate demand but haven't captured it), and a well-bounded, buildable v1 — not on inflated pain statistics."
+  },
+  {
+   "id": "E2",
+   "side": "skeptic",
+   "brief": "I have enough evidence now. Let me write the skeptic brief.\n\n**KILL CASE — E2 (PIP Bid Benchmark)**\n\n**The category is already served, and by \"competitors\" whose own weakness cuts both ways.** Two direct, live products — PIPGURU and PIPGENIUS — sell exactly this pitch today at $25–$200/mo, with identical stats (66+ brands, 200+ line items, ±20% variance) and near-identical hero copy, strongly suggesting one operator built both as test variants (`gapfill-competitor-traction.md`, §\"Note on similarity\"). This is Gap 3 fully resolved, and it cuts against E2 two ways at once. First, it kills the \"underserved niche\" story: PIPGURU's own positioning ($25–$200/mo vs. a $5–15K consultant fee) already anchors the exact price point a new entrant would pitch — there's no white space to charge more, and undercutting further makes solo-founder economics worse, not better. Second — and the advocate will lean on this — both sites are unlaunched (all CTAs route to waitlists), unfunded, un-reviewed, with zero Wayback Machine footprint (`gapfill-competitor-traction.md`, lines 176-263). But \"no one has proven this can be sold\" is not evidence FOR E2; two independent attempts at this same idea have sat at zero verified customers for long enough to accumulate no G2 reviews, no press, no social presence, no archive history. That is a demand signal too — just a negative one. Incumbent weakness here reads as \"market weakness,\" not \"mispositioned incumbent,\" which is exactly the trap rubric dimension 6 is designed to catch.\n\n**WTP is proxy-only and the verify agent scored it a 4/10** (`candidate2-pip-benchmarking.md`, line 137-138). Gap 2 remains explicitly unresolved after a dedicated gap-fill pass: \"no hotel-owner-authored LinkedIn post, AAHOA forum post, or conference-Q&A writeup\" naming a price paid for this exact outcome was found anywhere (`gapfill-direct-demand.md`, §2, lines 288-296). What owners demonstrably pay is either a $5-15K consultant (a wholly different product: a human, a report, a relationship) or, at the other extreme, 1-5% owner's-rep fees ($20K-$250K on a mid-size project) — neither anchors a solo-founder SaaS price. The only real market test at the SaaS price point is PIPGURU, and it has zero disclosed revenue.\n\n**The pain evidence supporting E2's score is itself compromised.** The verify report flags that the two most vivid, market-defining anecdotes cited for PIP sticker shock — HREC's \"$2M expected, $6-8M delivered\" and Magnuson's \"elevator eats 15% of annual sales\" — are both from August 2016, a decade old, and both had to be sourced via search-snippet extraction because CoStar and Hotel Management blocked direct fetch (403), meaning the underlying quotes were never independently confirmed against primary text (`candidate2-pip-benchmarking.md`, lines 9-16, 27-35, 132). The one genuinely current, hotel-specific number — Getzler Henrich's $12-15B CapEx/PIP backlog (Sept 2024) — is industry-wide aggregate framing, not evidence of an individual owner's desperation to buy a benchmarking tool. And the specific \"PIP cycles compressing 10yr→7yr\" claim that would make urgency feel structural and worsening could not be verified anywhere and may be fabricated in the original brief (line 49, \"Do not repeat it as fact without a named source\").\n\n**Reachability's biggest asset is legally contested, not owned.** AAHOA is the obvious channel, but the verify report found PIPs are NOT named among AAHOA's formal 12 Points of Fair Franchising, and its 2025 Policy Priorities page doesn't mention PIPs either (lines 91-92). The one current, concrete lever — the NJ \"Hotel Franchisee Fairness Act\" — is a legislative fight actively opposed by AHLA and the International Franchise Association, and a prior, milder version of similar NJ legislation already stalled without a Senate hearing (lines 96, citing Hotel Dive). A solo founder can't ride a bill that industry lobbying groups are working to kill.\n\n**Weakest load-bearing assumption:** that \"PIPGURU/PIPGENIUS being unfunded proves the field is open.\" It equally proves that two attempts to monetize this exact wedge, run since at least Q1'25 data, have produced no verifiable customer, no case study, and no press — an 18-month-plus null result sitting in plain sight (`gapfill-competitor-traction.md`).\n\nFiles: `run-1/research/candidate2-pip-benchmarking.md`, `run-1/research/gapfill-competitor-traction.md`, `run-1/research/gapfill-direct-demand.md`, `run-1/research/critic-gaps.md` (Gaps 2, 3)."
+  },
+  {
+   "id": "E6",
+   "side": "advocate",
+   "brief": "# Advocate Brief: E6 — Capex Defense Combo (Reserve-Adequacy Forecasting + PIP Bid Benchmarking)\n\n## The buyer and the moment\nThe buyer is the same owner/asset manager the whole tournament targets, but E6 catches them twice: continuously (is my FF&E reserve actually enough) and acutely (is this specific PIP bid fair). That's deliberate — a subscription tied only to the PIP moment churns the day the PIP is settled; a reserve-forecasting layer gives a reason to stay subscribed between PIPs. `research/new-candidate-scout.md` §4 frames this explicitly: the FF&E-reserve angle \"reads better as an enhancement to candidate #2... extended to a continuous (not just PIP-triggered) planning cadence.\" E6 is that combination, built as designed.\n\n## Why now (2026)\nThree independently-verified, dated 2026 forces converge on this buyer this year:\n- **A live CMBS refinancing wave**: Trepp-sourced data shows $18.7B / 596 hotel-backed CMBS loans maturing in 2026 alone, ~70% floating-rate, ~$5.7B fixed-rate sub-6% coupons facing 6-8% refinancing — corroborated across three secondary outlets (`gapfill-hama-capex.md` §4b). Lenders re-underwriting these loans need to know if the collateral's reserve is real.\n- **Tariff-driven cost inflation, directly fetched**: Cushman & Wakefield (fetched directly, dated April 7, 2026) shows construction materials costs up 6.0% vs. 2024 baseline (peaked at 9.0% in summer 2025); Art One Mfg (fetched directly, May 2025) confirms tariffs up to 145% on China-sourced hospitality furniture (`gapfill-hama-capex.md` §3a-b). Every dollar of stale reserve math gets worse this year, not better.\n- **The reserve math itself is proven stale and quantified**: the ISHC/HAMA CapEx 2023 study (fetched via multiple corroborating trade outlets) found actual hotel capex running 8% of revenue overall (9.2% full-service, 10.6% resort) against the industry's traditional 4% reserve convention — explicitly designed to show \"4% reserves 'not enough'\" (`gapfill-hama-capex.md` §1). Separately, peer-reviewed research (Jones et al., 2010) found FF&E reserves ~40% underfunded structurally (`new-candidate-scout.md` §4). This isn't a vendor claim — it's the industry's own benchmark body making the case for E6's premise.\n\n## The wedge vs. incumbents\nThe PIP-benchmarking side of E6 has two named \"competitors\" — but the evidence says they're not real incumbents yet. `gapfill-competitor-traction.md` found PIPGURU has no named founder, no company entity, no funding, no G2/Capterra listing, no Wayback Machine snapshot, and every purchase button routes to a waitlist — despite displaying live-looking pricing. PIPGENIUS is earlier-stage still: explicitly \"private beta,\" zero testimonials, acknowledged fictional demo data. Both read as unlaunched idea-validation pages, not operating businesses. That's a genuine opening: the exact positioning (66+ brands, 200+ line items, instant estimate) is validated as sellable by two other builders' own landing-page choices, but nobody has actually shipped and sold it yet.\n\nOn the reserve-forecasting side, the only incumbent is HVS's Asset Management retainer ($2,500–$20,000/month or 50–100bps of revenue) — which bundles capex planning into a full-service relationship rather than selling it as a standalone, lower-cost SKU (`gapfill-direct-demand.md` §4). No self-serve \"hotel reserve study\" product exists, despite the adjacent HOA reserve-study category being a mature, routinely-purchased $1,200–$6,000 product (`gapfill-direct-demand.md` §3). That gap — mature analog category, no hotel-specific self-serve SKU — is the second buyer's wedge, and it's a buyer (lenders/CMBS servicers) none of the other seven entrants target.\n\n## Why a solo founder ships v1 this month\nThe data backbone is already proven buildable at solo scale: PIPGURU's public site demonstrates that a 66-brand, 200-line-item PIP cost database is assemblable without an institutional team (no funding, no disclosed staff) — a solo founder can replicate or exceed that scope using the same public trade-press/consultant-fee anchors this research already surfaced ($5K-$15K consultant estimates, Hunter's $35-40K/key, ISHC's 8%/9.2%/10.6%/7.2% segment benchmarks). The reserve-forecasting model is a spreadsheet-grade calculation (revenue × building age/life-cycle curve vs. ISHC's published segment percentages) — no proprietary data license required, no cold-start network effect, and no licensing wall, satisfying the rubric's buildability bar directly.\n\n## Honest limits\nNo first-person owner WTP quote exists anywhere (`gapfill-direct-demand.md` — Gap 2 unresolved); pricing must be inferred from consultant-fee/HOA analogs, not confirmed demand. The Hunter $35-40K/key figure's date remains unconfirmed. These are real gaps, not disqualifying ones — but the advocate case rests on analog and benchmark evidence, not a verified \"I would pay $X\" statement."
+  },
+  {
+   "id": "E6",
+   "side": "skeptic",
+   "brief": "# Skeptic Brief: E6 — Capex Defense Combo (Kill Case)\n\n**The load-bearing assumption to attack:** that bundling PIP benchmarking (recurring-acute) with FF&E reserve forecasting (recurring-passive) into \"one subscription\" creates a stronger business than either alone. The evidence says the opposite — it stacks two individually-weak WTP cases onto two different buyer motions, without a shred of evidence anyone asked for the bundle.\n\n**1. Neither half clears WTP on its own.** The PIP half: `candidate2-pip-benchmarking.md` scores it WTP 4/10 and names two *live* direct competitors — PIPGURU ($25–$200/mo, 66+ brands, 200+ line items) and PIPGENIUS (private beta, waitlist) — already selling exactly this wedge at SaaS-compressed prices. `gapfill-competitor-traction.md` shows both are pre-revenue landing pages, which cuts two ways: yes, they're beatable, but it also means the \"market\" validating this price point is two unfunded, no-customer waitlists, not a proven revenue model. The reserve half: `new-candidate-scout.md` §4 is explicit that this \"is not truly empty space\" — HVS already sells capital-plan forecasting bundled into its $2,500–$20,000/month asset-management retainer (`gapfill-direct-demand.md` §4), and the scout's own bottom line is that this angle \"reads better as an enhancement to candidate #2 than as an independent fifth business.\" That is not the same claim as \"these two should ship as one combined subscription\" — the scout never tested or endorsed the bundle itself.\n\n**2. No first-person WTP evidence for either component, let alone the combo.** `gapfill-direct-demand.md` states plainly: \"No first-person, price-specific owner statement was located anywhere... this remains an open gap\" — the critic's Gap 2 is explicitly unresolved. Every number cited (consultant fees $5–15K, owner's-rep 1–5%, HOA reserve studies $1,200–$6,000) is a proxy for adjacent human labor, not evidence a buyer wants a bundled software subscription for both problems at once.\n\n**3. The bundle's two halves have mismatched cadence and mismatched buyers — the rubric's own Asset Manager persona flags this.** PIP benchmarking is bought episodically, by an owner-operator, at the moment a PIP letter lands — a credit-card, self-serve motion. Reserve forecasting is a continuous, portfolio-level planning function bought (per the scout's own framing) by asset managers and lenders/CMBS special servicers — an institutional procurement motion that has to pass through a corporate vendor process, per the rubric's Asset Manager scoring lens (\"can this get through a corporate vendor process, or is it a credit-card SaaS?\"). E6's pitch — \"one subscription spanning the recurring need and the acute need\" — assumes the same buyer wants both cadences from the same vendor. No evidence file shows a single buyer persona expressing that preference; it's a product-design assumption, not a validated one.\n\n**4. The authoritative data source the forecasting engine would need credibility from is paid, member-only, and stale.** `gapfill-hama-capex.md` confirms the HAMA/ISHC CapEx study — the industry's only rigorous capex benchmark — is a **paid, ~$1000+ purchasable PDF**, last updated November 2023 on 2018–2022 data, with no 2024 or 2025 edition. A solo-founder v1 built on \"free/available data\" (the rubric's buildability bar) either can't access the credible benchmark at all, or has to license a paid report before it can make a defensible forecast — undercutting the \"ship this month, no outside spending\" premise the whole tournament is built on.\n\n**5. Reachability collapses for the second buyer.** The rubric weights reachability at 15% specifically because a \"definable buyer you can find and contact cheaply\" matters. Independent owners are reachable via AAHOA/franchise directories/LinkedIn — fine. But CMBS special servicers and institutional asset-management shops are not a cheap-outreach channel; no file in this research documents any accessible, low-cost path to that buyer. E6 counts lenders as \"a second market,\" but that market is the hardest one here to reach solo, and no evidence file even attempts to show otherwise.\n\n**Bottom line:** E6 takes a mid-evidenced, price-compressed, already-competed-in product (PIP, WTP 4/10, two live rivals) and welds it to a second idea its own scout called \"not an independent business\" and still served by incumbents (HVS), on the unverified assumption that one buyer wants both on one subscription. That's added build scope and added buyer-mismatch risk with no incremental evidence of demand — the opposite of what a combination entrant should buy you."
+  },
+  {
+   "id": "E5",
+   "side": "advocate",
+   "brief": "# Advocate Brief — E5: FF&E Reserve / Capital-Needs Forecaster\n\n## The buyer and the moment\nTwo buyers, not one. (1) The owner/asset manager doing annual capital planning — a continuous, non-optional budgeting cycle, not a one-time event. (2) Lenders/CMBS special servicers assessing collateral risk on hotel loans — a buyer none of the other seven entrants target. The moment for buyer (2) is unusually concrete right now: Trepp-sourced data shows **$18.7B of hotel-backed CMBS loans (596 loans) maturing in 2026, ~70% floating-rate**, refinancing into a 6–8% rate environment (`gapfill-hama-capex.md`, §4b — flagged as search-index-corroborated, not primary-fetched, but cross-checked across 3 independent secondary outlets). A lender re-underwriting a maturing hotel loan needs to know whether the reserve on the books actually covers the capital need — that's this product's exact question.\n\n## The wedge vs incumbents\nThe mechanism this product forecasts is independently validated by the industry's own benchmark study: the **ISHC/HAMA CapEx 2023 study** (6th edition, Nov 2023, 700–900 hotels, 2018–2022 data) found actual capex running **~8% of revenue overall (9.2% full-service, 10.6% resort, 7.2% airport)** — roughly double the traditional 4% reserve convention lenders and management agreements assume (`gapfill-hama-capex.md`, §1). A peer-reviewed 2010 study (Jones et al., *Accounting & Finance*) put FF&E reserves at **40% underfunded**, and The Plasencia Group directly quotes depleted reserve accounts risking \"aging properties that fail to meet brand standards, potentially leading to properties being dropped by hotel chains\" (`new-candidate-scout.md`, §4). This isn't a hypothetical gap — it's a documented, quantified, structural mismatch between the formula owners use and the capital they actually need.\n\nCrucially, this isn't empty space, which is itself evidence of a real market: **HVS already sells this as an asset-management retainer at $2,500–$20,000/month, bundled, not sold as a standalone deliverable** (`gapfill-direct-demand.md`, §4, citing hvs.com directly). No self-serve, standardized SKU exists for hotels. The proof that people pay for exactly this deliverable in an adjacent industry is the mature **HOA capital reserve study** market — a well-corroborated $1,200–$6,000-per-study category that many HOAs are legally required to purchase (`gapfill-direct-demand.md`, §3, multiple convergent sources). That's the wedge: take a proven, purchasable category and bring the missing standardized version to hotels, undercutting HVS's bundled-retainer price by an order of magnitude, the same way PIPGURU undercuts $5–15K PIP consultant fees with a $25–$200/mo tool (`gapfill-direct-demand.md`, §1) — direct evidence that hotel buyers will substitute cheap software for expensive advisory in this exact cost category.\n\n## Why now (2026)\nThree forces converge: (1) the $18.7–48B CMBS maturity wave forcing lenders to re-underwrite reserve adequacy this year (`gapfill-hama-capex.md`, §4b); (2) tariff-driven construction/FF&E cost inflation (steel +11.9% in 2025, materials +6–9% vs. 2024 baseline per Cushman & Wakefield, directly fetched — `gapfill-hama-capex.md`, §3a) widening the gap between the old 4% formula and real replacement cost; (3) Skift's directly-titled, currently-running \"Squeeze\" and \"Going It Alone\" series (April–July 2026) documenting owners abandoning big-brand agreements partly over capital-mandate pressure — a live, dated trade-press narrative, not history.\n\n## Shipping v1 this month, solo\nA v1 doesn't need the paywalled ISHC dataset. It needs: a public plant-life-cycle/useful-life table (widely published in engineering/FF&E literature), building age and room count (public/owner-input), and the now-public **ISHC benchmark ratios themselves** (8% overall, segment breakouts by property type — already reported in press, usable as a public comparison layer) to output a \"your reserve vs. your likely need\" gap report — the same shape as an HOA reserve study, generated on demand instead of commissioned. That's a calculator-plus-report web app, buildable solo in weeks.\n\n## Honest caveat\nThis is evidenced as \"the strongest of the new angles\" by the scout's own assessment, but it explicitly reads better as an extension of PIP-benchmarking (bundle continuous reserve tracking with PIP-moment benchmarking) than as a fully independent business, and no first-person owner or lender WTP quote exists for this specific product (gapfill-direct-demand.md, applies here as it does to all entrants). The case rests on adjacent-category pricing analogs and a hotel-specific benchmark study, not a confirmed buyer statement."
+  },
+  {
+   "id": "E5",
+   "side": "skeptic",
+   "brief": "# Skeptic Brief — E5 (FF&E Reserve / Capital-Needs Forecaster)\n\n## The single load-bearing assumption, and why it doesn't hold\n\nE5's whole case rests on one inference: \"the HOA reserve-study category proves hotel owners/lenders will pay for a standalone FF&E capital-needs forecast.\" That analogy is imported from a different industry with a different legal trigger (many states *mandate* HOA reserve studies) — no such mandate exists for hotels. The scout who originated E5 admits this directly: \"neither new candidate clearly beats the four seeded ideas on evidence strength... it reads better as an enhancement to candidate #2 than as an independent fifth business\" (`new-candidate-scout.md`, §4 and Summary judgment). That's the researcher who built the bull case concluding, unprompted, that E5 isn't a real fifth company. Judges scoring E5 as a standalone should weight that self-assessment heavily.\n\n## No organic pain trail at all\n\nThe scout explicitly notes \"Reddit/forum searches for this niche returned essentially nothing usable\" (`new-candidate-scout.md`, line 3) and the FF&E-reserve section itself contains zero owner-voiced complaints — every citation is a consultant firm (Plasencia Group, HVS, hoteldevelopmentguide.com) or a 2010 academic paper (Jones et al., `new-candidate-scout.md` §4). Compare this to C2/PIP, which the critic explicitly ranked above C1 for having \"named C-suite quotes at Hunter/ALIS 2026\" and organized owner advocacy (`critic-gaps.md`, Gap 1). E5 has no equivalent — not even the thin trail C1 had. On the rubric's heaviest-weighted dimension, Pain (20%), E5 is evidenced entirely by industry-consultant commentary about owners, never by owners.\n\n## The data source the entire model depends on is stale and paywalled\n\nE5's pitch is \"model actual FF&E/capex need... vs the 3–5%-of-revenue formula.\" The only hotel-specific benchmark that could feed that model is the ISHC/HAMA CapEx study — and `gapfill-hama-capex.md` establishes it is (a) paid/purchasable, not public data a solo founder can build on for free, and (b) last published November 2023 on 2018–2022 data, with \"no 2024 or 2025 edition found\" as of 2026-07-18 (§1a, §1c). The rubric's Buildability dimension (15%) demands \"free/available data; no licensing wall.\" E5 fails this more acutely than C2: at least PIP per-key figures circulate in trade press; the actual life-cycle/capex-need benchmarking data E5 needs to differentiate from \"just apply 8%\" sits behind a paywall the founder would have to buy into repeatedly to stay current.\n\n## Not empty space — the actual competitor is a full-service retainer, not a SaaS tool\n\n`gapfill-direct-demand.md` §4 confirms HVS Asset Management already sells this exact function — capital-plan development bundled into a $2,500–$20,000/month (or 50–100bps of revenue) retainer — and states plainly \"there is no separate line-item price for capital planning/capex advisory... bundled into the general asset-management retainer, not sold standalone.\" That's an incumbent who owns the relationship, not a mispositioned or overpriced point solution (the rubric's Incumbent Weakness dimension, 15%, wants the latter). Owners who need this today are already inside an advisory relationship; the wedge is \"cheaper, self-serve, standalone,\" but nothing in the evidence shows an owner asking for that unbundling.\n\n## Two buyers means two unbuildable GTM motions, not one\n\nE5's differentiator over C2 is a second buyer — lenders/CMBS special servicers. But no evidence file names a reachable channel for that buyer (no directory, association, or LinkedIn-title path is cited anywhere in `new-candidate-scout.md` or the gap-fills), while the rubric's Reachability dimension (15%) demands exactly that. Meanwhile the $18.7B/$48B CMBS maturity-wave evidence (`gapfill-hama-capex.md` §4b) is corroborated only via search-index snippets, not a single directly-fetched primary source — thin enough that the \"urgent lender need\" argument is speculative, not documented.\n\n## Urgency is structurally weaker than the entrant it's supposed to beat\n\nRubric Urgency (15%) rewards \"an active bleeding moment with a deadline.\" A reserve-adequacy forecast is a continuous, background concern; a brand-mandated PIP is not. E5 borrows PIP's urgency by bundling with C2 (as E6 does explicitly) but has none of its own — which is exactly why the scout concluded E5 is \"a stronger, better-evidenced framing of candidate #2\" rather than an independent business (`new-candidate-scout.md` §4). As a standalone entrant, E5 should lose to C2 on Urgency, Reachability, and Buildability simultaneously.\n\n**Bottom line:** E5 is real research pointing at a real structural problem, but as a standalone company it has no first-person pain, no free/current data source, an incumbent that already owns the exact deliverable via retainer, and an unreachable second buyer segment. Its own author says it isn't a fifth business."
+  }
+ ],
+ "votes": [
+  {
+   "winner": "E2 — PIP Bid Benchmark",
+   "runner_up": "E5 — FF&E Reserve / Capital-Needs Forecaster",
+   "reasoning": "All three finalists carry real, unrebutted weaknesses — none of the briefs deliver a clean win. The job is picking the least-fatal one with the most buildable, bounded v1.\n\nE6 (the combo) is the weakest of the three despite sounding like \"more validated surface area.\" It doesn't add independent evidence — it welds together two already-weak WTP cases (E2's 4/10-scored WTP and E5's zero-organic-pain-trail case) and layers on a bundling assumption (\"one subscription for both cadences\") that no evidence file tests or endorses. The skeptic's strongest point is unrebutted: E6's own source material (`new-candidate-scout.md`) says the reserve-forecasting angle \"reads better as an enhancement to candidate #2 than as an independent fifth business\" — i.e., the researcher who invented this angle didn't think it was a standalone company, let alone a bundle. E6 also inherits the worst buildability problem in the set (the ISHC/HAMA capex benchmark that both PIP and reserve modeling lean on is a paid, ~$1000+, stale Nov-2023 report — a real licensing wall) and adds a buyer-mismatch problem (self-serve owner vs. institutional lender/CMBS servicer, with no reachability evidence for the latter) that neither component alone has to solve. Added scope, added risk, no added proof of demand. Eliminated.\n\nE5 (reserve forecaster alone) has a genuinely fatal, unrebutted problem: zero organic owner pain trail anywhere in the research (\"Reddit/forum searches... returned essentially nothing usable\"), every citation is a consultant firm or a 2010 academic paper, not an owner voice — this is the rubric's heaviest-weighted dimension (Pain, 20%) failing outright. Layer on: the one incumbent that matters (HVS) already owns this exact deliverable via a bundled retainer, not as a mispositioned point solution; the second buyer (lenders/CMBS servicers) has no documented reachable channel anywhere in the evidence; and the core benchmark data is the same paywalled/stale ISHC report. Most damning, E5's own originating researcher concludes it \"isn't an independent business.\" A brief whose own evidentiary source disowns the standalone framing shouldn't be crowned, but it's a coherent, distinct idea worth keeping as runner-up because the underlying structural insight (reserves running ~half of actual need) is real and well-corroborated, just not proven as a fundable solo v1 this month.\n\nE2 survives as winner not because its skeptic brief is toothless — it isn't — but because its kill case is an interpretation, not a fact. The claim that PIPGURU/PIPGENIUS's 18-month stall at zero revenue proves \"no white space\" is plausible but equally consistent with weak execution/marketing by whoever built two near-identical unlaunched landing pages; the advocate's read (validated demand, uncaptured niche) is at least as supportable given neither site has a named founder, funding, or any real go-to-market motion. Everything else about E2 is the strongest evidence in the tournament: the \"why now\" case is 2026-dated and cross-corroborated (CMBS maturity wave, tariff-driven cost inflation, live Skift trade coverage from this year), the dollar stakes are real and named (Hunter Hotel Advisors' $35-40K/key), and the v1 (benchmarking calculator + negotiation memo) is scoped, buildable on public/circulating data with no paywall dependency, and has a plausible reachable buyer (AAHOA membership, franchise-owner LinkedIn, ALIS/Hunter conference lists) even if that channel isn't airtight. WTP being proxy-only (4/10) is a real gap but it's shared by all three finalists equally — it doesn't differentiate against E5/E6, both of which have the identical unresolved gap plus worse problems layered on top.",
+   "conditions": [
+    "Before/during design, run a cheap pre-sales or landing-page test to determine whether PIPGURU/PIPGENIUS's zero-traction stall reflects genuine lack of demand or just weak execution/marketing on their part — do not assume the market is open without this check.",
+    "Do not market or price using the decade-old pain anecdotes (HREC's $2M-to-$6-8M, Magnuson's 15%-of-revenue elevator PIP) — restrict headline claims to 2025-2026-dated sources (CMBS maturity data, Cushman & Wakefield tariff figures, current Skift coverage).",
+    "Actively seek at least one first-person, price-specific owner statement (LinkedIn post, AAHOA forum, conference Q&A) before finalizing pricing — this remains the single biggest unresolved evidence gap across all three finalists and directly determines whether $50-500/mo pricing is realistic.",
+    "Differentiate explicitly and visibly from PIPGURU and PIPGENIUS in positioning (e.g., faster turnaround, negotiation/pushback memo generator, credibility signals like named consultant partnerships) since current public positioning is nearly identical to both.",
+    "Confirm a concrete, low-cost reachability path (AAHOA member list access/cost, ALIS/Hunter attendee list access, or franchise-owner LinkedIn search volume) before assuming distribution is solved — PIPs are not on AAHOA's formal Fair Franchising agenda, so this channel is not guaranteed.",
+    "Keep v1 scope to the PIP benchmarking calculator plus negotiation memo only — do not fold in the FF&E reserve-forecasting feature (E6's combo) this month absent direct evidence that the same buyer wants both in one subscription."
+   ]
+  },
+  {
+   "winner": "E2 — PIP Bid Benchmark",
+   "runner_up": "E6 — Capex Defense Combo",
+   "reasoning": "Judging on evidence quality rather than rhetoric, the deciding factor is that E5 and E6 each carry a kill point their own advocate never actually rebuts: the scout who originated the reserve-forecasting angle explicitly wrote, in the underlying research file, that it \"reads better as an enhancement to candidate #2... than as an independent fifth business\" (new-candidate-scout.md, section 4). That is not a skeptic's spin — it is the source research disowning the entrant as a standalone company, and both advocate briefs quote it under \"honest limits\" without managing to explain it away. Layered on top, both E5 and E6 depend for credibility on the ISHC/HAMA CapEx benchmark, which gap-fill research confirms is a paid, roughly $1,000+ report last updated November 2023 on 2018-2022 data with no current edition (gapfill-hama-capex.md, section 1). That is a direct violation of the rubric's Buildability requirement (\"free/available data; no licensing wall\"), and neither advocate brief rebuts it beyond gesturing at \"public ratios already reported in press.\" E6 additionally stacks a second, institutional buyer (lenders/CMBS special servicers) for which no evidence file names any reachable, low-cost channel — a clean miss on the 15%-weighted Reachability dimension that its advocate brief never addresses, and the skeptic brief's point that PIP (self-serve, credit-card) and reserve-forecasting (institutional procurement) are mismatched buyer motions goes unrebutted. These are structural, unrebutted problems, not rhetorical ones, and the rubric's own instruction is not to crown an entrant whose kill case survives unrebutted.\n\nE2's skeptic case is real but survivable by comparison. Its strongest point — that PIPGURU and PIPGENIUS already anchor a $25-$200/mo price point, so there is no white space to charge more — is genuinely double-edged, and the advocate brief engages it directly: both \"competitors\" are pre-revenue, waitlist-only landing pages with no named founder, no funding, no reviews, and no Wayback Machine footprint after 18+ months (gapfill-competitor-traction.md). That evidence supports either \"no demand\" or \"no one has executed yet\" — it is ambiguous, not a one-sided fatal blow, and a solo founder shipping a working product against two unlaunched waitlists is a materially different competitive position than shipping into an entrenched incumbent. E2 also has the most concrete, dated urgency evidence in the whole bracket (the 2026 CMBS maturity wave colliding with PIP mandates, corroborated across three secondary outlets, plus current 2026 Skift trade-press coverage of owner distress) and a genuinely bounded, licensing-wall-free build (public/trade-press PIP cost data, no proprietary dataset required). Its WTP is admittedly proxy-only (consultant fees, not a first-person quote), which is a real weakness shared by all three finalists in this bracket — but E2 is the only one of the three not also carrying a second, unrebutted structural defect (self-disowned business case, paywalled core data source, or an unreachable second buyer).\n\nRunner-up: E6, because despite its flaws it preserves E2's real urgency mechanism as its core acute moment and only adds the weaker reserve-forecasting layer as a retention hook, making it a lower-risk fallback than E5, whose entire premise the original scout most directly disowned as non-standalone and which has zero organic, first-person pain evidence of any kind (not even the thin trail E2 has).",
+   "conditions": [
+    "Ship v1 as a pure PIP-benchmarking calculator only — resist scope creep into reserve-forecasting or GC-dossier bundling until the core wedge has paying customers; the evidence base for any bundle is unrebutted-weak.",
+    "Before or during build, conduct 10-15 direct owner conversations (AAHOA members, ALIS/Hunter conference attendee outreach, franchise-owner LinkedIn) to get a first-person willingness-to-pay quote — this is the single biggest unresolved gap in the entire evidence file and must be closed before committing to a price point.",
+    "Monitor PIPGURU and PIPGENIUS for any signs of launch, funding, or customer traction; if either ships and gains real customers before Andrew does, the 'undefended niche' premise collapses and the plan needs revisiting.",
+    "Do not market using the decade-old anecdotes (HREC's $2M-to-$6-8M overrun, Magnuson's 15%-of-revenue elevator PIP) as current pricing, and do not repeat the unverified 'PIP cycles compressing 10yr to 7yr' claim as fact — both were flagged by the verify pass as unconfirmed or stale.",
+    "Differentiate explicitly from PIPGURU/PIPGENIUS on execution (speed, brand/line-item coverage depth, negotiation-memo output) since price alone cannot be the wedge — their $25-$200/mo already anchors the low end.",
+    "Do not lean on AAHOA as a guaranteed institutional channel — verify directly that PIPs are not part of AAHOA's formal advocacy positions before assuming a warm distribution path through it; treat it as a reachable audience list, not an endorsing partner.",
+    "Keep the product scoped to benchmarking/negotiation-support language, not legal or engineering opinions, to avoid unauthorized-practice and reliance-risk exposure the Construction Attorney persona would flag."
+   ]
+  }
+ ],
+ "panel_rationales": [
+  {
+   "judge": "burned-owner",
+   "scores": [
+    {
+     "entrant": "E1 — Change-Order Audit",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 5,
+     "wtp": 5,
+     "buildability": 6,
+     "incumbent_weakness": 4,
+     "rationale": "I've lived a surprise renovation overrun, so change-order pain is real to me personally — but the evidence file admits the headline stats (HKA CRUX 25.7%/31.1%) are Americas-wide general construction, not hotel-specific, and the Reddit sweep 'came up dry' on hotel-owner-level change-order venting (candidate1-change-order-audit.md; critic-gaps.md Gaps 1 and 6 both instruct me to discount this). Urgency is genuine — change orders hit mid-construction when I'm already bleeding cash — but reachability is soft since I'm only in that moment sporadically. WTP is capped: Baker Tilly/Moss Adams already sell independent change-order review as a consulting service I could hire for one project instead of subscribing to software (candidate1-change-order-audit.md), and my renovation frequency is too low to justify a recurring SaaS bill. Incumbent weakness is the real killer here — Procore shipped AI Contract Review + Triggers in May 2026 and ClearStory scaled to $3.5B/month in change-order flow, meaning the best-capitalized players in construction tech are one feature-add away from owning this outright (candidate1-change-order-audit.md)."
+    },
+    {
+     "entrant": "E2 — PIP Bid Benchmark",
+     "pain": 8,
+     "urgency": 7,
+     "reachability": 7,
+     "wtp": 5,
+     "buildability": 7,
+     "incumbent_weakness": 8,
+     "rationale": "This is the one that would actually get my credit card out — PIP is 'by far the best-evidenced organic-complaint theme' per the critic (critic-gaps.md Gap 1), with AAHOA advocacy, a HAMA 90%-renovating survey, named C-suite quotes at Hunter/ALIS, live NJ legislation restricting unjustified PIP capex mandates, and Skift's April-July 2026 'Squeeze'/'Going It Alone' series on brand-fee pressure driving owners to defect (gapfill-hama-capex.md, candidate2-pip-benchmarking.md). Urgency is high — a PIP letter comes with a brand deadline, the exact 'disputed invoice' moment I'd pay to de-risk. Reachability is strong: AAHOA, franchise directories, and conference circuits (Hunter, ALIS) are definable channels. WTP is held back by two live, low-priced direct competitors (PIPGURU $25-$200/mo, PIPGENIUS in beta) that already occupy this exact wedge at a price point I'd expect (candidate2-pip-benchmarking.md), though the gapfill-competitor-traction.md finding that both are unfunded, founder-anonymous, zero-Wayback-Machine waitlist pages with no live purchase button is the biggest reason to still enter — that's a wide-open, unguarded flank, not an established moat, which is why incumbent weakness scores highest of all entrants."
+    },
+    {
+     "entrant": "E3 — Draw & Lien-Waiver Tracker",
+     "pain": 5,
+     "urgency": 4,
+     "reachability": 4,
+     "wtp": 3,
+     "buildability": 6,
+     "incumbent_weakness": 5,
+     "rationale": "The double-payment/lien-waiver-gap pain is real and well-sourced (Levelset's 'absolutely useless' quote, Butzel Long's double-payment warning — candidate3-draw-lien-tracking.md), but as a 120-key owner I recognize myself directly in the Wall Street Oasis thread: commercial RE professionals explicitly calling Procore/Northspyre 'obscene[ly]' priced and saying real construction-software adoption is reserved for '$20B+ AUM' shops, while sub-$10M projects just run Excel (candidate3-draw-lien-tracking.md) — that's my segment, and it caps urgency and WTP hard. Reachability is muddy since the addressable buyer (mid-size owner with in-house construction accounting) is a narrower slice than the TAM implies. Buildability is fine (G702/G703 verification logic is well-understood), but incumbent weakness is only moderate: Built Technologies just shipped a well-funded ($1.5B valuation) AI Draw Agent already automating percent-complete-vs-draw checks, even though it currently sells to lenders not owners (candidate3-draw-lien-tracking.md) — that's a fast-follow risk, not an open field."
+    },
+    {
+     "entrant": "E4 — GC Track-Record Dossier",
+     "pain": 4,
+     "urgency": 3,
+     "reachability": 5,
+     "wtp": 3,
+     "buildability": 4,
+     "incumbent_weakness": 2,
+     "rationale": "The Tutor Perini $174.6M judgment is a genuinely dramatic anchor story (candidate4-gc-track-record.md), but this isn't a moment I'd pay for repeatedly — I pick a GC once a renovation cycle, and by the time I'm burned it's already litigation, not a SaaS subscription decision. Worse, the gapfill directly answers the critical open question from Gap 5: Business Screen already sells a near-identical multi-source screening product (litigation, liens, licensing, OSHA, adverse media) into construction/CRE, and while it has zero hospitality-specific case studies, that's a thin reed to bet a business on (gapfill-gc-competitors.md, candidate4-gc-track-record.md). Buildability is the real problem: state/county court dockets and mechanic's-lien records have no clean national aggregator, forcing either expensive UniCourt/Trellis subscriptions or a 50-state scraping build that's a genuine data-ops business, not a thin wrapper (candidate4-gc-track-record.md). With a live, well-established incumbent already selling this exact capability, incumbent weakness scores lowest of the field."
+    },
+    {
+     "entrant": "E5 — FF&E Reserve / Capital-Needs Forecaster",
+     "pain": 8,
+     "urgency": 4,
+     "reachability": 6,
+     "wtp": 6,
+     "buildability": 5,
+     "incumbent_weakness": 7,
+     "rationale": "This one stings personally: the HAMA/ISHC CapEx 2023 study found actual hotel capex running ~8-9% of revenue against a 4% reserve convention I was told was adequate, with full-service properties spending $6,160/room and reserves depleted enough that recovery could take five to seven years post-COVID (gapfill-hama-capex.md, new-candidate-scout.md) — that's exactly the surprise-overrun mechanism I lived through. But there's no acute deadline forcing my hand the way a PIP letter does, so urgency lags the pain score. WTP has real ceiling evidence via the HOA reserve-study analog ($1,200-$6,000, a mature purchased category — new-candidate-scout.md, gapfill-direct-demand.md), and reachability extends to a second buyer (lenders/CMBS servicers) who'd pay for covenant-risk visibility. Incumbent weakness is meaningful — HVS bundles this into $2,500-$20,000/month bespoke asset-management retainers rather than selling a standalone, self-serve SKU (gapfill-direct-demand.md, new-candidate-scout.md) — real whitespace for someone my size who can't afford HVS's full retainer."
+    },
+    {
+     "entrant": "E6 — Capex Defense Combo (C2 + scout A)",
+     "pain": 8,
+     "urgency": 6,
+     "reachability": 7,
+     "wtp": 6,
+     "buildability": 6,
+     "incumbent_weakness": 7,
+     "rationale": "This is the version of the pitch that would actually get me to sign up rather than just nod along — it pairs the acute PIP moment (where I'd open my wallet under deadline pressure) with the year-round reserve-adequacy tracking that would have warned me before my own overrun happened, inheriting E2's strongest-in-the-field pain and legislative evidence (candidate2-pip-benchmarking.md, gapfill-hama-capex.md) plus E5's HOA-analog WTP proof and HVS incumbent-weakness gap (new-candidate-scout.md, gapfill-direct-demand.md). Urgency and reachability track E2 closely since the PIP moment is what gets me in the door. Buildability is a notch harder than either alone since it's two feature sets, but they share underlying cost-benchmark data, so it's additive not multiplicative effort. My one hesitation as a single-property owner: do I need a 'continuous' subscription, or would I really only engage at PIP time and let the reserve-tracking module go unused between renovations — that's a retention risk the evidence doesn't fully resolve, but on paper this is the strongest combined case."
+    },
+    {
+     "entrant": "E7 — Construction Defense Combo (C2 + C1 + C4-lite)",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 6,
+     "wtp": 5,
+     "buildability": 5,
+     "incumbent_weakness": 4,
+     "rationale": "The lifecycle framing is intuitive — I do face PIP-bid, GC-selection, and change-order moments on the same project — but stapling together one strong leg (E2's PIP evidence) with two weaker ones drags the average down rather than lifting it: C1's pain is capped by Gap 6's finding that hotel-owner-level change-order complaints 'came up dry' organically, and C4's GC-vetting angle runs straight into an existing, well-established competitor (Business Screen) with real data-sourcing costs (candidate1-change-order-audit.md, candidate4-gc-track-record.md, gapfill-gc-competitors.md). Buildability suffers most from the combination — now I'd need PIP cost benchmarks, change-order market pricing, and a 50-state court/lien-record pipeline all in v1, which is a much bigger lift than any single leg (candidate4-gc-track-record.md). Incumbent weakness averages out worse than E6 because C1 faces fast-moving Procore/ClearStory and C4 faces an already-shipping Business Screen, while only the PIP leg faces genuinely weak (PIPGURU/PIPGENIUS) competition."
+    },
+    {
+     "entrant": "E8 — Soft-Displacement Underwriter",
+     "pain": 3,
+     "urgency": 2,
+     "reachability": 3,
+     "wtp": 2,
+     "buildability": 4,
+     "incumbent_weakness": 3,
+     "rationale": "The scout's own verdict here is the most honest signal: this is 'included for completeness' and explicitly assessed as too thin an evidence trail to advance (new-candidate-scout.md). The soft-displacement concept is real in principle — hospitality underwriting does distinguish hard vs. soft displacement, and the supporting SEC filings are from Lodgian's 2005-2009 10-Qs, a decade-plus stale (new-candidate-scout.md) — but there's no first-person owner complaint, no named vendor gap, and no pricing/WTP signal anywhere in the file. As the Burned Owner, this reads as an institutional underwriting-model exercise for lenders and PE sponsors, not something I'd personally pull out a credit card for at any recognizable moment — there's no invoice, no deadline, no dispute, just an analytical gap in someone else's spreadsheet. With no incumbents found in this space at all, I can't even score meaningful incumbent weakness — the market itself is unproven, which is a worse sign than a crowded field."
+    }
+   ]
+  },
+  {
+   "judge": "asset-manager",
+   "scores": [
+    {
+     "entrant": "E1",
+     "pain": 5,
+     "urgency": 4,
+     "reachability": 5,
+     "wtp": 5,
+     "buildability": 6,
+     "incumbent_weakness": 4,
+     "rationale": "As an asset manager overseeing 15 properties' capex, I'd buy tools that fit a recurring workflow, not a one-off audit. Applying critic-gaps Gap 1/Gap 6: the HKA CRUX 25.7%/31.1% stats (candidate1-change-order-audit.md) are Americas-wide general construction, not hotel-specific, and organic-reddit.md/organic-trade-press.md both confirm no hotel-sector complaint thread names change orders as a distinct pain point — so I'm discounting pain and urgency below the file's own 7/10. The Akerman brand-directive angle is real but thin. Procurement reality cuts against it too: Baker Tilly/Moss Adams already sell this as a billed consulting engagement my properties could already call on, and ClearStory ($3.5B/mo, 30k MAU per candidate1 file) plus Procore's May 2026 AI Contract Review/Triggers launch mean the credible incumbents are moving fast into this exact lane, not standing still — a solo entrant would be chasing a target that's accelerating away."
+    },
+    {
+     "entrant": "E2",
+     "pain": 8,
+     "urgency": 8,
+     "reachability": 7,
+     "wtp": 4,
+     "buildability": 6,
+     "incumbent_weakness": 7,
+     "rationale": "This is the best-evidenced hotel-specific pain in the whole file set: organic-trade-press.md's 'PIP Breaking Point' (Hospitality Investor, June 2026, intensity 9/10) ties PIPs to a $48B CMBS maturity wave and lender-scrutiny-of-FF&E-reserves dynamic I recognize directly from asset-management practice, and HAMA's Spring 2026 survey shows ~90% of my peer asset managers are mid-renovation right now — a real deadline-driven moment (sign the PIP or lose the flag), unlike a discretionary spend. Reachability is strong via AAHOA/HAMA/franchise directories. But willingness-to-pay is the problem for portfolio-scale procurement: gapfill-competitor-traction.md shows PIPGURU and PIPGENIUS already occupy this niche at $25-$200/mo — a price point too small to run through any real vendor-onboarding process (it's a credit-card toy, and a good one for a single-property owner, not something I'd bring to a 15-property capital committee) — and candidate2-pip-benchmarking.md's WTP score of 4/10 reflects that ceiling. Incumbent weakness is real and favorable, though: gapfill-competitor-traction.md found both competitors are unfunded, unlaunched-or-barely-launched waitlist pages with zero verified customers — a genuinely weak field to unseat."
+    },
+    {
+     "entrant": "E3",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 5,
+     "wtp": 5,
+     "buildability": 5,
+     "incumbent_weakness": 3,
+     "rationale": "Draw/lien-waiver discipline is exactly the kind of control an asset manager cares about across a portfolio — Levelset's 'absolutely useless' quote and the G2 Rabbet/Textura reviews (candidate3-draw-lien-tracking.md) confirm real, recurring percent-complete and multi-tier gaps. But the WSO thread in the same file is a serious procurement-reality warning: real commercial developers explicitly call Procore/Northspyre 'obscene[ly]' priced and say sub-$10M projects just use Excel, capping realistic willingness to pay for anything short of institutional scale. The bigger problem for buildability and incumbent-weakness is Built Technologies: a $1.5B-valuation, VC-backed player already shipped an AI 'Draw Agent' in Nov 2025 with U.S. Bank/Citi/Fifth Third as clients (candidate3 file) — that's a lender-side incumbent with real distribution and data scale that a solo founder cannot out-build in a month; the only opening is the untouched owner-side angle, which is narrower than the memo implies."
+    },
+    {
+     "entrant": "E4",
+     "pain": 5,
+     "urgency": 5,
+     "reachability": 5,
+     "wtp": 4,
+     "buildability": 3,
+     "incumbent_weakness": 3,
+     "rationale": "Applying Gap 5's mandate directly: gapfill-gc-competitors.md confirms Business Screen already sells 'Construction & Real Estate Due Diligence' covering mechanic's liens, litigation history, OSHA violations, and adverse media — functionally the same product this candidate proposes, even though it isn't hotel-branded. That kills the 'nobody aggregates this' premise the pitch depends on, and as an asset manager I already have access to comparable due-diligence vendors through my firm's existing procurement relationships, so there's no vendor-onboarding advantage to a hotel-flavored clone. The Tutor Perini $174.6M case (candidate4-gc-track-record.md) is a genuinely dramatic anchor, but it's still on appeal, and the Edgewater case shows litigation-history tools can just as easily surface owner mismanagement as GC malfeasance — a double-edged sword for the pitch. Buildability is the real killer: state/county court dockets have no free national aggregator, UniCourt/Trellis run $59-$400+/month retail with custom Enterprise pricing for volume, and mechanic's-lien records require a thousands-of-counties scraping pipeline — this is a genuine data-ops business, not a month-one solo build."
+    },
+    {
+     "entrant": "E5",
+     "pain": 7,
+     "urgency": 5,
+     "reachability": 7,
+     "wtp": 6,
+     "buildability": 6,
+     "incumbent_weakness": 6,
+     "rationale": "This is the dimension I know best, and it's the strongest standalone new idea in the file. The ISHC CapEx 2023 study (gapfill-hama-capex.md) confirms actual capex running ~8% of revenue blended (9.2% full-service, 10.6% resort) against a legacy 4% reserve convention — a structural underfunding gap I manage around on every one of my 15 properties, and it directly threatens brand-standard compliance and loan-covenant DSCR calculations (a second, lender-side buyer, per new-candidate-scout.md). Reachability is good precisely because there are two named buyer classes (asset managers via HAMA, CMBS special servicers) rather than one diffuse owner. The HOA reserve-study analog ($1,200-$6,000/study, well-corroborated in gapfill-direct-demand.md) proves people already pay real money for this exact deliverable in an adjacent asset class, and no equivalent standalone hotel SKU exists — HVS bundles it only inside an expensive $2,500-$20,000/month asset-management retainer (gapfill-direct-demand.md), leaving real whitespace for a lower-cost, self-serve, continuous version that could actually clear procurement as an annual subscription line item rather than a one-off consulting engagement."
+    },
+    {
+     "entrant": "E6",
+     "pain": 7,
+     "urgency": 7,
+     "reachability": 7,
+     "wtp": 6,
+     "buildability": 6,
+     "incumbent_weakness": 7,
+     "rationale": "From a portfolio-management seat, this is the most procurement-friendly design of the eight: a single continuous subscription spanning the chronic need (reserve adequacy, backed by the ISHC CapEx 2023 8%-vs-4% gap in gapfill-hama-capex.md) and the acute, calendar-driven need (PIP benchmarking, backed by the 'PIP Breaking Point' CMBS-wave evidence in organic-trade-press.md) is something I could justify as an annual line item across all 15 properties rather than a one-off card swipe — it survives budget review better than either half alone. Reachability benefits from targeting both owners/asset managers and lenders. The combination also diversifies away from PIPGURU/PIPGENIUS's narrow, weakly-differentiated live-competitor set (gapfill-competitor-traction.md shows both are unfunded waitlist pages) by adding the reserve-forecasting layer neither offers, which is the strongest incumbent-weakness case of any entrant. Buildability is only slightly harder than E2 or E5 alone since the two data pipelines are complementary, not redundant."
+    },
+    {
+     "entrant": "E7",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 6,
+     "wtp": 5,
+     "buildability": 4,
+     "incumbent_weakness": 4,
+     "rationale": "The single-buyer, three-moments framing is intuitively appealing for portfolio ownership, and I like that it maps to real points in my capital calendar (GC selection, mid-construction change orders, PIP signing). But averaging in the two weaker legs drags the whole thing down: C4's premise is undercut by an already-operating Business Screen competitor (gapfill-gc-competitors.md) and a genuinely difficult, costly state/county records pipeline (candidate4-gc-track-record.md), while C1's pain is Americas-wide general-construction data rather than hotel-specific and organically thin at the owner level (Gap 1/Gap 6, candidate1 + organic-reddit.md). Bundling three distinct data-sourcing problems (court records, cost benchmarks, change-order line items) into one v1 build is a much heavier lift for a solo founder than any component alone — this reads as the right eventual roadmap for a winning PIP-benchmarking product, not a buildable first product."
+    },
+    {
+     "entrant": "E8",
+     "pain": 3,
+     "urgency": 3,
+     "reachability": 4,
+     "wtp": 2,
+     "buildability": 4,
+     "incumbent_weakness": 5,
+     "rationale": "The soft-displacement concept names a real analytical gap I recognize from underwriting reviews, but new-candidate-scout.md is explicit that this is 'thin evidence' and the scout itself flagged it as exploratory, not a primary candidate — the supporting citations are old SEC 10-Q references (2005-2009) and search-synthesized commentary, not sourced owner or lender complaints, and no pricing or vendor-gap evidence was found at all. As an asset manager I could see wanting this analysis at acquisition/renovation underwriting, but there's no evidence any buyer has ever paid for it as a discrete deliverable, which makes it impossible to size a procurement case around. Buildability is plausible (it's a modeling exercise, not a data-aggregation problem) but with no named data source or comp set identified, this can't be scored as a credible month-one build."
+    }
+   ]
+  },
+  {
+   "judge": "saas-operator",
+   "scores": [
+    {
+     "entrant": "E1",
+     "pain": 4,
+     "urgency": 3,
+     "reachability": 3,
+     "wtp": 4,
+     "buildability": 5,
+     "incumbent_weakness": 3,
+     "rationale": "As an operator I care about recurring revenue and a definable buyer list, and E1 fails both. Per critic-gaps.md Gap 1/Gap 6, the headline pain stats (HKA CRUX 25.7%/31.1%) are Americas-wide general construction, not hotel-specific, and organic-reddit.md and organic-trade-press.md both explicitly report the hotel-owner-side change-order complaint theme 'came up dry' — I can't find the angry buyer to advertise to. WTP proxies are real (candidate1-change-order-audit.md: Baker Tilly/Moss Adams sell manual review) but that's consulting spend, not SaaS spend, and there's no channel/association analog to AAHOA for this buyer. Worse, buildability risk is rising: ClearStory just grew to $3.5B/month volume and Procore shipped AI Contract Review + Triggers in May 2026 (candidate1-change-order-audit.md) — exactly the infrastructure a well-capitalized incumbent needs to ship this feature for free as a bolt-on, which is a terrible position for a solo founder's differentiation and pricing power."
+    },
+    {
+     "entrant": "E2",
+     "pain": 7,
+     "urgency": 7,
+     "reachability": 7,
+     "wtp": 5,
+     "buildability": 8,
+     "incumbent_weakness": 6,
+     "rationale": "This is the one with a channel I can actually run a CAC playbook against: AAHOA membership, Hunter/ALIS conference attendee lists, and named franchise directories (candidate2-pip-benchmarking.md, organic-forums.md's Hunter/ALIS quotes). Gap 1 in critic-gaps.md explicitly instructs weighting hotel-sector evidence higher, and this candidate has by far the richest hotel-specific trade press (organic-trade-press.md's 'PIP Breaking Point' feature, $48B CMBS wave, named CIO quotes) plus real urgency (brand-mandated deadlines, not a someday improvement). The catch for LTV: PIPGURU and PIPGENIUS already exist at the exact price point I'd pick ($25-$200/mo), which validates the market will pay but caps the ceiling — though gapfill-competitor-traction.md shows both are unfunded, no-named-founder, waitlist-stage side projects with zero verified paying customers, meaning the 'incumbents' are beatable, not entrenched. A solo founder can build this in a month with public brand-standard data (per candidate2's evidence) and no cold-start network effect, and I'd sell it as an annual/portfolio subscription rather than one-off to fix the low natural purchase frequency."
+    },
+    {
+     "entrant": "E3",
+     "pain": 5,
+     "urgency": 4,
+     "reachability": 4,
+     "wtp": 3,
+     "buildability": 5,
+     "incumbent_weakness": 3,
+     "rationale": "The WTP evidence here is the most damning direct data in the whole packet from an operator's seat: candidate3-draw-lien-tracking.md's Wall Street Oasis thread has named commercial-RE professionals calling Procore/Northspyre 'crazy expensive,' 'stupid expensive,' and 'obscene,' explicitly stating real paid software adoption is reserved for '$20B+ AUM' shops — meaning the addressable buyer for a lightweight owner-side tool is thin, and CAC would be spent convincing people who've already decided this category isn't worth paying for. On top of that, Built Technologies (candidate3's §4) is a $1.5B-valuation, $125M-Series-D-funded competitor already shipping an AI Draw Agent with U.S. Bank/Citi/Fifth Third as clients — a solo founder cannot out-data or out-distribute that on the lender side, and the owner-side wedge is narrow and unproven. Pricing for both leading incumbents (Rabbet, Textura) is enterprise 'Contact Us,' meaning there's no visible low-end SaaS price point to anchor a bootstrap offer against."
+    },
+    {
+     "entrant": "E4",
+     "pain": 5,
+     "urgency": 3,
+     "reachability": 4,
+     "wtp": 3,
+     "buildability": 3,
+     "incumbent_weakness": 2,
+     "rationale": "Buildability is the killer here from a solo-support standpoint: candidate4-gc-track-record.md's own feasibility section says state/county court dockets (the highest-value source) have no free aggregator and cost hundreds-to-thousands/month via UniCourt/Trellis, while mechanic's-lien data is 'free-to-cheap per document but no aggregator' requiring a 50-state scraping pipeline — this is a data-ops business, not a thin AI wrapper a solo founder can maintain. Worse, gapfill-gc-competitors.md confirms Business Screen already sells 'construction & real estate due diligence' covering litigation, liens, licensing, and OSHA — nearly the identical feature set — so I'd be competing against an established, real revenue-generating vendor rather than filling whitespace. Purchase frequency is also weak (one-time, at GC-selection only, no recurring hook), and ongoing legal/defamation exposure (fair-report privilege is real but conditional per candidate4's §6) adds support burden a one-person shop doesn't want."
+    },
+    {
+     "entrant": "E5",
+     "pain": 6,
+     "urgency": 4,
+     "reachability": 5,
+     "wtp": 6,
+     "buildability": 4,
+     "incumbent_weakness": 5,
+     "rationale": "The HOA reserve-study analog is the best WTP comp in the whole packet for an operator: gapfill-direct-demand.md confirms a mature, recurring, $1,200-$6,000-per-study paid category exists in an adjacent vertical with no hotel equivalent, and new-candidate-scout.md's §4 shows the 40%-underfunding stat plus a second buyer class (lenders/CMBS servicers) I could sell into independently of owners — real channel diversification. But buildability is a real drag: the primary hotel-specific data source (ISHC/HAMA CapEx study) is member-only/paywalled and hasn't been refreshed since November 2023 (gapfill-hama-capex.md), so a solo founder is building on stale or hard-to-source inputs. Also, HVS already bundles this into $2,500-$20,000/month asset-management retainers (gapfill-direct-demand.md §4), meaning the wedge is specifically 'cheaper self-serve version of an existing expensive service,' which is a fine SaaS motion but not empty space."
+    },
+    {
+     "entrant": "E6",
+     "pain": 7,
+     "urgency": 6,
+     "reachability": 7,
+     "wtp": 6,
+     "buildability": 6,
+     "incumbent_weakness": 6,
+     "rationale": "This is my favorite from a pure SaaS-operator lens because it fixes E2's biggest weakness — low natural purchase frequency (PIPs recur every 5-7 years per property) — by wrapping a recurring, always-relevant reserve-adequacy dashboard around the acute PIP-benchmarking moment, which is exactly how I'd design churn-resistant ARR: value delivered continuously, not just at a rare transaction event. It inherits E2's channel strength (AAHOA, HAMA, Hunter/ALIS per organic-trade-press.md and organic-forums.md) and adds a second buyer class (lenders, per new-candidate-scout.md §4) without adding a third GTM motion. The tradeoff is real: it inherits E5's data-sourcing friction (stale/paywalled ISHC CapEx data, gapfill-hama-capex.md) as ongoing COGS, but a solo founder building on the proven-buildable PIP module (candidate2) first and layering reserve forecasting second is a sane, sequenced build, not two parallel data-ops nightmares like E7."
+    },
+    {
+     "entrant": "E7",
+     "pain": 5,
+     "urgency": 5,
+     "reachability": 6,
+     "wtp": 4,
+     "buildability": 3,
+     "incumbent_weakness": 4,
+     "rationale": "This combo drags a strong module (PIP benchmarking) down by bundling it with two modules that are individually weak on evidence and expensive to build: E1's pain is Americas-general not hotel-specific and organically thin (critic-gaps.md Gaps 1 and 6 apply directly), and E4's core data source (state/county court + mechanic's-lien records) is explicitly flagged in candidate4-gc-track-record.md as 'not cheap or simple' — a genuine ongoing data-operations burden. For a solo founder, this means building and maintaining three distinct pipelines (brand cost-benchmark data, a change-order market-pricing engine, and a 50-state legal-records aggregation feed) simultaneously, which is a materially harder support and COGS profile than E6's two-module combo, without a clearly higher price point to offset it — bundling weak components with a strong one dilutes the pitch rather than sharpening it, and still inherits Business Screen and ClearStory/Procore as competitive headwinds on two of the three legs."
+    },
+    {
+     "entrant": "E8",
+     "pain": 2,
+     "urgency": 2,
+     "reachability": 2,
+     "wtp": 1,
+     "buildability": 3,
+     "incumbent_weakness": 4,
+     "rationale": "There's no business here I'd bootstrap: new-candidate-scout.md's own scout assessed the evidence trail as too thin, with 'no vendor found currently selling soft displacement modeling as a discrete product' and no explicit WTP quote anywhere — I have no consultant-fee anchor, no adjacent paid category, and no named buyer segment to run a CAC calculation against. The 'incumbent weakness' score is only nonzero because there's no incumbent to be weak against, which in SaaS-operator terms usually means 'no proven market,' not 'open whitespace' — I would not spend a month building this without at least one first-person complaint or a deal where displacement-modeling failure caused a covenant breach, neither of which the evidence file surfaces."
+    }
+   ]
+  },
+  {
+   "judge": "construction-attorney",
+   "scores": [
+    {
+     "entrant": "E1 — Change-Order Audit",
+     "pain": 4,
+     "urgency": 4,
+     "reachability": 4,
+     "wtp": 4,
+     "buildability": 6,
+     "incumbent_weakness": 3,
+     "rationale": "As construction counsel I read candidate1-change-order-audit.md and see the headline pain stats (HKA CRUX 25.7%/31.1%) are Americas-wide general-construction figures, not hotel-specific, and per critic-gaps.md Gap 6 the Reddit sweep (organic-reddit.md) explicitly 'came up dry' on hotel/commercial-scale owner venting about change orders — what I do see (organic-reddit.md #2-#5) is contractor-side frustration with owners, the inverse of this product's buyer. The one piece of real legal-exposure-adjacent evidence is that owners already pay Baker Tilly and Moss Adams real money for independent change-order audits (candidate1-change-order-audit.md), which is a genuine WTP proxy, but that's accounting/consulting spend, not legal spend, and it doesn't establish software WTP. Buildability is fine (no data-licensing wall, no defamation exposure since this is pure cost-benchmarking with no third-party reputational claims), but Procore's May 2026 AI Contract-Review + Triggers launch and ClearStory's growth to ~$3.5B/month (candidate1-change-order-audit.md) are well-capitalized incumbents encroaching fast, so I score incumbent weakness low."
+    },
+    {
+     "entrant": "E2 — PIP Bid Benchmark",
+     "pain": 8,
+     "urgency": 8,
+     "reachability": 7,
+     "wtp": 5,
+     "buildability": 7,
+     "incumbent_weakness": 7,
+     "rationale": "Per critic-gaps.md Gap 1, judges are instructed to weigh hotel-sector-specific evidence above general-construction evidence, and PIP is by far the best-evidenced hotel-specific pain in the whole file set: HAMA's Spring 2026 survey (90% renovating), the June 2026 'PIP Breaking Point' feature naming a $48B CMBS maturity wave and quoting Greysteel's capital-markets director that 'the math is unforgiving,' and — notably for my persona — the ALIS Law 2026 legal panel (organic-forums.md, Finding 7.3, Katten Muchin Rosenman client alert) naming PIP disputes as the single most recurring friction point in hotel deals, which is direct evidence that outside counsel is already being paid to manage this exact conflict. Legal exposure for a pure cost-benchmarking tool is low (no third-party reputational claims, no advice on legal rights), which is a clean profile from my seat. WTP evidence is real but thin at the software layer — PIPGURU/PIPGENIUS price at only $25-$200/month against a $5,000-$15,000 consultant-fee anchor (gapfill-direct-demand.md), and gapfill-competitor-traction.md confirms both are unfunded, pre-revenue waitlist pages with no named founders or paying customers, which cuts two ways: it proves incumbent weakness (a beatable, thin field) but caps WTP expectations for the segment."
+    },
+    {
+     "entrant": "E3 — Draw & Lien-Waiver Tracker",
+     "pain": 6,
+     "urgency": 5,
+     "reachability": 4,
+     "wtp": 5,
+     "buildability": 5,
+     "incumbent_weakness": 4,
+     "rationale": "This is the entrant closest to my actual practice area, and it is also the one I'd flag hardest for reliance risk: lien-waiver deadlines and multi-tier lien rights are jurisdiction-specific legal doctrine where a missed deadline permanently forfeits rights (Butzel Long and Levelset's 'absolutely useless' quote in candidate3-draw-lien-tracking.md both describe exactly this), so a product that tracks or advises on waiver timing without being counsel creates real reliance exposure if it gets a deadline wrong — that legal stakes-density is itself evidence buyers would pay for accuracy, which is why I don't score WTP as low as the pure pain numbers suggest. Textura's top-tier G2 'Perceived Cost' rating and institutional captivity (subs forced onto the platform) show real WTP at the top of the market, but the WSO thread (candidate3-draw-lien-tracking.md, three-year-old but explicit) shows sub-$10M developers call comparable tools 'obscene[ly]' priced and use Excel instead, capping the addressable buyer. Built Technologies' well-funded ($1.5B valuation) AI Draw Agent already automates this exact workflow for lenders, which weakens both buildability and incumbent-weakness scores even though it leaves an owner-side gap."
+    },
+    {
+     "entrant": "E4 — GC Track-Record Dossier",
+     "pain": 6,
+     "urgency": 3,
+     "reachability": 5,
+     "wtp": 5,
+     "buildability": 3,
+     "incumbent_weakness": 2,
+     "rationale": "This is squarely my domain, and it's the riskiest entrant on the page: candidate4-gc-track-record.md confirms fair-report privilege protects accurate, attributed summaries of court/lien/licensing records but is not universal across states, requires ongoing editorial rigor, and — critically — Section 230 does NOT shield the product's own editorial characterizations (only hosted third-party content), meaning a product calling the still-on-appeal $174.6M Tutor Perini judgment 'final' or omitting appeal status creates real defamation exposure requiring legal review and likely media-liability insurance as a recurring cost center, not a one-time build item. The Edgewater case (same file) also shows litigation-history products can just as easily surface owner-side mismanagement as GC malfeasance, undercutting the clean 'vet your GC' pitch. Pain is real (a $174.6M+ $42.4M judgment is dramatic) and owners do pay for surety/legal diligence, but Business Screen already sells a near-identical tiered, investigator-augmented litigation/lien/licensing screening product for commercial construction (candidate4-gc-track-record.md, gapfill-gc-competitors.md) — no hotel-specific vertical exists, but the core capability is not whitespace — and the underlying data (state/county court dockets, mechanic's liens) has no national aggregator, forcing either costly UniCourt/Trellis subscriptions or a genuine 50-state scraping build, which is a serious buildability drag for a solo founder."
+    },
+    {
+     "entrant": "E5 — FF&E Reserve / Capital-Needs Forecaster",
+     "pain": 6,
+     "urgency": 4,
+     "reachability": 5,
+     "wtp": 5,
+     "buildability": 6,
+     "incumbent_weakness": 5,
+     "rationale": "The underfunding pain is real and well-corroborated (the 2010 Jones et al. peer-reviewed 40%-underfunded finding, TPG's account of depleted COVID-era reserves, and the CMBS covenant angle in new-candidate-scout.md and gapfill-hama-capex.md's confirmation that ISHC CapEx 2023 shows actual capex running ~8-9% of revenue against an assumed 4% reserve), but from my chair this is a financial-modeling product with essentially no defamation, UPL, or reliance exposure — which is good for risk but means it carries none of the 'legal spend proves willingness to pay' signal I weight most heavily. The HOA reserve-study analog ($1,200-$6,000, gapfill-direct-demand.md) is a real purchased category, but it's an engineering/accounting spend, not legal spend, and no equivalent standardized hotel product exists yet (new-candidate-scout.md) — HVS bundles this into a $2,500-$20,000/month bespoke asset-management retainer rather than selling it standalone, which is the actual whitespace. Buildability is solid (no licensing wall, self-serve modeling), but urgency is inherently lower than PIP or an active dispute because this is a continuous-planning problem, not a deadline-driven bleeding moment."
+    },
+    {
+     "entrant": "E6 — Capex Defense Combo (C2 + Scout A)",
+     "pain": 7,
+     "urgency": 6,
+     "reachability": 6,
+     "wtp": 5,
+     "buildability": 6,
+     "incumbent_weakness": 6,
+     "rationale": "Bundling the best-evidenced acute pain (PIP, per Gap 1 reconciliation) with the best-evidenced chronic pain (reserve underfunding, per new-candidate-scout.md and gapfill-hama-capex.md) is a sensible hedge against E2's frequency problem — a single hotel owner may not sign a PIP every year, but reserve-adequacy tracking gives a recurring subscription reason to stay engaged between PIP moments, which is the strongest buildability/retention argument of any entrant I've reviewed. Legal exposure remains low across both components (cost benchmarking and financial modeling, no third-party reputational claims), which I count as a clean profile, though it also means this combo still lacks a direct legal-spend WTP proxy the way E4 or E7 do. Lenders/CMBS special servicers as a second buyer class add real reachability (named servicer/lender directories) and a quasi-legal enforcement mechanism (covenant compliance), but neither underlying niche has a strong incumbent to displace — PIPGURU/PIPGENIUS are unfunded waitlist pages and HVS's reserve-planning product is an expensive bespoke bundle, not a standalone SKU — so incumbent weakness scores well even if that also signals the category itself may be under-monetized."
+    },
+    {
+     "entrant": "E7 — Construction Defense Combo (C2 + C1 + C4-lite)",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 6,
+     "wtp": 6,
+     "buildability": 4,
+     "incumbent_weakness": 4,
+     "rationale": "This is the entrant with the clearest legal-spend WTP story — across the three moments (PIP benchmarking, change-order audit, GC dossier), the buyer is already demonstrably paying real money to lawyers and consultants for adjacent functions (ALIS Law's Katten client alert on PIP disputes, Baker Tilly/Moss Adams change-order audits, and Business Screen's investigator-tiered GC screening), and packaging all three under one relationship is the strongest cumulative revealed-WTP signal in the set, which is why I score it highest on that dimension despite each individual component's own weaknesses. But it also inherits the worst legal exposure in the portfolio: the GC-dossier module carries the full defamation/fair-report-privilege/Section-230 problem documented in candidate4-gc-track-record.md (appeal-status tracking, no blanket privilege, likely need for media-liability insurance), and a change-order 'pushback drafting' feature edges toward characterizing contractual entitlements, which starts to look like packaged legal-adjacent advice rather than pure data benchmarking. That combination of a costly, fragmented data-ops build (state court/lien aggregation, per candidate4) plus a genuine ongoing legal-review/insurance cost is why I score buildability low — 'solo founder ships this in a month with free data' does not survive contact with the GC-dossier component — and incumbent weakness is dragged down by inheriting Business Screen, Procore/ClearStory, and PIPGURU all at once."
+    },
+    {
+     "entrant": "E8 — Soft-Displacement Underwriter",
+     "pain": 3,
+     "urgency": 2,
+     "reachability": 3,
+     "wtp": 2,
+     "buildability": 4,
+     "incumbent_weakness": 4,
+     "rationale": "The scout's own honest assessment in new-candidate-scout.md is that this is 'synthesis of commentary rather than sourced complaints,' with no owner or lender ever quoted complaining about the absence of a tool, and the supporting SEC-filing evidence cited is 2005-2009 vintage — nothing here resembles the kind of documented, dollar-specific dispute or legal-spend pattern I'd need to see to credit this as a real buyer pain. There is zero legal exposure to worry about (it's a pure underwriting model with no third-party claims), but that also means there's no legal-spend proxy at all to anchor a WTP estimate, and no named vendor, consultant, or pricing signal exists anywhere in the file to benchmark against. I score incumbent weakness at a middling 4 rather than high, because 'no incumbent found' here reads as 'no demonstrated market' as much as it reads as whitespace — the scout itself recommends treating this as exploratory, not primary, and I have no basis to disagree."
+    }
+   ]
+  },
+  {
+   "judge": "data-skeptic",
+   "scores": [
+    {
+     "entrant": "E1",
+     "pain": 6,
+     "urgency": 5,
+     "reachability": 4,
+     "wtp": 5,
+     "buildability": 3,
+     "incumbent_weakness": 3,
+     "rationale": "As a data product this has no clean feedstock: the only quantified benchmark (HKA CRUX 25.7%/31.1%) is Americas-wide general construction, not hotel-specific, and per gap 6 the Reddit sweep came up dry on hotel-owner-level venting about change orders (critic-gaps.md). There is no free or cheap market-rate cost-benchmark dataset for change-order pricing (candidate1-change-order-audit.md), so a solo founder is stuck hand-building a cost database from scratch. Worse, ClearStory already sits on a proprietary moat of 1.3M+ change orders and ~3.5B dollars per month flowing through its platform (bricks-bytes.com via candidate1-change-order-audit.md) and Procore shipped AI Contract Review plus Triggers in May 2026 (businesswire.com) - the data-rich incumbents are getting stronger, not weaker. Per gap 1, judges should also discount pain relative to C2's stronger hotel-specific evidence."
+    },
+    {
+     "entrant": "E2",
+     "pain": 7,
+     "urgency": 7,
+     "reachability": 7,
+     "wtp": 5,
+     "buildability": 6,
+     "incumbent_weakness": 7,
+     "rationale": "This is the one candidate where someone has already proven the data problem is solvable at solo-founder scale: PIPGURU independently assembled 66+ brands and 200+ line items of PIP cost data and shipped a live pricing page (candidate2-pip-benchmarking.md), and per gap 1 the hotel-specific pain evidence here (AAHOA advocacy, HAMA 90-percent-renovating survey, named C-suite quotes at Hunter/ALIS 2026) is the strongest organic signal in the research set. gapfill-competitor-traction.md shows PIPGURU has zero Wayback Machine snapshots, no named founder, no Crunchbase record, and every buy button routes to a waitlist - an unfunded landing page, not a well-capitalized incumbent; PIPGENIUS is even earlier-stage. The data still needs constant refreshing (tariffs added 5-10 percent per gapfill-hama-capex.md), capping buildability below the top of the range, but the barrier to entry is provably low since two under-resourced competitors already cleared it."
+    },
+    {
+     "entrant": "E3",
+     "pain": 6,
+     "urgency": 4,
+     "reachability": 5,
+     "wtp": 3,
+     "buildability": 5,
+     "incumbent_weakness": 3,
+     "rationale": "Unusually, the core input data is not a licensing problem - G702/G703 draw packages and lien waivers are documents the owner already possesses - so the percent-complete-vs-billed logic needs no external dataset; the harder piece, multi-tier lien tracking against county recorder records, is free-to-cheap per document but has no national aggregator (candidate3-draw-lien-tracking.md), meaning bounded data-ops work rather than a licensing wall. The bigger problem is an actively negative WTP signal: the WSO thread (verified, multi-commenter, though about three years old) has commercial-RE professionals calling Procore and Northspyre obscenely priced and states real paid-software adoption is reserved for 20-billion-dollar-plus AUM shops, with sub-10-million-dollar projects running on Excel. Built Technologies just shipped a well-funded (1.5-billion-dollar valuation) AI Draw Agent already automating this workflow (CNBC, Nov 2025) and Rabbet and Textura already hold 4.6 and 4.1 G2 ratings - the incumbent field is consolidating, not weak."
+    },
+    {
+     "entrant": "E4",
+     "pain": 5,
+     "urgency": 4,
+     "reachability": 5,
+     "wtp": 4,
+     "buildability": 2,
+     "incumbent_weakness": 3,
+     "rationale": "This is squarely a data-broker product, and the data itself is the whole problem: candidate4-gc-track-record.md is explicit that state and county court dockets, the highest-value source for litigation history, have no free national aggregator, with UniCourt (59 to 399-plus dollars a month retail, custom Enterprise API pricing) and Trellis (69.95 to 199.95 dollars a month) as the only systematic paid routes, mechanic's liens have zero aggregator across thousands of counties, and licensing-board actions are free but fragmented across 50 states. That is real, ongoing COGS scaling with coverage - disqualifying for a solo founder with no budget at v1. gapfill-gc-competitors.md confirms Business Screen already sells a near-identical tiered, investigator-augmented product into construction and CRE broadly, and the surety industry's three-Cs underwriting is a mature informal substitute. Add defamation and fair-report-privilege exposure requiring ongoing editorial and legal discipline, and buildability sits at the bottom because the data supply chain is expensive, fragmented, and someone already built the aggregator business."
+    },
+    {
+     "entrant": "E5",
+     "pain": 6,
+     "urgency": 4,
+     "reachability": 6,
+     "wtp": 5,
+     "buildability": 3,
+     "incumbent_weakness": 5,
+     "rationale": "The one credible hotel-specific capex benchmark, the ISHC/HAMA CapEx study, is itself the data problem: gapfill-hama-capex.md confirms it is a paid, member-only publication, last refreshed November 2023 on 2018-2022 data, with no 2024 or 2025 edition found as of this research date. The underlying 40-percent-underfunding statistic traces to a 2010 academic study (new-candidate-scout.md), and FIXVAR could not even be verified to exist under that name (gapfill-direct-demand.md). No free equivalent to RSMeans-for-hotels was found anywhere. The HOA reserve-study analog (1,200 to 6,000 dollars, well-corroborated) proves the category can be monetized, but that market solves the problem via physical inspection firms, not a licensable dataset - the hotel version has the opposite issue. HVS already bundles this into 2,500 to 20,000-dollar-a-month asset-management retainers, a real but only partial wedge."
+    },
+    {
+     "entrant": "E6",
+     "pain": 6,
+     "urgency": 6,
+     "reachability": 6,
+     "wtp": 5,
+     "buildability": 4,
+     "incumbent_weakness": 5,
+     "rationale": "Bundling C2 and E5 does not fix either component's data profile, it just runs them side by side. The PIP-benchmarking half is buildable (PIPGURU and PIPGENIUS already proved a solo team can assemble this at low cost, per candidate2-pip-benchmarking.md and gapfill-competitor-traction.md), but the reserve-forecasting half still depends on the same paywalled, three-year-stale ISHC/HAMA study (gapfill-hama-capex.md) with no free substitute identified. The recurring-plus-acute subscription hook adds appeal, but the weakest link still caps what the combined product can credibly claim to know, and the added lender buyer improves reachability without adding a data source."
+    },
+    {
+     "entrant": "E7",
+     "pain": 7,
+     "urgency": 7,
+     "reachability": 7,
+     "wtp": 5,
+     "buildability": 2,
+     "incumbent_weakness": 4,
+     "rationale": "This combo has the best buyer-journey logic in the tournament (one owner, three moments) but is the worst from a pure data-sourcing standpoint because it stacks three independent, unresolved data-acquisition problems instead of solving one: E1's missing change-order cost-benchmark dataset, E2's PIP line-item data (the only genuinely solved piece, per PIPGURU precedent), and a C4-lite public-records pull that candidate4-gc-track-record.md shows requires either expensive paid legal-data subscriptions or a multi-year county-by-county lien-scraping build with no existing aggregator. A solo founder with no budget cannot stand up three distinct data supply chains at once, one of which is explicitly flagged as a real, non-trivial data-aggregation business in its own right. Combining the pitches triples the data-ops burden rather than resolving it, which is why buildability sits at the bottom of the field despite strong pain, urgency, and reachability."
+    },
+    {
+     "entrant": "E8",
+     "pain": 4,
+     "urgency": 3,
+     "reachability": 5,
+     "wtp": 3,
+     "buildability": 2,
+     "incumbent_weakness": 5,
+     "rationale": "This is the weakest data foundation in the tournament: new-candidate-scout.md concedes the evidence trail is thin, with no vendor found selling a dedicated soft-displacement product, no pricing or WTP signal, and supporting SEC-filing evidence (Lodgian 10-Qs) dating to 2005-2009. There is no dataset to calibrate a soft-displacement coefficient against - unlike hard displacement or PIP costs, guest avoidance during renovation has no public benchmark, no STR-style comp product, and no historical ground truth identified anywhere in the research, so any model would rest on invented assumptions with no way to validate or refresh them. The scout's own framing (included for completeness, evidence too thin) plus the total absence of a competitor or pricing anchor makes this un-scoreable as a defensible v1 data product; the modest incumbent-weakness score reflects an empty field, not an exploitable opportunity."
+    }
+   ]
+  }
+ ]
+}

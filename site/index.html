@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="../brand/favicon.svg">
+<title>PIPBench — The owner-side PIP benchmark</title>
+<meta name="description" content="Benchmark every line of your PIP against named public cost sources — and take the memo to the negotiation.">
+<style>
+  :root{
+    --navy:#10293D;
+    --slate:#3D5A73;
+    --paper:#F7F4EE;
+    --amber:#E8A317;
+    --green:#2F7D4F;
+    --red:#BF4034;
+    --gray:#6B7A88;
+    --ui-font:"Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono-font:Consolas, "Courier New", monospace;
+    --serif-font:Georgia, "Times New Roman", serif;
+    --max:1120px;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--ui-font);
+    background:var(--paper);
+    color:var(--navy);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;}
+  a{color:inherit;}
+  .container{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  /* Skip link */
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+    background:var(--navy); color:var(--paper); padding:10px 16px;
+    z-index:1000; border-radius:0 0 6px 0; font-weight:600;
+  }
+  .skip-link:focus{left:0; top:0;}
+
+  a:focus-visible, button:focus-visible, .accordion-trigger:focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:2px;
+  }
+
+  /* Nav */
+  header.site-nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(247,244,238,0.96);
+    border-bottom:1px solid rgba(16,41,61,0.12);
+    backdrop-filter:saturate(140%) blur(4px);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 24px; max-width:var(--max); margin:0 auto; gap:16px;
+  }
+  .nav-logo{display:flex; align-items:center; flex-shrink:0;}
+  .nav-logo svg{height:32px; width:auto; display:block;}
+  nav.nav-links{display:flex; gap:24px; flex-wrap:wrap;}
+  nav.nav-links a{
+    font-size:0.95rem; font-weight:600; text-decoration:none; color:var(--slate);
+    white-space:nowrap;
+  }
+  nav.nav-links a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--amber); color:var(--navy); font-weight:700;
+    padding:10px 18px; border-radius:6px; text-decoration:none;
+    white-space:nowrap; font-size:0.92rem; border:2px solid var(--amber);
+    flex-shrink:0;
+  }
+  .nav-cta:hover{background:#d4930f; border-color:#d4930f;}
+  .nav-toggle{display:none;}
+
+  @media (max-width: 860px){
+    .nav-inner{flex-wrap:wrap;}
+    nav.nav-links{
+      order:3; width:100%; justify-content:flex-start; gap:16px;
+      padding-top:10px; display:none;
+    }
+    nav.nav-links.open{display:flex;}
+    .nav-toggle{
+      display:inline-block; background:none; border:1px solid var(--slate);
+      color:var(--navy); border-radius:6px; padding:8px 12px; font-weight:700;
+      cursor:pointer; font-size:0.9rem;
+    }
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-block; text-decoration:none; font-weight:700; font-size:1rem;
+    padding:14px 26px; border-radius:6px; cursor:pointer; border:2px solid transparent;
+  }
+  .btn-primary{background:var(--amber); color:var(--navy); border-color:var(--amber);}
+  .btn-primary:hover{background:#d4930f; border-color:#d4930f;}
+  .btn-secondary{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-secondary:hover{background:var(--navy); color:var(--paper);}
+
+  /* Hero */
+  .hero{padding:72px 0 48px;}
+  .hero h1{
+    font-size:clamp(2rem, 5vw, 3.1rem); font-weight:700; letter-spacing:-0.01em;
+    margin:0 0 20px; max-width:18ch;
+  }
+  .hero .subhead{
+    font-size:1.2rem; color:var(--slate); max-width:56ch; margin:0 0 32px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px;}
+  .product-shot{
+    background:#fff; border:1px solid rgba(16,41,61,0.15); border-radius:12px;
+    min-height:280px; display:flex; align-items:center; justify-content:center;
+    color:var(--gray); font-weight:600; font-size:0.95rem;
+    box-shadow:0 12px 32px rgba(16,41,61,0.08);
+  }
+
+  section{padding:64px 0;}
+  .section-title{
+    font-size:clamp(1.6rem, 3.4vw, 2.1rem); font-weight:700; margin:0 0 12px;
+  }
+  .section-lede{color:var(--slate); font-size:1.08rem; max-width:64ch; margin:0 0 40px;}
+
+  /* Stat cards */
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:900px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .stat-grid{grid-template-columns:1fr;} }
+  .stat-card{
+    background:#fff; border:1px solid rgba(16,41,61,0.12); border-radius:10px;
+    padding:22px 20px; display:flex; flex-direction:column; gap:10px;
+  }
+  .stat-fig{font-family:var(--mono-font); font-size:1.5rem; font-weight:700; color:var(--navy);}
+  .stat-desc{color:var(--slate); font-size:0.95rem; flex-grow:1;}
+  .stat-source{font-family:var(--mono-font); font-size:0.78rem; color:var(--gray); text-decoration:none;}
+  .stat-source:hover{color:var(--navy); text-decoration:underline;}
+
+  .wide-band{
+    margin-top:20px; background:var(--navy); color:var(--paper); border-radius:10px;
+    padding:26px 28px; display:flex; flex-wrap:wrap; gap:12px 28px; align-items:baseline;
+  }
+  .wide-band .stat-fig{color:var(--amber); font-size:1.3rem;}
+  .wide-band .stat-desc{color:#cdd8e0;}
+  .wide-band .stat-source{color:#9fb2c2;}
+  .wide-band .stat-source:hover{color:#fff;}
+
+  /* How it works */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:44px;}
+  @media (max-width:900px){ .steps{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr;} }
+  .step-card{
+    background:#fff; border:1px solid rgba(16,41,61,0.12); border-radius:10px; padding:22px 18px;
+  }
+  .step-num{
+    font-family:var(--mono-font); color:var(--amber); font-weight:700; font-size:0.85rem;
+    display:block; margin-bottom:8px;
+  }
+  .step-card h3{margin:0 0 8px; font-size:1.05rem;}
+  .step-card p{margin:0; color:var(--slate); font-size:0.94rem;}
+
+  .badges-row{display:flex; gap:16px; flex-wrap:wrap; align-items:stretch;}
+  .badge-explain{
+    display:flex; align-items:center; gap:14px; background:#fff;
+    border:1px solid rgba(16,41,61,0.12); border-radius:10px; padding:16px 20px; flex:1 1 320px;
+  }
+  .chip{
+    font-family:var(--mono-font); font-weight:700; font-size:0.82rem; letter-spacing:0.04em;
+    padding:6px 12px; border-radius:5px; white-space:nowrap; flex-shrink:0;
+  }
+  .chip-verified{background:rgba(47,125,79,0.12); color:var(--green); border:1.5px solid var(--green);}
+  .chip-directional{background:rgba(232,163,23,0.14); color:#8a6410; border:1.5px solid var(--amber);}
+  .badge-explain p{margin:0; color:var(--slate); font-size:0.92rem;}
+
+  /* Why PIPBench */
+  .wedge-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  @media (max-width:760px){ .wedge-grid{grid-template-columns:1fr;} }
+  .wedge-card{
+    background:#fff; border-left:4px solid var(--amber); border-radius:0 10px 10px 0;
+    padding:22px 24px; border-top:1px solid rgba(16,41,61,0.1); border-right:1px solid rgba(16,41,61,0.1); border-bottom:1px solid rgba(16,41,61,0.1);
+  }
+  .wedge-card h3{margin:0 0 8px; font-size:1.08rem;}
+  .wedge-card p{margin:0; color:var(--slate); font-size:0.96rem;}
+
+  /* Data / methodology */
+  .source-list{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; margin:0 0 28px; padding:0; list-style:none;
+  }
+  @media (max-width:760px){ .source-list{grid-template-columns:1fr;} }
+  .source-list li{
+    border-bottom:1px dashed rgba(16,41,61,0.15); padding:10px 0; font-size:0.94rem;
+  }
+  .source-list a{font-weight:600; text-decoration:none; color:var(--navy);}
+  .source-list a:hover{text-decoration:underline;}
+  .source-list .src-type{display:block; color:var(--gray); font-family:var(--mono-font); font-size:0.78rem; margin-top:2px;}
+  .escalation-note{
+    background:#fff; border:1px solid rgba(232,163,23,0.4); border-left:4px solid var(--amber);
+    border-radius:0 8px 8px 0; padding:18px 22px; font-size:0.95rem; color:var(--slate);
+  }
+  .escalation-note .chip{margin-right:8px; vertical-align:middle;}
+
+  /* Pricing */
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:900px){ .pricing-grid{grid-template-columns:1fr;} }
+  .price-card{
+    background:#fff; border:1px solid rgba(16,41,61,0.12); border-radius:12px;
+    padding:28px 24px; display:flex; flex-direction:column;
+  }
+  .price-card.featured{
+    border:2px solid var(--amber); box-shadow:0 12px 28px rgba(232,163,23,0.18);
+    position:relative;
+  }
+  .featured-tag{
+    position:absolute; top:-13px; left:24px; background:var(--amber); color:var(--navy);
+    font-size:0.75rem; font-weight:700; padding:4px 10px; border-radius:4px;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .price-card h3{margin:0 0 6px; font-size:1.15rem;}
+  .price-amount{font-family:var(--mono-font); font-size:2.1rem; font-weight:700; margin:6px 0 16px; color:var(--navy);}
+  .price-card p.desc{color:var(--slate); font-size:0.96rem; flex-grow:1; margin:0 0 22px;}
+  .pricing-note{
+    text-align:center; color:var(--slate); font-size:0.92rem; margin-top:28px;
+  }
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid rgba(16,41,61,0.15);}
+  .accordion-trigger{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    font-family:var(--ui-font); font-size:1.05rem; font-weight:700; color:var(--navy);
+    padding:20px 0; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+  .accordion-trigger .plus{font-family:var(--mono-font); font-size:1.3rem; color:var(--amber); flex-shrink:0;}
+  .accordion-panel{
+    max-height:0; overflow:hidden; transition:max-height 0.25s ease;
+  }
+  .accordion-panel .inner{padding:0 0 20px; color:var(--slate); font-size:0.98rem; max-width:70ch;}
+  .faq-item.open .accordion-panel{max-height:400px;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .plus{transition:transform 0.2s ease; display:inline-block;}
+
+  /* Founder note */
+  .founder-note{
+    background:#fff; border:1px solid rgba(16,41,61,0.12); border-radius:12px;
+    padding:32px; max-width:70ch; margin:0 auto;
+  }
+  .founder-note p{font-size:1.05rem; color:var(--navy);}
+  .founder-sign{font-weight:700; margin-top:18px; color:var(--slate);}
+
+  /* Memo preview font demonstration used only inside memo-preview element */
+  .memo-preview{font-family:var(--serif-font);}
+
+  footer{
+    background:var(--navy); color:#cdd8e0; padding:48px 0 32px; margin-top:24px;
+  }
+  .footer-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center; margin-bottom:24px;}
+  .footer-logo svg{height:30px; width:auto;}
+  footer a{color:#e8edf1; text-decoration:underline;}
+  .footer-disclaimer{font-size:0.85rem; color:#9fb2c2; max-width:78ch; line-height:1.6; border-top:1px solid rgba(255,255,255,0.15); padding-top:20px;}
+
+  @media (prefers-color-scheme: dark){
+    :root{color-scheme: dark;}
+  }
+  :root[data-theme="dark"]{
+    --paper:#161d24;
+    --navy:#eef2f5;
+    --slate:#b7c3cd;
+    --gray:#8fa0ac;
+  }
+  :root[data-theme="dark"] body{background:var(--paper); color:var(--navy);}
+  :root[data-theme="dark"] header.site-nav{background:rgba(22,29,36,0.96); border-bottom:1px solid rgba(238,242,245,0.12);}
+  :root[data-theme="dark"] .product-shot,
+  :root[data-theme="dark"] .stat-card,
+  :root[data-theme="dark"] .step-card,
+  :root[data-theme="dark"] .badge-explain,
+  :root[data-theme="dark"] .wedge-card,
+  :root[data-theme="dark"] .price-card,
+  :root[data-theme="dark"] .escalation-note,
+  :root[data-theme="dark"] .founder-note{
+    background:#1f2830; border-color:rgba(238,242,245,0.14);
+  }
+  :root[data-theme="dark"] .nav-cta{color:#161d24;}
+  :root[data-theme="dark"] .btn-primary{color:#161d24;}
+  :root[data-theme="dark"] .btn-secondary:hover{color:#161d24;}
+  :root[data-theme="dark"] .wide-band{background:#0c141c;}
+  :root[data-theme="dark"] footer{background:#0c141c;}
+</style>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+</head>
+<body>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="PIPBench home">
+      <svg viewBox="0 0 620 140" role="img" aria-label="PIPBench logo">
+        <g transform="translate(20,22)">
+          <rect x="8" y="0" width="104" height="14" rx="4" fill="#E8A317"/>
+          <path d="M60 22 L92 68 L72 68 L72 96 L48 96 L48 68 L28 68 Z" fill="#10293D"/>
+        </g>
+        <g transform="translate(168,0)">
+          <text x="0" y="88" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="62" letter-spacing="-1" fill="#10293D">PIP<tspan fill="#3D5A73" font-weight="600">Bench</tspan></text>
+          <text x="3" y="117" font-family="Segoe UI, Arial, sans-serif" font-weight="500" font-size="15.5" letter-spacing="1.1" fill="#6B7A88">THE OWNER-SIDE PIP BENCHMARK</text>
+        </g>
+      </svg>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" id="nav-toggle-btn">Menu</button>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#why-pipbench">Why PIPBench</a>
+      <a href="#data">Data</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="../product/index.html">See the live demo</a>
+  </div>
+</header>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Your PIP isn't a bill. It's an opening offer.</h1>
+      <p class="subhead">PIPBench benchmarks your Property Improvement Plan category-by-category against named, public cost sources — graded honestly — and generates the negotiation memo you take back to the brand or your GC.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="../product/index.html">See the live demo</a>
+        <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+      </div>
+      <div id="product-shot" class="product-shot"><img src="assets/product-benchmark.png" alt="PIPBench benchmark screen: a $5,727,000 contractor bid measured against a $3.76M–$6.07M sourced benchmark range, with $266,416 flagged above range and a $1,100,000 alternative-scope lever" style="display:block;width:100%;height:auto;border-radius:12px"></div>
+    </div>
+  </section>
+
+  <!-- THE 2026 SQUEEZE -->
+  <section id="squeeze">
+    <div class="container">
+      <h2 class="section-title">The 2026 squeeze</h2>
+      <p class="section-lede">Renovation timing has gotten worse on every axis at once — advisory cost, construction cost, materials cost, and loan-maturity pressure — all in the same 24 months.</p>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-fig">$5,000–$15,000</span>
+          <p class="stat-desc">Typical fee for an independent consultant's PIP cost estimate, taking 2–3 weeks to deliver.</p>
+          <a class="stat-source" href="https://www.matthews.com/market_insights/things-to-consider-if-your-hotel-pip-is-coming-due" target="_blank" rel="noopener">Source: Matthews Market Insights</a>
+        </div>
+        <div class="stat-card">
+          <span class="stat-fig">$35,000–$40,000/key</span>
+          <p class="stat-desc">Blended mid-market select-service PIP cost, per Lee Hunter, COO of Hunter Hotel Advisors.</p>
+          <a class="stat-source" href="https://www.matthews.com/market_insights/things-to-consider-if-your-hotel-pip-is-coming-due" target="_blank" rel="noopener">Source: Hunter Hotel Advisors, via Matthews</a>
+        </div>
+        <div class="stat-card">
+          <span class="stat-fig">+4.87% YoY</span>
+          <p class="stat-desc">National construction cost escalation, Q1 2025 to Q1 2026 — the floor every PIP estimate has to clear before you even get to scope.</p>
+          <a class="stat-source" href="https://turnerconstruction.com/uploads/cost-index-Q1-2026.pdf" target="_blank" rel="noopener">Source: Turner Building Cost Index, Q1 2026</a>
+        </div>
+        <div class="stat-card">
+          <span class="stat-fig">25% + 10%</span>
+          <p class="stat-desc">Section 232 tariff on furniture/vanities (in force since Oct 2025), stacked with a 10% baseline tariff on most other FF&E imports.</p>
+          <a class="stat-source" href="https://www.innvision.net/innsights/how-tariffs-are-affecting-hotel-ff-e" target="_blank" rel="noopener">Source: Innvision</a>
+        </div>
+      </div>
+      <div class="wide-band">
+        <span class="stat-fig">$100B+ / 15–20%</span>
+        <p class="stat-desc" style="flex:1 1 320px;">Over $100 billion of CMBS hotel loans mature in 2026, and 15–20% of limited-service hotel loans already show signs of distress — the same asset profile most PIPs land on.</p>
+        <a class="stat-source" href="https://matthews.com/insights/hotel-delinquency" target="_blank" rel="noopener">Source: Matthews, Hotel Delinquency Insights</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How PIPBench works</h2>
+      <p class="section-lede">Four steps from a PDF you didn't ask for to a memo you control.</p>
+      <div class="steps">
+        <div class="step-card">
+          <span class="step-num">STEP 01</span>
+          <h3>Property intake</h3>
+          <p>Brand, flag family, keys, chain scale, state, and what triggered the PIP — sale, refi, or renewal.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 02</span>
+          <h3>Paste your PIP</h3>
+          <p>Upload or paste the scope table. PIPBench parses each line and sorts it against the industry-standard renovation categories (the Nehmer/HVS taxonomy).</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 03</span>
+          <h3>Benchmark with confidence grades</h3>
+          <p>Every category is checked against sourced cost data, escalated to 2026 dollars, with tariff-sensitive lines flagged.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 04</span>
+          <h3>Negotiation memo</h3>
+          <p>What to accept, what to question, what to counter — each with the sourced evidence behind it.</p>
+        </div>
+      </div>
+      <div class="badges-row">
+        <div class="badge-explain">
+          <span class="chip chip-verified">VERIFIED</span>
+          <p>The base figure comes straight from a named primary or strong secondary public source.</p>
+        </div>
+        <div class="badge-explain">
+          <span class="chip chip-directional">DIRECTIONAL</span>
+          <p>Interpolated, escalated, or drawn from a lower-confidence source — shown as an estimate, not a fact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PIPBENCH -->
+  <section id="why-pipbench">
+    <div class="container">
+      <h2 class="section-title">Why PIPBench</h2>
+      <p class="section-lede">Tools in this space sell you a number. PIPBench arms the negotiation that comes after the number.</p>
+      <div class="wedge-grid">
+        <div class="wedge-card">
+          <h3>The memo is the product</h3>
+          <p>Not a bolt-on. The deliverable is a line-item-linked negotiation memo: what to accept, what to question, what to counter, with evidence attached to each call.</p>
+        </div>
+        <div class="wedge-card">
+          <h3>Named sources, honest grades</h3>
+          <p>No "proprietary database" hand-waving. Every benchmark shows the actual public source and a confidence grade — Verified or Directional — instead of hiding the uncertainty.</p>
+        </div>
+        <div class="wedge-card">
+          <h3>Real document ingestion</h3>
+          <p>The demo parses a pasted PIP scope table — extracting each line's price and category — and benchmarks it end to end. Today it handles structured scope text; robust parsing of real brand PIP PDFs in all their formats is the v1 build target, stated plainly rather than screenshotted speculatively.</p>
+        </div>
+        <div class="wedge-card">
+          <h3>Honesty as positioning</h3>
+          <p>Real prices. Real methodology page. No invented testimonials, no fake case studies, no liveness theater. What you see is what's actually built.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DATA -->
+  <section id="data">
+    <div class="container">
+      <h2 class="section-title">The data</h2>
+      <p class="section-lede">Every benchmark traces to a named source. Here is the registry the demo dataset is built from.</p>
+      <ul class="source-list">
+        <li>
+          <a href="https://www.hvs.com/WebContent/bookstore/HVS%20Hotel%20Cost%20Estimating%20Guide%202021.pdf" target="_blank" rel="noopener">Nehmer &amp; HVS Design, Hotel Cost Estimating Guide 2021 (13th ed.)</a>
+          <span class="src-type">Primary industry cost guide, 124pp</span>
+        </li>
+        <li>
+          <a href="https://www.hvs.com/article/7939-Industry-Insights-Impacts-of-Major-Brand-PIPs" target="_blank" rel="noopener">HVS Industry Insights: Impacts of Major Brand PIPs</a>
+          <span class="src-type">Primary advisory article</span>
+        </li>
+        <li>
+          <a href="https://www.matthews.com/market_insights/things-to-consider-if-your-hotel-pip-is-coming-due" target="_blank" rel="noopener">Matthews — Things to Consider if Your Hotel PIP Is Coming Due</a>
+          <span class="src-type">Brokerage insight, citing Lee Hunter / Hunter Hotel Advisors</span>
+        </li>
+        <li>
+          <a href="https://www.hvs.com/article/10219-hvs-us-hotel-development-cost-survey-2025" target="_blank" rel="noopener">HVS US Hotel Development Cost Survey 2025</a>
+          <span class="src-type">Primary survey (development costs)</span>
+        </li>
+        <li>
+          <a href="https://turnerconstruction.com/uploads/cost-index-Q1-2026.pdf" target="_blank" rel="noopener">Turner Building Cost Index, Q1 2026</a>
+          <span class="src-type">National construction cost index</span>
+        </li>
+        <li>
+          <a href="https://www.rlb.com/americas/insight/rlb-construction-cost-report-north-america-q1-2026/" target="_blank" rel="noopener">RLB North America Construction Cost Report, Q2 2026</a>
+          <span class="src-type">National/regional cost index</span>
+        </li>
+        <li>
+          <a href="../design/data-sources-fdd.md">Franchise Disclosure Documents — Studio 6, Sonesta Select, Comfort Inn, Best Western, Super 8</a>
+          <span class="src-type">State-filed franchise disclosures, Item 7 conversion tables</span>
+        </li>
+        <li>
+          <a href="https://www.pkhotelsandresorts.com/investors/news-and-events/press-releases/2025/02-19-2025-211614244" target="_blank" rel="noopener">Park Hotels &amp; Resorts — Royal Palm &amp; Ali'i Tower renovation disclosures</a>
+          <span class="src-type">Public-company disclosure</span>
+        </li>
+      </ul>
+      <div class="escalation-note">
+        <span class="chip chip-directional">DIRECTIONAL</span>
+        Figures based on the 2021 Nehmer/HVS Guide are escalated 25–35% to approximate 2026 dollars, derived from post-COVID PIP cost increases plus Turner/RLB indices. No direct 2021–2026 PIP-specific escalation index exists publicly, so every escalated figure carries the Directional grade — never presented as a sourced fact.
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <p class="section-lede">Priced like an episodic professional service, because that's what it is.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Fair-Range Check</h3>
+          <div class="price-amount">$99</div>
+          <p class="desc">Brand, keys, and scope in — a sourced per-key benchmark range for your PIP tier, back in minutes.</p>
+          <a class="btn btn-secondary" href="../product/index.html">See the live demo</a>
+        </div>
+        <div class="price-card featured">
+          <span class="featured-tag">The core product</span>
+          <h3>Full Benchmark + Negotiation Memo</h3>
+          <div class="price-amount">$399</div>
+          <p class="desc">Upload the PIP or bid. Get a category-by-category benchmark against named sources, over/under flags, confidence grades, and the negotiation memo.</p>
+          <a class="btn btn-primary" href="../product/index.html">See the live demo</a>
+        </div>
+        <div class="price-card">
+          <h3>Refresh</h3>
+          <div class="price-amount">$129</div>
+          <p class="desc">Re-run within 18 months against your saved property record — a revised PIP, or a second opinion.</p>
+          <a class="btn btn-secondary" href="../product/index.html">See the live demo</a>
+        </div>
+      </div>
+      <p class="pricing-note">No subscription. You buy this when a PIP lands, like a Phase I ESA or a reserve study.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Honest FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            Is this legal or engineering advice?
+            <span class="plus">+</span>
+          </button>
+          <div class="accordion-panel"><div class="inner">
+            <p>No. PIPBench is negotiation support: sourced benchmarks and a memo that organizes your questions and counters. It doesn't opine on code compliance, structural adequacy, or contract law. For those, use a licensed engineer or attorney.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            Where do the numbers come from?
+            <span class="plus">+</span>
+          </button>
+          <div class="accordion-panel"><div class="inner">
+            <p>Public sources: the Nehmer/HVS cost guide, HVS advisory articles, brokerage market insights, construction cost indices, franchise disclosure documents, and public-company disclosures. Every figure carries a source link and a grade. Escalations to 2026 dollars are labeled Directional, never presented as sourced fact.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            What if my brand or tier isn't well covered?
+            <span class="plus">+</span>
+          </button>
+          <div class="accordion-panel"><div class="inner">
+            <p>You'll see it. Coverage is strongest for midscale and upper-midscale select-service — the segment with the most public data. Luxury, economy, and extended-stay benchmarks lean Directional, and the badge tells you so up front instead of hiding the gap.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            Why should I trust a benchmark over my GC's number?
+            <span class="plus">+</span>
+          </button>
+          <div class="accordion-panel"><div class="inner">
+            <p>You don't have to — and you shouldn't, blindly. Every PIPBench figure carries its source, so you can open the same document we did and check it yourself. That's the point: a number you can verify, not one you have to take on faith.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            Is PIPBench live?
+            <span class="plus">+</span>
+          </button>
+          <div class="accordion-panel"><div class="inner">
+            <p>The demo is real and runs locally end to end — parsing, benchmarking, and memo generation, all on the sourced dataset above. Honest scope: it ships pre-loaded with one fictional demo property, and the parser currently handles structured scope text (you can edit the numbers and re-run it), not yet every real-world brand PIP PDF format. We haven't run paid transactions or a validation study with owners; that's step one of the launch plan, not something we're skipping past.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER NOTE -->
+  <section id="founder">
+    <div class="container">
+      <h2 class="section-title">A note from the founder</h2>
+      <div class="founder-note">
+        <p>I work in hotels. I've watched owners open a PIP letter and feel the floor drop — a number with no backup, on a timeline that doesn't leave room to check it. Most of them pay the consultant fee just to find out if the number is reasonable, then negotiate from a position of not really knowing.</p>
+        <p>I built PIPBench so that doesn't have to be the starting point. The goal is simple: you walk into the PIP conversation holding the same information as the other side of the table.</p>
+        <p class="founder-sign">Andrew — Founder, PIPBench</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <svg viewBox="0 0 620 140" role="img" aria-label="PIPBench logo, dark background">
+          <g transform="translate(20,22)">
+            <rect x="8" y="0" width="104" height="14" rx="4" fill="#E8A317"/>
+            <path d="M60 22 L92 68 L72 68 L72 96 L48 96 L48 68 L28 68 Z" fill="#F7F4EE"/>
+          </g>
+          <g transform="translate(168,0)">
+            <text x="0" y="88" font-family="Segoe UI, Arial, sans-serif" font-weight="700" font-size="62" letter-spacing="-1" fill="#F7F4EE">PIP<tspan fill="#cdd8e0" font-weight="600">Bench</tspan></text>
+            <text x="3" y="117" font-family="Segoe UI, Arial, sans-serif" font-weight="500" font-size="15.5" letter-spacing="1.1" fill="#9fb2c2">THE OWNER-SIDE PIP BENCHMARK</text>
+          </g>
+        </svg>
+      </div>
+      <p style="margin:0; color:#cdd8e0;">The owner-side PIP benchmark. <a href="mailto:hello@pipbench.com">hello@pipbench.com</a></p>
+    </div>
+    <p class="footer-disclaimer">PIPBench is an independent tool. It is not affiliated with, endorsed by, or sponsored by any hotel franchisor. Brand names appear only to identify publicly documented renovation programs.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggleBtn = document.getElementById('nav-toggle-btn');
+    var navLinks = document.getElementById('primary-nav');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function(){
+        var open = navLinks.classList.toggle('open');
+        toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    var triggers = document.querySelectorAll('.accordion-trigger');
+    triggers.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        item.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

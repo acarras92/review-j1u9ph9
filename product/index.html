@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PIPBench — Benchmark Demo</title>
+<link rel="icon" type="image/svg+xml" href="../brand/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="app-header">
+  <svg width="34" height="34" viewBox="0 0 128 128" role="img" aria-label="PIPBench mark">
+    <rect width="128" height="128" rx="24" fill="#F7F4EE" opacity="0.08"/>
+    <rect x="24" y="24" width="80" height="12" rx="4" fill="#E8A317"/>
+    <path d="M64 42 L90 80 L74 80 L74 104 L54 104 L54 80 L38 80 Z" fill="#F7F4EE"/>
+  </svg>
+  <div class="app-name">PIP<span>Bench</span></div>
+  <div class="env-chip">DEMO · fictional property · real, sourced benchmarks</div>
+</header>
+
+<nav class="stepper" aria-label="Steps">
+  <div class="step-tab active"><span class="n">1</span>Property</div>
+  <div class="step-tab"><span class="n">2</span>Your PIP</div>
+  <div class="step-tab"><span class="n">3</span>Benchmark</div>
+  <div class="step-tab"><span class="n">4</span>Negotiation memo</div>
+</nav>
+
+<main>
+  <!-- STEP 1 -->
+  <section class="panel active" id="panel-1" aria-label="Property intake">
+    <h1>Start with the property</h1>
+    <p class="lede">PIPBench benchmarks a brand-mandated PIP against named public cost sources. This demo is pre-loaded with a fictional 118-key upper-midscale franchise property that just received a change-of-ownership PIP.</p>
+    <div class="card"><div class="grid2" id="intake-grid"></div></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-to-scope">Continue → paste the PIP</button>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="panel" id="panel-2" aria-label="PIP scope input">
+    <h1>Paste the PIP scope & bid</h1>
+    <p class="lede">Paste the PIP scope table or contractor bid. PIPBench parses each line, extracts the price, and maps it to a benchmark category. The demo text below is editable — change a number and re-parse.</p>
+    <div class="card">
+      <textarea id="pip-input" spellcheck="false" aria-label="PIP scope text"></textarea>
+      <div class="parse-log" id="parse-log" aria-live="polite"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="btn-back-1">← Back</button>
+      <button class="btn btn-primary" id="btn-parse">Parse scope lines</button>
+      <button class="btn btn-primary" id="btn-to-bench" disabled>Benchmark it →</button>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="panel" id="panel-3" aria-label="Benchmark results">
+    <h1>The benchmark</h1>
+    <p class="lede">Every line is measured against a published range, escalated to 2026 dollars. Green band = benchmark range; the marker is this bid. <span class="badge verified">VERIFIED</span> = primary-sourced base figure. <span class="badge directional">DIRECTIONAL</span> = interpolated or escalated — shown honestly as an estimate.</p>
+    <div class="summary-band" id="summary-band"></div>
+    <div class="card" style="overflow-x:auto">
+      <table class="bench">
+        <thead><tr><th>Scope line & source</th><th class="num">Bid</th><th>Benchmark range</th><th>Verdict</th></tr></thead>
+        <tbody id="bench-rows"></tbody>
+      </table>
+    </div>
+    <div class="card"><p class="hint" id="blended-note" style="font-size:13.5px"></p></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="btn-back-2">← Back</button>
+      <button class="btn btn-primary" id="btn-to-memo">Generate the negotiation memo →</button>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="panel" id="panel-4" aria-label="Negotiation memo">
+    <h1>The negotiation memo</h1>
+    <p class="lede">Line-item-linked, source-cited, and written to be handed to the brand or the GC. This is the deliverable no estimate-only tool ships.</p>
+    <div class="memo-banner">Negotiation support, not legal or engineering advice. Escalations to 2026 dollars are PIPBench estimates and are labeled as such.</div>
+    <div class="memo-doc" id="memo-body"></div>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn btn-secondary" id="btn-back-3">← Back to benchmark</button>
+      <button class="btn btn-primary" id="btn-print">Print / save as PDF</button>
+    </div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  PIPBench demo — the property and bid are fictional; every benchmark figure is real and carries its named public source (see <a href="data/benchmarks.json">the dataset</a>).
+  Coverage note: upper-midscale category benchmarks are interpolated from adjacent published tiers (badged DIRECTIONAL) pending acquisition of the current cost-guide edition — the brand-program and blended per-key checks for this tier are primary-sourced.
+  PIPBench is an independent tool, not affiliated with any hotel franchisor.
+</footer>
+
+<script src="data/benchmarks.js"></script>
+<script src="data/sample-pip.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
