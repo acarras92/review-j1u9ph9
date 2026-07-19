@@ -7,6 +7,16 @@
 <title>PIPBench — Benchmark Demo</title>
 <link rel="icon" type="image/svg+xml" href="../brand/favicon.svg">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .field .in{width:100%;font:inherit;color:var(--navy,#10293D);background:#fff;border:1px solid #C9D2D9;border-radius:8px;padding:9px 11px;margin-top:4px}
+  .field .in:focus{outline:none;border-color:#E8A317;box-shadow:0 0 0 3px rgba(232,163,23,.18)}
+  select.in{appearance:auto;cursor:pointer}
+  .input-callout{display:flex;gap:10px;align-items:flex-start;background:#FCF6E9;border:1px solid #F0E2BE;border-left:4px solid #E8A317;border-radius:0 8px 8px 0;padding:11px 14px;margin:0 0 12px;font-size:13.5px;line-height:1.5}
+  .input-callout b{color:#8A6208}
+  .btn-mini{font:inherit;font-size:12.5px;background:#fff;border:1px solid #C9D2D9;border-radius:7px;padding:5px 11px;cursor:pointer;color:#3D5A73}
+  .btn-mini:hover{border-color:#E8A317;color:#10293D}
+  .input-tools{display:flex;gap:8px;margin:0 0 8px}
+</style>
 </head>
 <body>
 
@@ -17,7 +27,7 @@
     <path d="M64 42 L90 80 L74 80 L74 104 L54 104 L54 80 L38 80 Z" fill="#F7F4EE"/>
   </svg>
   <div class="app-name">PIP<span>Bench</span></div>
-  <div class="env-chip">DEMO · fictional property · real, sourced benchmarks</div>
+  <div class="env-chip">EDITABLE · your property &amp; tier · real, sourced benchmarks</div>
 </header>
 
 <nav class="stepper" aria-label="Steps">
@@ -31,19 +41,26 @@
   <!-- STEP 1 -->
   <section class="panel active" id="panel-1" aria-label="Property intake">
     <h1>Start with the property</h1>
-    <p class="lede">PIPBench benchmarks a brand-mandated PIP against named public cost sources. This demo is pre-loaded with a fictional 118-key upper-midscale franchise property that just received a change-of-ownership PIP.</p>
+    <p class="lede">Enter your property, its key count, and its <strong>service tier</strong> — the benchmark ranges retune to the tier you pick (economy through luxury, plus extended-stay). Then paste your PIP scope &amp; budget on the next step. Fields are pre-filled with a fictional sample; overwrite them with your own.</p>
     <div class="card"><div class="grid2" id="intake-grid"></div></div>
     <div class="btn-row">
-      <button class="btn btn-primary" id="btn-to-scope">Continue → paste the PIP</button>
+      <button class="btn btn-primary" id="btn-to-scope">Continue → paste your PIP &amp; budget</button>
     </div>
   </section>
 
   <!-- STEP 2 -->
   <section class="panel" id="panel-2" aria-label="PIP scope input">
-    <h1>Paste the PIP scope & bid</h1>
-    <p class="lede">Paste the PIP scope table or contractor bid. PIPBench parses each line, extracts the price, and maps it to a benchmark category. The demo text below is editable — change a number and re-parse.</p>
+    <h1>Paste your PIP scope &amp; budget</h1>
+    <p class="lede">This is where your scope and budget go. Paste the PIP scope table or contractor bid into the box below — PIPBench parses each line, extracts the price, and maps it to a benchmark category.</p>
+    <div class="input-callout">
+      <div><b>Format:</b> one line per scope item, each ending in its cost — e.g. <code>Guestrooms — soft goods, casegoods, lighting (141 keys) ......... $6,455,346</code>. Every line needs a <b>$ amount</b> (a line without one is skipped). Use <b>Load sample</b> to see the exact format, or <b>Clear</b> to start from scratch.</div>
+    </div>
     <div class="card">
-      <textarea id="pip-input" spellcheck="false" aria-label="PIP scope text"></textarea>
+      <div class="input-tools">
+        <button class="btn-mini" id="btn-load-sample" type="button">↺ Load sample</button>
+        <button class="btn-mini" id="btn-clear" type="button">✕ Clear</button>
+      </div>
+      <textarea id="pip-input" spellcheck="false" aria-label="PIP scope and budget text" placeholder="Paste your PIP scope & budget here — one line per item, each ending in its $ cost."></textarea>
       <div class="parse-log" id="parse-log" aria-live="polite"></div>
     </div>
     <div class="btn-row">
