@@ -3,9 +3,12 @@
 
 let BM = null;      // benchmarks.json
 let SAMPLE = null;  // sample-pip.json
+let HOUSE = { globalNotes: '', assumptions: [] };
 let parsed = [];    // parsed scope lines
 let results = [];   // benchmark results
 let summary = null;
+
+const TARGET_YEAR = 2026; // "today's dollars"
 
 const $ = (sel) => document.querySelector(sel);
 const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
@@ -18,29 +21,33 @@ const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
    publishes at one tier are scaled to the selected tier by these ratios and
    graded DIRECTIONAL — the same tier-ratio method the dataset itself documents. */
 const TIER_RATIO = {
-  'economy': 1.00,
-  'midscale': 2.23,
-  'upper-midscale': 2.66,
-  'upscale': 3.10,
-  'upper-upscale': 3.92,
-  'luxury': 6.57,
-  'extended-stay': 2.79,
+  'economy': 1.00, 'midscale': 2.23, 'upper-midscale': 2.66,
+  'upscale': 3.10, 'upper-upscale': 3.92, 'luxury': 6.57, 'extended-stay': 2.79,
 };
 const TIER_LABEL = {
-  'economy': 'Economy',
-  'midscale': 'Midscale',
-  'upper-midscale': 'Upper-midscale / select-service',
-  'upscale': 'Upscale',
-  'upper-upscale': 'Upper-upscale',
-  'luxury': 'Luxury',
-  'extended-stay': 'Extended-stay',
+  'economy': 'Economy', 'midscale': 'Midscale', 'upper-midscale': 'Upper-midscale / select-service',
+  'upscale': 'Upscale', 'upper-upscale': 'Upper-upscale', 'luxury': 'Luxury', 'extended-stay': 'Extended-stay',
 };
 const TIER_ORDER = ['economy', 'midscale', 'upper-midscale', 'upscale', 'upper-upscale', 'luxury', 'extended-stay'];
 const tierScale = (from, to) => (TIER_RATIO[to] || 1) / (TIER_RATIO[from] || 1);
 
+/* User-adjustable escalation: bring any figure with a basis year before
+   TARGET_YEAR into today's dollars at the chosen annual rate. Figures already
+   in TARGET_YEAR dollars are not escalated. rate = 0 disables escalation. */
+function escFactor(basis, rate) {
+  if (!rate || rate <= 0 || basis >= TARGET_YEAR) return 1;
+  return Math.pow(1 + rate, TARGET_YEAR - basis);
+}
+function escLabel(basis, rate) {
+  if (basis >= TARGET_YEAR) return `already ${TARGET_YEAR}$`;
+  if (!rate || rate <= 0) return `${basis} basis · no escalation applied`;
+  const pct = (rate * 100).toFixed(1).replace(/\.0$/, '');
+  return `${basis} basis · +${pct}%/yr → ×${escFactor(basis, rate).toFixed(2)} to ${TARGET_YEAR}$ [est.]`;
+}
+
 /* Category resolution: keyword parser (real logic, not a lookup of the sample file). */
 const CATEGORY_RULES = [
-  { id: 'guestroom-softgoods', label: 'Guestrooms — Softgoods', kw: /guestroom.*(soft|caseg|window|lighting)|soft goods/i },
+  { id: 'guestroom-softgoods', label: 'Guestrooms — Softgoods', kw: /guestroom.*(soft|caseg|window|lighting)|soft goods|guest room/i },
   { id: 'guest-bathrooms', label: 'Guest Bathrooms', kw: /bathroom|tub|vanit|reglaze/i },
   { id: 'corridors', label: 'Corridors', kw: /corridor/i },
   { id: 'lobby-public', label: 'Lobby & Public Space', kw: /lobby|public space/i },
@@ -51,101 +58,143 @@ const CATEGORY_RULES = [
   { id: 'ada', label: 'ADA Conversions', kw: /ada|roll-in/i },
 ];
 
-/* Per-category benchmark anchors. Each is anchored at the tier the public guide
-   actually publishes; the engine scales it to the selected tier by TIER_RATIO.
+/* Mandatory-scope audit: PIP areas an owner should confirm are budgeted.
+   The audit flags areas that appear at $0/blank, or are missing entirely. */
+const MANDATORY = [
+  { id: 'guestrooms', label: 'Guestrooms', kw: /guest ?room|soft ?good/i },
+  { id: 'bathrooms', label: 'Guest Bathrooms', kw: /bath(room)?|vanit|shower|\btub\b/i },
+  { id: 'corridors', label: 'Corridors & Elevator Landings', kw: /corridor|elevator land/i },
+  { id: 'public', label: 'Lobby & Public Space', kw: /lobby|public (space|area|restroom)|reception/i },
+  { id: 'mep', label: 'MEP — HVAC / Plumbing / Electrical', kw: /hvac|mechanical|\bmep\b|plumb|electric|\bled\b|mixing valve|doas|duct|ptac/i },
+  { id: 'lifesafety', label: 'Fire & Life Safety', kw: /life safety|fire alarm|sprinkler|smoke|carbon monoxide|\bco\b detector|strobe|emergency light|generator|fire protection/i },
+  { id: 'elevators', label: 'Elevators', kw: /elevator/i },
+  { id: 'boh', label: 'Back of House', kw: /back ?of ?house|\bboh\b|laundry|employee|engineering|housekeep|storage/i },
+];
+
+/* Per-category benchmark anchors, each anchored at the tier the public guide
+   publishes; the engine scales it to the selected tier by TIER_RATIO.
    tierIndependent categories (per-unit MEP additives, roofline totals) do not scale. */
 const ANCHORS = {
-  'guestroom-softgoods': {
-    anchorTier: 'upper-midscale', low: 6223, high: 8520, esc: 'e21', basis: 2021, mult: 'keys',
-    src: 'Nehmer/HVS Guide 2021 softgoods tiers, pp.10–11', urlKey: 'nehmer-2021', tariff: true,
-  },
-  'guest-bathrooms': {
-    anchorTier: 'upper-midscale', low: 6900, high: 9800, esc: 'e21', basis: 2021, mult: 'keys',
-    src: 'Nehmer/HVS 2021 bathroom full-renovation additional (Upper-midscale anchor)', urlKey: 'nehmer-2021', tariff: true,
-  },
-  'corridors': {
-    anchorTier: 'upper-midscale', low: 750, high: 1160, esc: 'e21', basis: 2021, mult: 'keys',
-    src: 'Nehmer/HVS 2021 corridors (Upper-midscale anchor)', urlKey: 'nehmer-2021',
-  },
-  'lobby-public': {
-    anchorTier: 'upper-midscale', low: 200000, high: 400000, esc: 'e24', basis: 2024, mult: 1,
-    src: 'HVS Industry Insights — public-space reconfiguration, total project', urlKey: 'hvs-pip-insights',
-  },
+  'guestroom-softgoods': { anchorTier: 'upper-midscale', low: 6223, high: 8520, basis: 2021, mult: 'keys', src: 'Nehmer/HVS Guide 2021 softgoods tiers, pp.10–11', urlKey: 'nehmer-2021', tariff: true },
+  'guest-bathrooms': { anchorTier: 'upper-midscale', low: 6900, high: 9800, basis: 2021, mult: 'keys', src: 'Nehmer/HVS 2021 bathroom full-renovation additional (Upper-midscale anchor)', urlKey: 'nehmer-2021', tariff: true },
+  'corridors': { anchorTier: 'upper-midscale', low: 750, high: 1160, basis: 2021, mult: 'keys', src: 'Nehmer/HVS 2021 corridors (Upper-midscale anchor)', urlKey: 'nehmer-2021' },
+  'lobby-public': { anchorTier: 'upper-midscale', low: 200000, high: 400000, basis: 2024, mult: 1, src: 'HVS Industry Insights — public-space reconfiguration, total project', urlKey: 'hvs-pip-insights' },
   'exterior': {
-    tierIndependent: true, low: 1000000, high: 1750000, esc: 'e24', basis: 2024, mult: 1,
-    src: 'HVS Industry Insights — mansard-to-cornice conversion, total', urlKey: 'hvs-pip-insights',
-    lever: {
-      base: [250000, 500000], esc: 'e24',
-      note: 'HVS documents a modern-roofline alternative at $250K–$500K total — same brand intent, roughly one quarter of the cost. Ask whether the alternative scope satisfies the directive.',
-    },
+    tierIndependent: true, low: 1000000, high: 1750000, basis: 2024, mult: 1, src: 'HVS Industry Insights — mansard-to-cornice conversion, total', urlKey: 'hvs-pip-insights',
+    lever: { base: [250000, 500000], basis: 2024, note: 'HVS documents a modern-roofline alternative at $250K–$500K total — same brand intent, roughly one quarter of the cost. Ask whether the alternative scope satisfies the directive.' },
   },
-  'ptac': {
-    tierIndependent: true, low: 1039, high: 1372, esc: 'e21', basis: 2021, mult: 'keys',
-    src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — PTAC direct replacement per unit', urlKey: 'nehmer-2021',
-  },
-  'key-system': {
-    tierIndependent: true, low: 230, high: 332, esc: 'e21', basis: 2021, mult: 'keys',
-    src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — electronic key system per key', urlKey: 'nehmer-2021',
-  },
-  'elevator': {
-    tierIndependent: true, low: 50426, high: 67517, esc: 'e21', basis: 2021, mult: 2,
-    src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — hydraulic modernization per cab (×2 cabs)', urlKey: 'nehmer-2021',
-  },
-  'ada': {
-    tierIndependent: true, low: 17857, high: 28000, esc: 'e21', basis: 2021, mult: 4,
-    src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — roll-in shower conversion per room (×4 rooms)', urlKey: 'nehmer-2021',
-  },
+  'ptac': { tierIndependent: true, low: 1039, high: 1372, basis: 2021, mult: 'keys', src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — PTAC direct replacement per unit', urlKey: 'nehmer-2021' },
+  'key-system': { tierIndependent: true, low: 230, high: 332, basis: 2021, mult: 'keys', src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — electronic key system per key', urlKey: 'nehmer-2021' },
+  'elevator': { tierIndependent: true, low: 50426, high: 67517, basis: 2021, mult: 2, src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — hydraulic modernization per cab (×2 cabs)', urlKey: 'nehmer-2021' },
+  'ada': { tierIndependent: true, low: 17857, high: 28000, basis: 2021, mult: 4, src: 'Nehmer/HVS Guide 2021, Common Additives p.18 — roll-in shower conversion per room (×4 rooms)', urlKey: 'nehmer-2021' },
 };
 
-/* Benchmark engine: builds the per-category rule table for the selected tier. */
-function benchmarkRules(keys, tier) {
-  const escMap = { e21: BM.escalation.basis_2021_to_2026, e24: BM.escalation.basis_2024_to_2026 };
+/* Find a house (in-house) assumption for a category + tier, if any. */
+function houseFor(id, tier) {
+  return (HOUSE.assumptions || []).find((e) => e.category === id && (e.tier === tier || e.tier === 'all' || !e.tier)) || null;
+}
+
+/* Benchmark engine: builds the per-category rule table for the selected tier + rate. */
+function benchmarkRules(keys, tier, rate) {
   const rules = {};
   for (const [id, a] of Object.entries(ANCHORS)) {
     let low = a.low, high = a.high, grade, note = '';
     if (a.tierIndependent) {
-      // Per-unit MEP additives / roofline totals — cost does not track chain scale.
       grade = 'verified';
     } else if (a.anchorTier === tier) {
-      // Anchored at the selected tier; tier-based category ranges are interpolated in the guide.
       grade = 'directional';
     } else {
-      // Scale the anchor to the selected tier by the guide's published tier ratios.
       const s = tierScale(a.anchorTier, tier);
-      low = a.low * s; high = a.high * s;
-      grade = 'directional';
+      low = a.low * s; high = a.high * s; grade = 'directional';
       note = ' · scaled to ' + (TIER_LABEL[tier] || tier) + ' by published tier ratio [est.]';
     }
-    const mult = a.mult === 'keys' ? keys : a.mult;
-    rules[id] = {
-      base: [low, high], esc: escMap[a.esc], mult, grade, basis: a.basis,
-      src: a.src + note, url: BM.sources[a.urlKey].url, tariff: !!a.tariff,
+    const publicMult = a.mult === 'keys' ? keys : a.mult;
+    const rule = {
+      base: [low, high], escF: escFactor(a.basis, rate), mult: publicMult, grade, basis: a.basis,
+      src: a.src + note, url: BM.sources[a.urlKey].url, tariff: !!a.tariff, inhouse: false, publicRef: null,
     };
-    if (a.lever) rules[id].lever = { base: a.lever.base, esc: escMap[a.lever.esc], note: a.lever.note };
+    const h = houseFor(id, tier);
+    if (h) {
+      rule.publicRef = {
+        low: rule.base[0] * rule.escF * rule.mult, high: rule.base[1] * rule.escF * rule.mult,
+        escLabel: escLabel(a.basis, rate), src: a.src + note,
+      };
+      const hBasis = (h.basis != null) ? h.basis : a.basis;
+      rule.base = [h.low, h.high];
+      rule.basis = hBasis;
+      rule.escF = escFactor(hBasis, rate);
+      rule.mult = (h.unit === 'total') ? 1 : keys;
+      rule.grade = 'inhouse';
+      rule.inhouse = true;
+      rule.src = 'In-house: ' + (h.note || h.source || 'team assumption');
+      rule.url = null;
+    }
+    rule.escLabel = escLabel(rule.basis, rate);
+    if (a.lever) rule.lever = { base: a.lever.base, escF: escFactor(a.lever.basis, rate), note: a.lever.note };
+    rules[id] = rule;
   }
   return rules;
 }
 
-/* Tier-aware blended per-key check, anchored on the published select-service figure. */
-function blendedRange(tier) {
-  const e24 = BM.escalation.basis_2024_to_2026;
+/* Tier- and rate-aware blended per-key check, anchored on the published select-service figure. */
+function blendedRange(tier, rate) {
   const s = tierScale('upper-midscale', tier);
-  return { low: 35000 * s * e24.low, high: 40000 * s * e24.high };
+  const f = escFactor(2024, rate);
+  return { low: 35000 * s * f, high: 40000 * s * f };
+}
+
+/* Extract the cost from a line. If the line has any '$', use $-amounts; otherwise
+   accept bare numbers (Excel columns). Picks the LARGEST value on the line — for a
+   budget row the total is the largest number, ahead of per-unit costs or quantities. */
+function extractCost(line) {
+  const hasDollar = line.includes('$');
+  const re = hasDollar ? /\$\s?(\d[\d,]*(?:\.\d+)?)/g : /(?<![\d.])(\d[\d,]{3,}(?:\.\d+)?)/g;
+  const vals = [...line.matchAll(re)].map((m) => ({ v: parseFloat(m[1].replace(/,/g, '')), t: m[0] })).filter((x) => !isNaN(x.v));
+  if (!vals.length) return null;
+  vals.sort((a, b) => b.v - a.v);
+  return { val: vals[0].v, matchText: vals[0].t };
+}
+
+/* Scope audit: for each mandatory area, is it covered (priced), unpriced ($0/blank), or missing? */
+function scopeAudit(text) {
+  const lines = text.split('\n');
+  const res = { covered: [], unpriced: [], missing: [] };
+  for (const area of MANDATORY) {
+    let bestCost = null, present = false;
+    for (const raw of lines) {
+      if (area.kw.test(raw)) {
+        present = true;
+        const c = extractCost(raw);
+        if (c && c.val >= 1000) bestCost = Math.max(bestCost || 0, c.val);
+      }
+    }
+    if (bestCost != null) res.covered.push({ label: area.label, cost: bestCost });
+    else if (present) res.unpriced.push({ label: area.label });
+    else res.missing.push({ label: area.label });
+  }
+  return res;
+}
+
+function getRate() {
+  const el = $('#in-rate');
+  if (!el) return 0.05;
+  let pct = parseFloat(el.value);
+  if (isNaN(pct) || pct < 0) pct = 0;
+  if (pct > 25) pct = 25;
+  return pct / 100;
 }
 
 /* ---------- boot ---------- */
 async function boot() {
   if (window.BM_DATA && window.SAMPLE_DATA) {
-    // Embedded data (works from file:// with no server)
     BM = window.BM_DATA;
     SAMPLE = window.SAMPLE_DATA;
   } else {
-    const [bmRes, sampleRes] = await Promise.all([
-      fetch('data/benchmarks.json'), fetch('data/sample-pip.json'),
-    ]);
+    const [bmRes, sampleRes] = await Promise.all([fetch('data/benchmarks.json'), fetch('data/sample-pip.json')]);
     BM = await bmRes.json();
     SAMPLE = await sampleRes.json();
   }
+  if (window.HOUSE_DATA) HOUSE = window.HOUSE_DATA;
   renderIntake();
   $('#pip-input').value = SAMPLE.rawText;
   wireNav();
@@ -159,8 +208,14 @@ function renderIntake() {
     <div class="field"><label for="in-name">Property</label><input id="in-name" class="in" value="${p.name}"></div>
     <div class="field"><label for="in-market">Market</label><input id="in-market" class="in" value="${p.market}"></div>
     <div class="field"><label for="in-keys">Keys</label><input id="in-keys" class="in" type="number" min="1" step="1" value="${p.keys}"></div>
-    <div class="field"><label for="in-tier">Service tier / chain scale</label><select id="in-tier" class="in">${opts}</select></div>`;
+    <div class="field"><label for="in-tier">Service tier / chain scale</label><select id="in-tier" class="in">${opts}</select></div>
+    <div class="field"><label for="in-rate">Escalate older $ to today at</label>
+      <div class="rate-wrap"><input id="in-rate" class="in rate" type="number" min="0" max="25" step="0.5" value="5"><span class="rate-suffix">%/yr</span></div>
+      <div class="field-hint">Applied only to figures dated before ${TARGET_YEAR}. Try 3–5; 0 = none.</div></div>`;
   $('#in-tier').value = tierDefault;
+  const houseCount = (HOUSE.assumptions || []).length;
+  const hint = $('#house-hint');
+  if (hint) hint.textContent = houseCount ? `${plural(houseCount, 'in-house assumption')} loaded — these override the public benchmark where they match.` : 'No in-house assumptions loaded yet — add your team’s figures in data/house-benchmarks.js.';
 }
 
 /* ---------- step navigation ---------- */
@@ -196,18 +251,15 @@ function runParse() {
   const log = [];
   text.split('\n').forEach((raw) => {
     const line = raw.trim();
-    // Take the LAST dollar amount on the line as the bid (handles dot-leaders, tabs, colons, dashes).
-    const amounts = [...line.matchAll(/\$\s?([\d][\d,]{3,})/g)];
-    if (!amounts.length) return;
-    const amtStr = amounts[amounts.length - 1][1];
-    const bid = parseInt(amtStr.replace(/,/g, ''), 10);
-    if (!bid || bid < 1000) return;
+    const cost = extractCost(line);
+    if (!cost || cost.val < 1000) return;
+    const bid = Math.round(cost.val);
     const refM = line.match(/^([\d]+(?:\.[\d]+)*)[\s.)—-]+/);
     const ref = refM ? refM[1] : String(parsed.length + 1);
     let desc = line.slice(refM ? refM[0].length : 0);
-    const amtIdx = desc.lastIndexOf(amounts[amounts.length - 1][0]);
+    const amtIdx = desc.lastIndexOf(cost.matchText);
     if (amtIdx > 0) desc = desc.slice(0, amtIdx);
-    desc = desc.replace(/[\s.·:—-]+$/g, '').trim();
+    desc = desc.replace(/[\s.·:—\-\t|]+$/g, '').trim();
     if (!desc) return;
     const rule = CATEGORY_RULES.find((r) => r.kw.test(desc));
     parsed.push({ ref, text: desc, bid, category: rule ? rule.id : null, catLabel: rule ? rule.label : 'Unmatched scope' });
@@ -215,9 +267,13 @@ function runParse() {
       ? `<span class="ok">✓</span> ${ref} → ${rule.label} · ${fmt(bid)}`
       : `<span class="warn">?</span> ${ref} → no benchmark category · ${fmt(bid)} (backup will be requested)`);
   });
+  const audit = scopeAudit(text);
+  const flags = [...audit.unpriced, ...audit.missing];
   const el = $('#parse-log');
   el.classList.add('show');
-  el.innerHTML = `Parsed ${parsed.length} scope lines · ${parsed.filter((p) => p.category).length} matched to benchmark categories\n` + log.join('\n');
+  el.innerHTML = `Parsed ${parsed.length} scope lines · ${parsed.filter((p) => p.category).length} matched to benchmark categories\n`
+    + log.join('\n')
+    + (flags.length ? `\n<span class="warn">⚠</span> Scope audit: ${plural(flags.length, 'mandatory area')} not priced — ${flags.map((f) => f.label).join(', ')} (detailed on the next step)` : `\n<span class="ok">✓</span> Scope audit: every mandatory area has a priced line`);
   $('#btn-to-bench').disabled = parsed.length === 0;
 }
 
@@ -225,14 +281,15 @@ function runParse() {
 function runBenchmark() {
   const keys = parseInt(($('#in-keys') || {}).value, 10) || SAMPLE.property.keys;
   const tier = (($('#in-tier') || {}).value) || 'upper-midscale';
+  const rate = getRate();
   const propName = (($('#in-name') || {}).value || '').trim() || SAMPLE.property.name;
   const market = (($('#in-market') || {}).value || '').trim() || SAMPLE.property.market;
-  const rules = benchmarkRules(keys, tier);
+  const rules = benchmarkRules(keys, tier, rate);
   results = parsed.map((line) => {
     const rule = line.category ? rules[line.category] : null;
     if (!rule) return { ...line, verdict: 'nodata' };
-    const low = rule.base[0] * rule.esc.low * rule.mult;
-    const high = rule.base[1] * rule.esc.high * rule.mult;
+    const low = rule.base[0] * rule.escF * rule.mult;
+    const high = rule.base[1] * rule.escF * rule.mult;
     let verdict = 'inrange';
     if (line.bid > high) verdict = 'above';
     else if (line.bid < low) verdict = 'below';
@@ -244,11 +301,12 @@ function runBenchmark() {
   const benchLow = benched.reduce((s, r) => s + r.low, 0);
   const benchHigh = benched.reduce((s, r) => s + r.high, 0);
   const excess = benched.reduce((s, r) => s + Math.max(0, r.bid - r.high), 0);
-  const unbenched = results.filter((r) => r.verdict === 'nodata').reduce((s, r) => s + r.bid, 0);
-  const blended = blendedRange(tier);
+  const blended = blendedRange(tier, rate);
   const lever = results.find((r) => r.rule && r.rule.lever);
-  const leverSave = lever ? lever.bid - (lever.rule.lever.base[1] * lever.rule.lever.esc.high) : 0;
-  summary = { keys, tier, propName, market, totalBid, benchLow, benchHigh, benchedCount: benched.length, lineCount: results.length, excess, unbenched, blended, lever, leverSave };
+  const leverSave = lever ? lever.bid - (lever.rule.lever.base[1] * lever.rule.lever.escF) : 0;
+  const anyHouse = benched.some((r) => r.rule.inhouse);
+  const audit = scopeAudit($('#pip-input').value);
+  summary = { keys, tier, rate, propName, market, totalBid, benchLow, benchHigh, benchedCount: benched.length, lineCount: results.length, excess, blended, lever, leverSave, anyHouse, audit };
   renderBenchmark();
 }
 
@@ -264,12 +322,39 @@ function rangeBarHTML(r) {
   </div>`;
 }
 
+function auditHTML(a) {
+  if (!a) return '';
+  const rows = [
+    ...a.unpriced.map((x) => `<div class="audit-row bad"><b>${x.label}</b> — appears in the input but carries no priced line ($0 / blank). Confirm it is budgeted before approval.</div>`),
+    ...a.missing.map((x) => `<div class="audit-row warn"><b>${x.label}</b> — no line found in the budget. Confirm whether it is in scope and priced.</div>`),
+  ].join('');
+  const head = rows
+    ? `<div class="audit-head bad">⚠ Scope audit — ${plural(a.unpriced.length + a.missing.length, 'mandatory PIP area')} to confirm</div>`
+    : `<div class="audit-head ok">✓ Scope audit — every mandatory PIP area has a priced line</div>`;
+  const covered = a.covered.length ? `<div class="audit-covered">Priced: ${a.covered.map((x) => x.label).join(' · ')}</div>` : '';
+  return head + rows + covered;
+}
+
 function renderBenchmark() {
   const s = summary;
   const verdictChip = { above: '<span class="chip above">ABOVE RANGE</span>', inrange: '<span class="chip inrange">IN RANGE</span>', below: '<span class="chip below">BELOW RANGE</span>', nodata: '<span class="chip nodata">NO BENCHMARK — REQUEST BACKUP</span>' };
+  const escBadge = s.rate > 0 ? `esc +${(s.rate * 100).toFixed(1).replace(/\.0$/, '')}%/yr` : 'no escalation';
+
+  const auditEl = $('#scope-audit');
+  if (auditEl) { auditEl.style.display = ''; auditEl.innerHTML = auditHTML(s.audit); }
+
+  const houseEl = $('#house-banner');
+  if (houseEl) {
+    const bits = [];
+    if (s.anyHouse) bits.push('Benchmarks marked <span class="badge inhouse">IN-HOUSE</span> use your team’s assumptions; the public range is shown beneath as a reference.');
+    if (HOUSE.globalNotes) bits.push('<b>Team assumptions:</b> ' + HOUSE.globalNotes);
+    houseEl.style.display = bits.length ? '' : 'none';
+    houseEl.innerHTML = bits.join('<br>');
+  }
+
   $('#summary-band').innerHTML = `
     <div class="stat"><div class="k">Contractor bid</div><div class="v">${fmt(s.totalBid)}</div><div class="s">${fmt(s.totalBid / s.keys)} per key · ${s.keys} keys · ${TIER_LABEL[s.tier]}</div></div>
-    <div class="stat"><div class="k">Benchmark range (matched scope)</div><div class="v green">${fmtK(s.benchLow)}–${fmtK(s.benchHigh)}</div><div class="s">${s.benchedCount} of ${s.lineCount} lines benchmarked · ${TIER_LABEL[s.tier]}</div></div>
+    <div class="stat"><div class="k">Benchmark range (matched scope)</div><div class="v green">${fmtK(s.benchLow)}–${fmtK(s.benchHigh)}</div><div class="s">${s.benchedCount} of ${s.lineCount} lines benchmarked · ${escBadge}</div></div>
     <div class="stat"><div class="k">Above benchmark high</div><div class="v red">${fmt(s.excess)}</div><div class="s">across ${plural(results.filter((r) => r.verdict === 'above').length, 'flagged line')}</div></div>
     <div class="stat"><div class="k">Alternative-scope lever</div><div class="v amber">${fmt(s.leverSave)}</div><div class="s">documented roofline alternative (HVS)</div></div>`;
 
@@ -282,19 +367,23 @@ function renderBenchmark() {
         <td><span class="hint">—</span></td>
         <td>${verdictChip[r.verdict]}</td></tr>`;
     }
-    const badge = `<span class="badge ${r.rule.grade}">${r.rule.grade.toUpperCase()}</span>`;
-    const escNote = r.rule.basis === 2021 ? '2021 basis × 1.25–1.35 [est.]' : '2024 basis × 1.09–1.10 [est.]';
+    const badge = `<span class="badge ${r.rule.grade}">${r.rule.grade === 'inhouse' ? 'IN-HOUSE' : r.rule.grade.toUpperCase()}</span>`;
+    const srcLine = r.rule.url
+      ? `<div class="src-line">Source: <a href="${r.rule.url}" target="_blank" rel="noopener">${r.rule.src}</a> · ${r.rule.escLabel}</div>`
+      : `<div class="src-line">${r.rule.src} · ${r.rule.escLabel}</div>`;
+    const refLine = r.rule.publicRef ? `<div class="src-line" style="color:#3D5A73">Public reference: ${fmtK(r.rule.publicRef.low)}–${fmtK(r.rule.publicRef.high)} · ${r.rule.publicRef.src} · ${r.rule.publicRef.escLabel}</div>` : '';
     const leverNote = r.rule.lever ? `<div class="src-line" style="color:#9C6F0E">Lever: ${r.rule.lever.note}</div>` : '';
     const tariffNote = r.rule.tariff ? `<div class="src-line" style="color:#9C6F0E">Tariff-sensitive FF&E: Section 232 adds 25% on certain furniture/vanities (since Oct 2025); baseline 10% on most imports; USMCA-origin 0% — a sourcing lever (Innvision, 2025–26).</div>` : '';
     return `<tr>
       <td><div class="item-name">${r.text} ${badge}</div><div class="item-ref">PIP §${r.ref}</div>
-        <div class="src-line">Source: <a href="${r.rule.url}" target="_blank" rel="noopener">${r.rule.src}</a> · ${escNote}</div>${leverNote}${tariffNote}</td>
+        ${srcLine}${refLine}${leverNote}${tariffNote}</td>
       <td class="num">${fmt(r.bid)}</td>
       <td>${rangeBarHTML(r)}</td>
       <td>${verdictChip[r.verdict]}${r.rule.lever ? '<br><span class="chip lever" style="margin-top:6px;display:inline-block">ALT-SCOPE LEVER</span>' : ''}${r.rule.tariff ? '<br><span class="chip lever" style="margin-top:6px;display:inline-block">TARIFF-SENSITIVE</span>' : ''}</td></tr>`;
   }).join('');
 
-  $('#blended-note').innerHTML = `Blended check: this bid is <strong>${fmt(s.totalBid / s.keys)}/key</strong>. The published blended range for <strong>${TIER_LABEL[s.tier]}</strong> PIPs is <strong>${fmt(s.blended.low)}–${fmt(s.blended.high)}/key</strong> (anchored on Lee Hunter, Hunter Hotel Advisors 2024 select-service figure, scaled by tier and escalated to 2026$ [est.]). <span class="badge verified">VERIFIED</span> anchor · tier scaling & escalation <span class="badge directional">DIRECTIONAL</span>`;
+  const escText = s.rate > 0 ? `escalated to ${TARGET_YEAR}$ at ${(s.rate * 100).toFixed(1).replace(/\.0$/, '')}%/yr` : `shown at basis-year dollars (no escalation)`;
+  $('#blended-note').innerHTML = `Blended check: this bid is <strong>${fmt(s.totalBid / s.keys)}/key</strong>. The published blended range for <strong>${TIER_LABEL[s.tier]}</strong> PIPs is <strong>${fmt(s.blended.low)}–${fmt(s.blended.high)}/key</strong> (anchored on Lee Hunter, Hunter Hotel Advisors 2024 select-service figure, scaled by tier and ${escText} [est.]). <span class="badge verified">VERIFIED</span> anchor · tier scaling & escalation <span class="badge directional">DIRECTIONAL</span>`;
 }
 
 /* ---------- memo ---------- */
@@ -304,18 +393,28 @@ function renderMemo() {
   const inrange = results.filter((r) => r.verdict === 'inrange');
   const nodata = results.filter((r) => r.verdict === 'nodata');
   const lever = s.lever;
-  const today = 'July 18, 2026';
+  const today = 'July 19, 2026';
+  const a = s.audit;
+  const auditFlags = [...a.unpriced, ...a.missing];
+  const escText = s.rate > 0 ? `escalated to ${TARGET_YEAR} dollars at ${(s.rate * 100).toFixed(1).replace(/\.0$/, '')}%/yr where a basis year predates ${TARGET_YEAR}` : `shown at basis-year dollars (escalation turned off)`;
 
   $('#memo-body').innerHTML = `
     <h3>Owner's Benchmark & Negotiation Memo</h3>
     <div class="memo-meta">
       ${s.propName} · ${s.keys} keys · ${s.market} · ${TIER_LABEL[s.tier]} tier<br>
       Re: Property Improvement Plan — contractor bid of <span class="figure">${fmt(s.totalBid)}</span> (<span class="figure">${fmt(s.totalBid / s.keys)}</span>/key) · Prepared ${today} with PIPBench<br>
-      <em>Negotiation support only — not legal, engineering, or investment advice. Every benchmark cites its public source.</em>
+      <em>Negotiation support only — not legal, engineering, or investment advice. Every benchmark cites its public source; figures are ${escText}.</em>
     </div>
 
+    ${auditFlags.length ? `<h4>Scope audit — mandatory areas to confirm are budgeted</h4>
+    <p>The following mandatory PIP areas carry no priced line in the submitted budget. Confirm each is scoped and priced before treating the total as complete:</p>
+    <ol>${auditFlags.map((x) => `<li><strong>${x.label}</strong> — ${a.unpriced.find((u) => u.label === x.label) ? 'appears at $0 / blank' : 'not found in the budget'}. Request confirmation that this scope is priced.</li>`).join('')}</ol>` : ''}
+
+    ${s.anyHouse || HOUSE.globalNotes ? `<h4>In-house assumptions applied</h4>
+    <p>${s.anyHouse ? 'Benchmarks labeled IN-HOUSE below reflect your team’s own budget assumptions rather than the public guide; the public range is retained as a reference. ' : ''}${HOUSE.globalNotes ? '<strong>Team assumptions:</strong> ' + HOUSE.globalNotes : ''}</p>` : ''}
+
     <h4>Position summary</h4>
-    <p>${s.benchedCount} of ${s.lineCount} bid lines map to published cost benchmarks for the <strong>${TIER_LABEL[s.tier]}</strong> tier. Against those benchmarks (escalated to 2026 dollars, escalation labeled as estimated), the bid exceeds the benchmark high bound by <span class="figure">${fmt(s.excess)}</span> across ${plural(above.length, 'line')}${lever ? `, and a documented alternative scope on the roofline directive represents up to <span class="figure">${fmt(s.leverSave)}</span> of additional potential reduction` : ''}. On a blended basis the bid stands at <span class="figure">${fmt(s.totalBid / s.keys)}</span>/key against a published ${TIER_LABEL[s.tier]} range of <span class="figure">${fmt(s.blended.low)}–${fmt(s.blended.high)}</span>/key <span class="cite">(Hunter Hotel Advisors via Matthews, 2024, tier-scaled and escalated)</span>.</p>
+    <p>${s.benchedCount} of ${s.lineCount} bid lines map to published cost benchmarks for the <strong>${TIER_LABEL[s.tier]}</strong> tier. Against those benchmarks (${escText}), the bid exceeds the benchmark high bound by <span class="figure">${fmt(s.excess)}</span> across ${plural(above.length, 'line')}${lever ? `, and a documented alternative scope on the roofline directive represents up to <span class="figure">${fmt(s.leverSave)}</span> of additional potential reduction` : ''}. On a blended basis the bid stands at <span class="figure">${fmt(s.totalBid / s.keys)}</span>/key against a published ${TIER_LABEL[s.tier]} range of <span class="figure">${fmt(s.blended.low)}–${fmt(s.blended.high)}</span>/key <span class="cite">(Hunter Hotel Advisors via Matthews, 2024, tier-scaled and escalated)</span>.</p>
 
     <h4>Items we accept as bid</h4>
     <ol>${inrange.length ? inrange.map((r) => `<li><strong>§${r.ref} ${r.text}</strong> — <span class="figure">${fmt(r.bid)}</span> falls within the benchmark range of <span class="figure">${fmt(r.low)}–${fmt(r.high)}</span>. <span class="cite">${r.rule.src}.</span></li>`).join('') : '<li>No lines fell within the benchmark range for the selected tier.</li>'}</ol>
@@ -323,10 +422,10 @@ function renderMemo() {
     <h4>Items to question — pricing above benchmark</h4>
     <ol>${above.length ? above.map((r) => r.rule.grade === 'verified'
       ? `<li><strong>§${r.ref} ${r.text}</strong> — bid of <span class="figure">${fmt(r.bid)}</span> exceeds the benchmark high of <span class="figure">${fmt(r.high)}</span> by <span class="figure">${fmt(r.bid - r.high)}</span>. Request: itemized unit costs and quantities against this range, or a price adjusted to the documented band. <span class="cite">${r.rule.src}.</span></li>`
-      : `<li><strong>§${r.ref} ${r.text}</strong> — bid of <span class="figure">${fmt(r.bid)}</span> sits above the available public benchmark range of <span class="figure">${fmt(r.low)}–${fmt(r.high)}</span> (an estimate — this benchmark is interpolated/escalated and graded accordingly). Request: itemized unit costs and quantities so the pricing can be evaluated on its own backup, which we will review in good faith. <span class="cite">${r.rule.src}.</span></li>`).join('') : '<li>No lines exceeded the benchmark high for the selected tier.</li>'}</ol>
+      : `<li><strong>§${r.ref} ${r.text}</strong> — bid of <span class="figure">${fmt(r.bid)}</span> sits above the available benchmark range of <span class="figure">${fmt(r.low)}–${fmt(r.high)}</span> (an estimate — this benchmark is interpolated/escalated/in-house and graded accordingly). Request: itemized unit costs and quantities so the pricing can be evaluated on its own backup, which we will review in good faith. <span class="cite">${r.rule.src}.</span></li>`).join('') : '<li>No lines exceeded the benchmark high for the selected tier.</li>'}</ol>
 
     ${lever ? `<h4>Alternative-scope request — roofline directive</h4>
-    <p><strong>§${lever.ref} ${lever.text}</strong> — the bid of <span class="figure">${fmt(lever.bid)}</span> is within the documented range for a full mansard-to-cornice conversion. However, the same public source documents a modern-roofline alternative at <span class="figure">$272K–$550K</span> (2026$, est.) that satisfies the same brand intent. We request written confirmation from the brand whether the alternative scope satisfies the directive before committing to the full conversion — a potential difference of up to <span class="figure">${fmt(s.leverSave)}</span>. <span class="cite">HVS Industry Insights: Impacts of Major Brand PIPs.</span></p>` : ''}
+    <p><strong>§${lever.ref} ${lever.text}</strong> — the bid of <span class="figure">${fmt(lever.bid)}</span> is within the documented range for a full mansard-to-cornice conversion. However, the same public source documents a modern-roofline alternative that satisfies the same brand intent for a potential difference of up to <span class="figure">${fmt(s.leverSave)}</span>. We request written confirmation from the brand whether the alternative scope satisfies the directive before committing. <span class="cite">HVS Industry Insights: Impacts of Major Brand PIPs.</span></p>` : ''}
 
     <h4>Items lacking a public benchmark — backup requested</h4>
     <ol>${nodata.length ? nodata.map((r) => `<li><strong>§${r.ref} ${r.text}</strong> — <span class="figure">${fmt(r.bid)}</span>. No published benchmark exists for this scope. Request: itemized backup — labor hours and rates, material unit costs, and subcontractor quotes — before approval.</li>`).join('') : '<li>Every parsed line matched a benchmark category.</li>'}</ol>
@@ -339,7 +438,7 @@ function renderMemo() {
       <li>Vintage credit review: confirm the property's construction vintage against the published renovation bands for its class — newer-vintage assets fall in materially lower per-key bands, so any scope assuming older-vintage conditions should be re-examined. <span class="cite">(HVS Industry Insights: brand-program bands by vintage.)</span></li>
     </ol>
 
-    <p style="margin-top:30px">Prepared with PIPBench — the owner-side PIP benchmark. Every figure above carries its named public source and an honest confidence grade; tier scaling and escalations to 2026 dollars are PIPBench estimates and are labeled as such.</p>`;
+    <p style="margin-top:30px">Prepared with PIPBench — the owner-side PIP benchmark. Every figure carries its named public source (or an IN-HOUSE label) and an honest confidence grade; tier scaling and escalations to ${TARGET_YEAR} dollars are PIPBench estimates and are labeled as such.</p>`;
 }
 
 boot();
