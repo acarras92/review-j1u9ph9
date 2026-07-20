@@ -29,8 +29,15 @@ header.app-header {
   position: sticky; top: 0; z-index: 40;
 }
 header.app-header svg { display: block; }
+header .brand-home { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
 header .app-name { font-weight: 700; font-size: 18px; letter-spacing: -0.2px; }
 header .app-name span { color: #A9BCCC; font-weight: 600; }
+header .home-link {
+  color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 600;
+  padding: 5px 13px; border: 1px solid rgba(247,244,238,0.3); border-radius: 999px;
+  white-space: nowrap; transition: background 0.15s;
+}
+header .home-link:hover { background: rgba(247,244,238,0.12); }
 header .env-chip {
   margin-left: auto;
   font-family: var(--mono); font-size: 11px;
