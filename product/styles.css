@@ -84,6 +84,28 @@ p.lede { color: var(--slate); margin: 0 0 18px; max-width: 70ch; }
 }
 .field .val small { display: block; font-weight: 400; color: var(--gray); font-size: 12px; }
 
+/* ---------- scope step: upload ---------- */
+.upload-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn-upload {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,163,23,0.12); color: var(--navy);
+  border: 1.5px solid rgba(232,163,23,0.6);
+}
+.btn-upload:hover { background: rgba(232,163,23,0.2); }
+.btn-upload svg { display: block; }
+.upload-hint { font-size: 12.5px; color: var(--gray); max-width: 46ch; }
+.upload-hint a { color: var(--slate); font-weight: 600; }
+.upload-status {
+  font-size: 13px; border-radius: 10px; padding: 11px 14px; margin: 14px 0 0;
+  border: 1px solid var(--line); background: #FCFBF8; color: var(--slate);
+  display: none;
+}
+.upload-status.show { display: block; }
+.upload-status.ok { background: rgba(47,125,79,0.1); border-color: rgba(47,125,79,0.4); color: #256B41; }
+.upload-status.err { background: rgba(191,64,52,0.09); border-color: rgba(191,64,52,0.4); color: #9A3327; }
+.or-divider { display: flex; align-items: center; gap: 12px; margin: 18px 0 14px; color: var(--gray); font-size: 12.5px; }
+.or-divider::before, .or-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
 /* ---------- scope step ---------- */
 textarea#pip-input {
   width: 100%; min-height: 300px; resize: vertical;

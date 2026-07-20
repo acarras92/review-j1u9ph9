@@ -58,18 +58,28 @@
     <div class="card"><div class="grid2" id="intake-grid"></div></div>
     <div id="house-hint"></div>
     <div class="btn-row">
-      <button class="btn btn-primary" id="btn-to-scope">Continue → paste your PIP &amp; budget</button>
+      <button class="btn btn-primary" id="btn-to-scope">Continue → add your PIP &amp; budget</button>
     </div>
   </section>
 
   <!-- STEP 2 -->
   <section class="panel" id="panel-2" aria-label="PIP scope input">
-    <h1>Paste your PIP scope &amp; budget</h1>
-    <p class="lede">This is where your scope and budget go. Paste the PIP scope table or contractor bid into the box below — PIPBench parses each line, extracts the price, and maps it to a benchmark category.</p>
+    <h1>Add your PIP scope &amp; budget</h1>
+    <p class="lede">This is where your scope and budget go. Upload an Excel or CSV file, or paste the PIP scope table / contractor bid into the box below — PIPBench parses each line, extracts the price, and maps it to a benchmark category.</p>
     <div class="input-callout">
-      <div><b>Format:</b> one line per scope item, each ending in its cost — e.g. <code>Guestrooms — soft goods, casegoods, lighting (141 keys) ......... $6,455,346</code>. Every line needs a <b>$ amount</b> (a line without one is skipped). Use <b>Load sample</b> to see the exact format, or <b>Clear</b> to start from scratch.</div>
+      <div><b>Format:</b> one line per scope item, each ending in its cost — e.g. <code>Guestrooms — soft goods, casegoods, lighting (141 keys) ......... $6,455,346</code>. Every line needs a <b>$ amount</b> (a line without one is skipped). Uploading a spreadsheet builds these lines for you. Use <b>Load sample</b> to see the exact format, or <b>Clear</b> to start from scratch.</div>
     </div>
     <div class="card">
+      <div class="upload-row">
+        <input type="file" id="pip-file" accept=".xlsx,.xls,.csv" hidden>
+        <button type="button" class="btn btn-upload" id="btn-upload">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload Excel / CSV
+        </button>
+        <span class="upload-hint">.xlsx, .xls or .csv — a column of scope descriptions and a column of bid amounts. <a href="#" id="btn-template">Download a template</a></span>
+      </div>
+      <div class="upload-status" id="upload-status" aria-live="polite" hidden></div>
+      <div class="or-divider"><span>or paste / edit the scope</span></div>
       <div class="input-tools">
         <button class="btn-mini" id="btn-load-sample" type="button">↺ Load sample</button>
         <button class="btn-mini" id="btn-clear" type="button">✕ Clear</button>
@@ -123,6 +133,7 @@
   PIPBench is an independent tool, not affiliated with any hotel franchisor.
 </footer>
 
+<script src="vendor/xlsx.full.min.js"></script>
 <script src="data/benchmarks.js"></script>
 <script src="data/sample-pip.js"></script>
 <script src="data/house-benchmarks.js"></script>

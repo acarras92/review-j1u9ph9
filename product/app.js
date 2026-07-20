@@ -14,6 +14,7 @@ const $ = (sel) => document.querySelector(sel);
 const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
 const fmtK = (n) => '$' + (Math.round(n / 100) / 10).toLocaleString('en-US') + 'K';
 const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 /* Service-tier / chain-scale system.
    TIER_RATIO is relative to Economy = 1.00, derived from the guide's published
@@ -242,6 +243,149 @@ function wireNav() {
   if (loadBtn) loadBtn.addEventListener('click', () => { $('#pip-input').value = SAMPLE.rawText; $('#parse-log').classList.remove('show'); $('#btn-to-bench').disabled = true; });
   const clearBtn = $('#btn-clear');
   if (clearBtn) clearBtn.addEventListener('click', () => { $('#pip-input').value = ''; $('#parse-log').classList.remove('show'); $('#btn-to-bench').disabled = true; $('#pip-input').focus(); });
+  const upBtn = $('#btn-upload');
+  if (upBtn) upBtn.addEventListener('click', () => $('#pip-file').click());
+  const fileIn = $('#pip-file');
+  if (fileIn) fileIn.addEventListener('change', (e) => { const f = e.target.files[0]; if (f) handleFile(f); e.target.value = ''; });
+  const tplBtn = $('#btn-template');
+  if (tplBtn) tplBtn.addEventListener('click', (e) => { e.preventDefault(); downloadTemplate(); });
+}
+
+/* ---------- spreadsheet upload (Excel / CSV) ---------- */
+/* Imported rows are converted to the same text lines runParse() reads, so the
+   whole benchmark pipeline is reused and the user can still edit before parsing. */
+const DESC_KW = /descr|scope|item|work|narrative|detail|line\s*item/i;
+const PRICE_KW = /price|bid|amount|amt|cost|total|budget|quote|value|\$/i;
+const REFHDR_KW = /^\s*(#|no\.?|line\s*#?|item\s*#?|ref)\s*$/i;
+
+function toNumber(v) {
+  if (typeof v === 'number') return isFinite(v) ? v : null;
+  if (v == null) return null;
+  const s = String(v).replace(/[^0-9.\-]/g, '');
+  if (!s || s === '-' || s === '.') return null;
+  const n = parseFloat(s);
+  return isFinite(n) ? n : null;
+}
+
+/* Find the description and bid columns — by header keyword first, then by shape. */
+function detectColumns(rows) {
+  let headerIdx = -1, descCol = -1, priceCol = -1, refCol = -1;
+  for (let i = 0; i < Math.min(rows.length, 6); i++) {
+    const cells = rows[i].map((c) => String(c == null ? '' : c).trim());
+    if (cells.filter(Boolean).length < 2) continue;
+    // A header cell is a text label, not a value — ignore cells that parse as numbers
+    // so a data value like "$486,000" is never mistaken for a "$" price header.
+    const d = cells.findIndex((c) => toNumber(c) === null && DESC_KW.test(c));
+    const p = cells.findIndex((c) => toNumber(c) === null && PRICE_KW.test(c));
+    if (d !== -1 || p !== -1) {
+      headerIdx = i; descCol = d; priceCol = p;
+      refCol = cells.findIndex((c) => REFHDR_KW.test(c));
+      break;
+    }
+  }
+  const dataStart = headerIdx === -1 ? 0 : headerIdx + 1;
+  const dataRows = rows.slice(dataStart);
+  const nCols = rows.reduce((m, r) => Math.max(m, r.length), 0);
+
+  if (descCol === -1) { // pick the most text-heavy column
+    let best = -1, bestAvg = 0;
+    for (let c = 0; c < nCols; c++) {
+      let len = 0, text = 0, cnt = 0;
+      dataRows.forEach((r) => {
+        const v = r[c];
+        if (v == null || v === '') return;
+        cnt++; len += String(v).length;
+        if (toNumber(v) === null) text++;
+      });
+      const avg = cnt ? len / cnt : 0;
+      if (cnt && text >= cnt * 0.5 && avg > bestAvg) { bestAvg = avg; best = c; }
+    }
+    descCol = best;
+  }
+  if (priceCol === -1) { // rightmost mostly-numeric column with real dollar values
+    for (let c = nCols - 1; c >= 0; c--) {
+      if (c === descCol) continue;
+      let big = 0, cnt = 0;
+      dataRows.forEach((r) => {
+        const n = toNumber(r[c]);
+        if (n === null) return;
+        cnt++; if (n >= 1000) big++;
+      });
+      if (cnt && big >= 1) { priceCol = c; break; }
+    }
+  }
+  return { dataStart, descCol, priceCol, refCol };
+}
+
+function rowsToPipText(rows) {
+  const { dataStart, descCol, priceCol, refCol } = detectColumns(rows);
+  if (descCol === -1 || priceCol === -1) return { text: '', count: 0 };
+  const lines = [];
+  let n = 0;
+  for (let i = dataStart; i < rows.length; i++) {
+    const r = rows[i];
+    const desc = String(r[descCol] == null ? '' : r[descCol]).replace(/\s+/g, ' ').trim();
+    const bid = toNumber(r[priceCol]);
+    if (!desc || bid === null || bid < 1000) continue;
+    n++;
+    const rawRef = refCol !== -1 && r[refCol] != null ? String(r[refCol]).trim() : '';
+    const ref = rawRef || String(n);
+    // Bid goes LAST so runParse()'s cost extractor always picks it as the line's amount.
+    lines.push(`${ref}. ${desc} — $${Math.round(bid).toLocaleString('en-US')}`);
+  }
+  return { text: lines.join('\n'), count: n };
+}
+
+function readWorkbookRows(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('the file could not be read'));
+    reader.onload = (e) => {
+      try {
+        const wb = XLSX.read(new Uint8Array(e.target.result), { type: 'array' });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        if (!sheet) throw new Error('the workbook has no sheets');
+        resolve(XLSX.utils.sheet_to_json(sheet, { header: 1, raw: true, defval: '', blankrows: false }));
+      } catch (err) { reject(err); }
+    };
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+async function handleFile(file) {
+  const status = $('#upload-status');
+  const show = (cls, html) => { status.hidden = false; status.className = 'upload-status show ' + cls; status.innerHTML = html; };
+  show('', `Reading <strong>${escapeHtml(file.name)}</strong>…`);
+  try {
+    if (typeof XLSX === 'undefined') throw new Error('the spreadsheet reader failed to load — please refresh and try again');
+    const rows = await readWorkbookRows(file);
+    const { text, count } = rowsToPipText(rows);
+    if (count === 0) {
+      show('err', `Couldn’t find scope descriptions and bid amounts in <strong>${escapeHtml(file.name)}</strong>. It needs a column of descriptions and a column of dollar amounts — the template shows the expected layout.`);
+      return;
+    }
+    $('#pip-input').value = text;
+    show('ok', `Imported <strong>${count}</strong> scope line${count === 1 ? '' : 's'} from <strong>${escapeHtml(file.name)}</strong> — review or edit below, then benchmark.`);
+    runParse();
+  } catch (err) {
+    show('err', 'Could not import that file: ' + escapeHtml(err.message) + '.');
+  }
+}
+
+function downloadTemplate() {
+  const data = [
+    ['Line', 'Scope description', 'Contractor bid'],
+    [1, 'Guestrooms — soft goods (case goods, window treatments, lighting)', 486000],
+    [2, 'Guest bathrooms — full renovation', 388000],
+    [3, 'Corridors — carpet, wallcovering, lighting', 92000],
+    [4, 'PTAC replacement', 168000],
+    [5, 'Electronic key / lock system', 34000],
+  ];
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  ws['!cols'] = [{ wch: 6 }, { wch: 58 }, { wch: 16 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'PIP scope');
+  XLSX.writeFile(wb, 'pipbench-template.xlsx');
 }
 
 /* ---------- parse ---------- */
